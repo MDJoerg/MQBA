@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SICF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <URL>/sap/bc/apc/sap/zmqba_int/</URL>
+   <ICFSERVICE>
+    <ICF_NAME>ZMQBA_INT</ICF_NAME>
+    <ICF_MANDT>001</ICF_MANDT>
+    <ICF_LANGU>E</ICF_LANGU>
+    <ICFBITMAP>00000000</ICFBITMAP>
+    <ORIG_NAME>zmqba_int</ORIG_NAME>
+   </ICFSERVICE>
+   <ICFDOCU>
+    <ICF_NAME>ZMQBA_INT</ICF_NAME>
+    <ICF_LANGU>E</ICF_LANGU>
+    <ICF_DOCU>Generated APC WebSocket protocol service</ICF_DOCU>
+   </ICFDOCU>
+  </asx:values>
+ </asx:abap>
+</abapGit>

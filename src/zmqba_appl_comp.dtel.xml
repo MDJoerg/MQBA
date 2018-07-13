@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZMQBA_APPL_COMP</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>UFPS_POSID</DOMNAME>
+    <HEADLEN>24</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
+    <DDTEXT>Application Component ID</DDTEXT>
+    <REPTEXT>Application Component</REPTEXT>
+    <SCRTEXT_S>Component</SCRTEXT_S>
+    <SCRTEXT_M>Applic. Component</SCRTEXT_M>
+    <SCRTEXT_L>Application Component ID</SCRTEXT_L>
+    <DTELMASTER>D</DTELMASTER>
+    <SHLPNAME>H_AKH_COMPONENT</SHLPNAME>
+    <SHLPFIELD>PS_POSID</SHLPFIELD>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>Anwendungskomponentenkürzel</DDTEXT>
+     <REPTEXT>Anwendungskomponente</REPTEXT>
+     <SCRTEXT_S>Komponente</SCRTEXT_S>
+     <SCRTEXT_M>Anwendungskomponente</SCRTEXT_M>
+     <SCRTEXT_L>Anwendungskomponentenkürzel</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

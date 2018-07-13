@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_CONSUMER</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Message Consumer Interface</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>GET_CONSUMER_ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get my consumer id for direct messaging</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>GET_ERROR_TEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get last error text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>GET_EXCEPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get last exception</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>GET_MESSAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the receivend message in default format</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>GET_MESSAGE_PCP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the received message as PCP</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>SET_CONTEXT_FILTER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set a context filter</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>SUBSCRIBE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>subscribe to an topic (internal append)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>WAIT_FOR_MESSAGES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>wait for incoming messages</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

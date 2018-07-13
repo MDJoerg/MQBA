@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Message Request</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_CONTEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the context</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_GUID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the message guid (internal)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the message id</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_MSG_CONTEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the context object of the transfer channel</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_MSG_RESPONSE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the response handler</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_PAYLOAD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the payload</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_PROPERTIES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the names of available properties</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_PROPERTY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the property value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_SCOPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the message scope</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_SENDER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the sender id</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_TIMESTAMP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the message timestamp</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_TOPIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the message topic</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>IS_VALID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>is a valid message (topic and payload given)</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

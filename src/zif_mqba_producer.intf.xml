@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Message Producer Interface</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>GET_ERROR_TEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the last exception as text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>GET_EXCEPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the last exception</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>GET_MESSAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the generated message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>IS_FAILED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>check, if the publishing action has failed</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>PUBLISH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>publish the message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>SET_CONSUMER_ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the consumer id</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>SET_CONTEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the context id</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>SET_EXTERNAL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>message should be routed to external gateway too</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>SET_FIELD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set an additional field and value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>SET_PAYLOAD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the payload (obligatory)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>SET_TOPIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the topic (obligatory)</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

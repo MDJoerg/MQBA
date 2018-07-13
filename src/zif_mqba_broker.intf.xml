@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Broker API</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_CHAR_NEWLINE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>*new</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_GW_AMC_APP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>amc app for internal messages</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_GW_AMC_CHN_MESSAGES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>amc channel for internal messages</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_INT_AMC_APP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>amc app for internal messages</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_INT_AMC_CHN_MESSAGES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>amc channel for internal messages</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_INT_FIELD_CONSUMER_ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>pcp fieldname for amc consumer id</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_SCOPE_DISTRIBUTED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: scope of a message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_SCOPE_EXTERNAL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: scope of a message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_SCOPE_INTERNAL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: scope of a message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_SCOPE_PRIVATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: scope of a message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_SCOPE_UNKNOWN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: scope of a message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>EXTERNAL_MESSAGE_ARRIVED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>an external message arrived</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>GET_CURRENT_MEMORY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the current messages from memory</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>GET_EXCEPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the last exception</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>GET_LAST_ERROR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the last exception as error text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>INTERNAL_MESSAGE_ARRIVED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>an internal message arrived</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

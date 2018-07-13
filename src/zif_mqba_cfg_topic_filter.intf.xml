@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_CFG_TOPIC_FILTER</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: topic based filter configuration</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CFG_TOPIC_FILTER</CLSNAME>
+     <CMPNAME>GET_CONFIG_FOR_TOPIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get best fitting config for given topic</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CFG_TOPIC_FILTER</CLSNAME>
+     <CMPNAME>GET_CONFIG_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get configuration as table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CFG_TOPIC_FILTER</CLSNAME>
+     <CMPNAME>GET_RANGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get configuration as range</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CFG_TOPIC_FILTER</CLSNAME>
+     <CMPNAME>IS_CONFIGURED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>check if topic is configured</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

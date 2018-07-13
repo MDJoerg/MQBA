@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_MQBA_APC_FACTORY</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Factory for APC Features</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_APC_FACTORY</CLSNAME>
+     <CMPNAME>CREATE_CONTEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>create an apc context object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_APC_FACTORY</CLSNAME>
+     <CMPNAME>CREATE_MESSAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>create an instance of apc message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_APC_FACTORY</CLSNAME>
+     <CMPNAME>CREATE_RESPONSE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>create an apc response object</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
