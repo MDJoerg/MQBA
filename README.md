@@ -1,2 +1,3 @@
 # MQBA
-MQBA
+
+very early view to a SAP based prototype. Only for insiders please. Stay tuned for updates...
