@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>MQBA: External Broker API</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZMQBA_API_BROKERTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZMQBA_API_BROKER</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_MQBA_API_BROKER_GET_MEMORY</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>MQBA: Broker API - get current memory</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_TOPIC</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_SENDER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_SENDER_REF</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_CONTEXT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_TIME_FROM</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZMQBA_TIMESTAMP</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ES_DATA</PARAMETER>
+       <TYP>ZMQBA_API_S_BRK_MSG</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <TYP>ZMQBA_FLAG_ERROR</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_TOPIC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Topic Mask</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_SENDER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sender Mask</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_SENDER_REF</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Sender Ref Mask</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_CONTEXT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Context Mask</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_TIME_FROM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Timestamp</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ES_DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: api structure for current broker message memory</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_MQBA_API_BROKER_PUBLISH</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>MQBA: Publish a Message via internal Broker</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_TOPIC</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_PAYLOAD</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_SESSION_ID</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_EXTERNAL</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPI_FLAG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_CONTEXT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_PROPS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZMQBA_MSG_T_PRP</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_ERROR_TEXT</PARAMETER>
+       <TYP>ZMQBA_ERROR_TEXT</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <TYP>ZMQBA_FLAG_ERROR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_GUID</PARAMETER>
+       <TYP>ZMQBA_MSG_GUID</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_SCOPE</PARAMETER>
+       <TYP>ZMQBA_MSG_SCOPE</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_TOPIC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>message topic</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_PAYLOAD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>message payload</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_SESSION_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>session id for explicit receiver (private message)</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_EXTERNAL</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>message should be forwarded to external gateway</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_CONTEXT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>optional: context to filter dependent msgs</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_PROPS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>additional message props</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR_TEXT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: Error message</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag errors occured</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_GUID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: global unique id of a message</STEXT>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_SCOPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: scope of a message</STEXT>
+       <INDEX> 010</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_MQBA_API_BROKER_SUBSCRIBE</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>MQBA: Subscribe to a topic (mask) and wait</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_TOPIC</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_TOPIC</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZMQBA_T_STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_CONTEXT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_WAIT_FOR_SEC</PARAMETER>
+       <DEFAULT>5</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>I</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <TYP>ZMQBA_FLAG_ERROR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_ERROR_TEXT</PARAMETER>
+       <TYP>ZMQBA_ERROR_TEXT</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>ET_PROPS</PARAMETER>
+       <TYP>ZMQBA_MSG_T_PRP</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_PAYLOAD</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_TOPIC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>single topic (mask) to subscribe to</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_TOPIC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>multiple topic masks to subribe to</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_CONTEXT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>filter given context</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_WAIT_FOR_SEC</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag errors occured</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR_TEXT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: Error message</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ET_PROPS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: message property tab</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_PAYLOAD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Payload of the message</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

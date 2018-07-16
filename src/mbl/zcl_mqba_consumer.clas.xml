@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_MQBA_CONSUMER</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Message Consumer Implementation</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>BUILD_MESSAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>build a message holder from pcp input</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>INITIALIZE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>initialize</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>M_CONSUMER_ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>AMC consumer session id</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>M_EXCEPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Abstract Superclass for All Global Exceptions</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>M_MSG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: Message Request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>M_PCP_MSG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>incoming message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>M_PCP_MSG_VALID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>received message is valid</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>M_SUBSCRIPTIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: Range Util Implementation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_CONSUMER</CLSNAME>
+     <CMPNAME>RESET</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>reset internal vars</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
