@@ -48,6 +48,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>CREATE_UTIL_SELPAR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>create a new instance of selpar helper</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
      <CMPNAME>GET_BASE_DATE</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get the current base date (for test simulation)</DESCRIPT>
@@ -63,6 +69,12 @@
      <CMPNAME>GET_CONSUMER</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get a consumer instance to catch messages</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>GET_NOW</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the current timestamp</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>

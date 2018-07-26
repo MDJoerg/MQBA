@@ -38,6 +38,18 @@
      <MSGNR>004</MSGNR>
      <TEXT>Timeout while waiting for push messages</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMQBA</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>No session id available for direct messaging.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMQBA</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Error while sending message to topic &amp;1 payload &amp;2 (&amp;3).</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

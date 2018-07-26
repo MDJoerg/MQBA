@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_MQBA_GUI_WIDGET</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Generic Widget</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>CREATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>create an instance</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>GET_PROP_FROM_CFG_STRUC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get config prop from given struc with index</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>GET_UPDATED_INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the updated info</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>INITIALIZE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>initialize object, called after create</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>M_SUBSCREEN_BDYNNR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Dynpro Number</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>M_SUBSCREEN_PROGRAM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Program/Transaction in SQL Trace Evaluation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>M_UPDATED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Timestamp</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>PUBLISH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>publish a payload</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_UI_FIELD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set ui field dynamic wih suffix</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

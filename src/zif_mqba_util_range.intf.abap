@@ -2,6 +2,11 @@ interface ZIF_MQBA_UTIL_RANGE
   public .
 
 
+  methods ADD_RSPARAMS
+    importing
+      !IS_PARAM type RSPARAMS
+    returning
+      value(RR_SELF) type ref to ZIF_MQBA_UTIL_RANGE .
   methods ADD
     importing
       !IV_DATA type DATA

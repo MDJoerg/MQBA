@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_GUI_BL</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Business Logic Layer SAPGUI App</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_BL</CLSNAME>
+     <CMPNAME>COLLECT_PARAMS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>collect parameters from current selection screen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_BL</CLSNAME>
+     <CMPNAME>DESTROY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>destroy gui business logic</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_BL</CLSNAME>
+     <CMPNAME>GET_PARAMETERS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get collected parameters</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_BL</CLSNAME>
+     <CMPNAME>GET_SUBSCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the subscreen by the container name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_BL</CLSNAME>
+     <CMPNAME>GET_SUBSCREENS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the registered subscreens</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_BL</CLSNAME>
+     <CMPNAME>PAI</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>process after input</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_BL</CLSNAME>
+     <CMPNAME>PBO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Event process before output</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

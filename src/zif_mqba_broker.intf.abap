@@ -20,6 +20,16 @@ interface ZIF_MQBA_BROKER
   constants C_SCOPE_EXTERNAL type ZMQBA_MSG_SCOPE value 'E' ##NO_TEXT.
   constants C_SCOPE_UNKNOWN type ZMQBA_MSG_SCOPE value ' ' ##NO_TEXT.
   constants C_CHAR_NEWLINE type ABAP_CHAR1 value %_NEWLINE ##NO_TEXT.
+  constants C_PARAM_HISTORY_ENABLED_NAME type STRING value 'broker.history.enabled' ##NO_TEXT.
+  constants C_PARAM_HISTORY_ENABLED_DEF type ABAP_BOOL value ABAP_TRUE ##NO_TEXT.
+  constants C_PARAM_HISTORY_MAX_NAME type STRING value 'broker.history.max' ##NO_TEXT.
+  constants C_PARAM_HISTORY_MAX_DEF type I value 5 ##NO_TEXT.
+  constants C_PARAM_HISTORY_QUEUE_NAME type STRING value 'broker.history.queue' ##NO_TEXT.
+  constants C_PARAM_HISTORY_QUEUE_DEF type STRING value 'ZMQBA-HIST' ##NO_TEXT.
+  constants C_PARAM_HISTORY_BPRMOD_NAME type STRING value 'broker.history.module' ##NO_TEXT.
+  constants C_PARAM_HISTORY_BPRMOD_DEF type STRING value 'Z_MQBA_MBL_BPR_SAVE_HISTORY' ##NO_TEXT.
+  constants C_PARAM_HISTORY_RFCDEST_NAME type STRING value 'broker.history.destination' ##NO_TEXT.
+  constants C_PARAM_HISTORY_RFCDEST_DEF type STRING value 'NONE' ##NO_TEXT.
 
   methods GET_EXCEPTION
     returning
@@ -46,4 +56,7 @@ interface ZIF_MQBA_BROKER
       !IV_FILTER_SENDER_REF type DATA optional
     returning
       value(RS_RESULT) type ZMQBA_API_S_BRK_MSG .
+  methods GET_STATISTIC
+    returning
+      value(RS_STAT) type ZMQBA_API_S_BRK_STC .
 endinterface.

@@ -11,6 +11,8 @@ FUNCTION z_mqba_api_broker_subscribe.
 *"     VALUE(EV_ERROR_TEXT) TYPE  ZMQBA_ERROR_TEXT
 *"     VALUE(ET_PROPS) TYPE  ZMQBA_MSG_T_PRP
 *"     VALUE(EV_PAYLOAD) TYPE  STRING
+*"     VALUE(EV_TOPIC) TYPE  STRING
+*"     VALUE(EV_CONSUMER_ID) TYPE  STRING
 *"----------------------------------------------------------------------
 
 
@@ -26,7 +28,7 @@ FUNCTION z_mqba_api_broker_subscribe.
 *   create consumer
     DATA(lr_consumer) = zcl_mqba_factory=>get_consumer( ).
 *   get my id
-    DATA(lv_consumer_id) = lr_consumer->get_consumer_id( ).
+    ev_consumer_id = lr_consumer->get_consumer_id( ).
 
 
 *   subscribe to topics
@@ -49,8 +51,13 @@ FUNCTION z_mqba_api_broker_subscribe.
       TRY.
 *   get pcp data
           DATA(lr_pcp) = lr_consumer->get_message_pcp( ).
+          DATA(lr_msg) = lr_consumer->get_message( ).
+
+          ev_payload = lr_msg->get_payload( ).
+          ev_topic   = lr_msg->get_topic( ).
+
           lr_pcp->get_fields( CHANGING c_fields = et_props ).
-          ev_payload = lr_pcp->get_text( ).
+
 *   set success
           ev_error = abap_false.
 *   errors

@@ -94,6 +94,73 @@
      </DOCUMENTATION>
     </item>
     <item>
+     <FUNCNAME>Z_MQBA_API_BROKER_GET_SESSION</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>MQBA: Get a session id for direct messaging</SHORT_TEXT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <TYP>ZMQBA_FLAG_ERROR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_ERROR_TEXT</PARAMETER>
+       <TYP>ZMQBA_ERROR_TEXT</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_CONSUMER_ID</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag errors occured</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR_TEXT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: Error message</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_CONSUMER_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>get own consumer id</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_MQBA_API_BROKER_GET_STAT</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>MQBA: Broker API - get statistic</SHORT_TEXT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>ES_STAT</PARAMETER>
+       <TYP>ZMQBA_API_S_BRK_STC</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <TYP>ZMQBA_FLAG_ERROR</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>ES_STAT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: api structure for current broker statistic</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
      <FUNCNAME>Z_MQBA_API_BROKER_PUBLISH</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
      <SHORT_TEXT>MQBA: Publish a Message via internal Broker</SHORT_TEXT>
@@ -252,6 +319,14 @@
        <PARAMETER>EV_PAYLOAD</PARAMETER>
        <TYP>STRING</TYP>
       </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_TOPIC</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_CONSUMER_ID</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSEXP>
      </EXPORT>
      <DOCUMENTATION>
       <RSFDO>
@@ -300,6 +375,18 @@
        <KIND>P</KIND>
        <STEXT>Payload of the message</STEXT>
        <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_TOPIC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>topic of the message</STEXT>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_CONSUMER_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>get own consumer id</STEXT>
+       <INDEX> 010</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

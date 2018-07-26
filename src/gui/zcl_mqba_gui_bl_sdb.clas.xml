@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_MQBA_GUI_BL_SDB</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Simple Dashboard Business Logic</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>T</RSTAT>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_BL_SDB</CLSNAME>
+     <CMPNAME>INIT_WIDGETS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>initialize widgets</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_BL_SDB</CLSNAME>
+     <CMPNAME>M_CONFIG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: Simple Dashboard - configuration</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_BL_SDB</CLSNAME>
+     <CMPNAME>M_LISTENER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: listen to msg in background</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_BL_SDB</CLSNAME>
+     <CMPNAME>M_UIDATA</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: Simple Dashboard - UI fields</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_BL_SDB</CLSNAME>
+     <CMPNAME>M_WIDGETS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: Widget Holder</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_BL_SDB</CLSNAME>
+     <CMPNAME>ON_MSG_ARRIVED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>message arrived from backgound</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_GUI_BL_SDB</CLSNAME>
+     <CMPNAME>REPAINT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set internal uidata to current values</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

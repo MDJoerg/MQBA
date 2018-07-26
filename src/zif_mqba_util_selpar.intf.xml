@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_UTIL_SELPAR</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Selection Parameter Helper</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_SELPAR</CLSNAME>
+     <CMPNAME>ADD_FROM_PROG_CONTEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>catch all paramameters from program context</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_SELPAR</CLSNAME>
+     <CMPNAME>ADD_FROM_SELECTION_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>catch all parameters from selection screen after execute</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_SELPAR</CLSNAME>
+     <CMPNAME>FILL_STRUCTURE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>fill structure from parameters fields</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_SELPAR</CLSNAME>
+     <CMPNAME>GET_ALL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get all selparams</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_SELPAR</CLSNAME>
+     <CMPNAME>GET_AS_RANGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get selection option param as Range</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_SELPAR</CLSNAME>
+     <CMPNAME>GET_PARAM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get parameter as string</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

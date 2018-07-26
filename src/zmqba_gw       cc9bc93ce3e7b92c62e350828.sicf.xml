@@ -5,7 +5,6 @@
    <URL>/sap/bc/apc/sap/zmqba_gw/</URL>
    <ICFSERVICE>
     <ICF_NAME>ZMQBA_GW</ICF_NAME>
-    <ICF_MANDT>001</ICF_MANDT>
     <ICF_LANGU>E</ICF_LANGU>
     <ICFBITMAP>00000000</ICFBITMAP>
     <ORIG_NAME>zmqba_gw</ORIG_NAME>

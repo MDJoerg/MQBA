@@ -32,6 +32,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_UTIL_RANGE</CLSNAME>
+     <CMPNAME>ADD_RSPARAMS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>add line from rsparams struc</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_RANGE</CLSNAME>
      <CMPNAME>CHECK</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>check if given data in range</DESCRIPT>

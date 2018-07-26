@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Abstract Widget</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>GET_CFG_IDX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the config index</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>GET_PUBLISH_TOPIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the topic for publishing new data</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>GET_SUBSCRIBE_TOPIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the topic described to</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>HANDLE_OKCODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>handle own events</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>HANDLE_PAYLOAD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>handle incoming payload</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>IS_SUBSCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>check if subscreen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_CFG_IDX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the internal configuration index</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_CUR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the current value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_DESCRIPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set a description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_FROM_CFG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the configuration from config struc</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_MAX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the max value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_MIN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the min value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_PUBLISH_TOPIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the topic for publishing new data</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_SUBSCREEN_MODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set subscreen mode and variant</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_SUBSCRIBE_TOPIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the topic described to</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>SET_UNIT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the value unit</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET</CLSNAME>
+     <CMPNAME>UPDATE_UI</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>update ui structure</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

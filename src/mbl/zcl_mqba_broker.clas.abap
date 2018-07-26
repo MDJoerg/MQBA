@@ -173,7 +173,7 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 *       get area access
           DATA(lr_area) = zcl_mqba_shm_area=>attach_for_update( ).
 *       call root handler
-          m_shm_config = lr_area->root->put_message( ir_msg ).
+          m_shm_config = lr_area->root->message_put( ir_msg ).
 *       release access
           lr_area->detach_commit( ).
 *       exit from do
@@ -419,6 +419,35 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
     CHECK m_exception IS NOT INITIAL.
     rv_error_msg = m_exception->get_text( ).
   ENDMETHOD.
+
+
+  method ZIF_MQBA_BROKER~GET_STATISTIC.
+
+    DO 1000 times.
+      TRY.
+*       reset
+          reset( ).
+*       get area access
+          DATA(lr_area) = zcl_mqba_shm_area=>attach_for_read( ).
+*       call root handler
+          rs_stat = lr_area->root->statistic_get( ).
+*       release access
+          lr_area->detach( ).
+*       exit from to
+          EXIT.
+* ----- catch errors
+        CATCH cx_shm_inconsistent
+              cx_shm_read_lock_active
+              cx_shm_no_active_version
+              cx_shm_exclusive_lock_active
+              cx_shm_change_lock_active
+              INTO m_exception.
+*       store the message
+          "rs_result-error = m_exception->get_text( ).
+      ENDTRY.
+    ENDDO.
+
+  endmethod.
 
 
   METHOD zif_mqba_broker~internal_message_arrived.

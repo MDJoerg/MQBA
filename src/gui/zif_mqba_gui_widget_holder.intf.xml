@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_GUI_WIDGET_HOLDER</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Widget Holder</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET_HOLDER</CLSNAME>
+     <CMPNAME>ADD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>add a widget</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET_HOLDER</CLSNAME>
+     <CMPNAME>GET_COUNT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get count of widgets</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET_HOLDER</CLSNAME>
+     <CMPNAME>GET_WIDGET</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the widget at index</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_GUI_WIDGET_HOLDER</CLSNAME>
+     <CMPNAME>HANDLE_PAYLOAD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>handle new arrived payload</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

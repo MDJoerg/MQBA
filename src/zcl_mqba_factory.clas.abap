@@ -9,6 +9,12 @@ public section.
       !IV_BASE_TAB type TABNAME
     returning
       value(RR_INSTANCE) type ref to ZIF_MQBA_CFG_TOPIC_FILTER .
+  class-methods CREATE_UTIL_SELPAR
+    returning
+      value(RR_UTIL) type ref to ZIF_MQBA_UTIL_SELPAR .
+  class-methods GET_NOW
+    returning
+      value(RV_TIMESTAMP) type ZMQBA_TIMESTAMP .
   class-methods CREATE_EXCEPTION
     importing
       !IV_TEXT type DATA
@@ -79,6 +85,11 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD create_util_selpar.
+    rr_util = zcl_mqba_util_selpar=>create( ).
+  ENDMETHOD.
+
+
   METHOD get_base_date.
 * possible test injection, set base date externally as a friend
     rv_date = COND #( WHEN m_base_date IS INITIAL
@@ -98,6 +109,11 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
 
   METHOD get_consumer.
     rr_consumer = NEW zcl_mqba_consumer( ).
+  ENDMETHOD.
+
+
+  METHOD get_now.
+    GET TIME STAMP FIELD rv_timestamp.
   ENDMETHOD.
 
 

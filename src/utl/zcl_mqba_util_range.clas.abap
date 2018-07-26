@@ -79,6 +79,23 @@ CLASS ZCL_MQBA_UTIL_RANGE IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD zif_mqba_util_range~add_rsparams.
+
+* local data
+    DATA: ls_line LIKE LINE OF m_range.
+
+* check and add line
+    IF is_param IS NOT INITIAL.
+      MOVE-CORRESPONDING is_param TO ls_line.
+      APPEND ls_line TO m_range.
+    ENDIF.
+
+* return myself
+    rr_self = me.
+
+  ENDMETHOD.
+
+
   METHOD zif_mqba_util_range~check.
     rv_success = COND #( WHEN iv_data IN m_range
                          THEN abap_true
