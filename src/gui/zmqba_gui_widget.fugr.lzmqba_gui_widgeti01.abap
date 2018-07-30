@@ -19,3 +19,10 @@ MODULE pai_swt INPUT.
     CLEAR gr_subscreen.
   ENDIF.
 ENDMODULE.
+
+MODULE pai_ppl INPUT.
+  IF gr_subscreen IS NOT INITIAL.
+    gr_subscreen->pai( CHANGING cs_uidata = zmqba_gui_s_wgt_ppl_out cv_ucomm = sy-ucomm ).
+    CLEAR gr_subscreen.
+  ENDIF.
+ENDMODULE.

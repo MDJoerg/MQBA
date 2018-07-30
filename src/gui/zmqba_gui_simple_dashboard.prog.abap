@@ -1,7 +1,7 @@
 *&---------------------------------------------------------------------*
 *& Report ZMQBA_GUI_SIMPLE_DASHBOARD
 *&---------------------------------------------------------------------*
-*&
+*& alpha!
 *&---------------------------------------------------------------------*
 REPORT zmqba_gui_simple_dashboard.
 
@@ -29,6 +29,10 @@ PARAMETERS: tops_b1   LIKE zmqba_gui_s_sdb_cfg-tops_b1.
 PARAMETERS: topp_b1   LIKE zmqba_gui_s_sdb_cfg-topp_b1.
 PARAMETERS: valon_b1  LIKE zmqba_gui_s_sdb_cfg-valon_b1.
 PARAMETERS: valof_b1  LIKE zmqba_gui_s_sdb_cfg-valof_b1.
+SELECTION-SCREEN: ULINE.
+PARAMETERS: desc_p1   LIKE zmqba_gui_s_sdb_cfg-desc_p1.
+PARAMETERS: tops_p1   LIKE zmqba_gui_s_sdb_cfg-tops_p1.
+PARAMETERS: topp_p1   LIKE zmqba_gui_s_sdb_cfg-topp_p1.
 
 
 * ------ data definitions
@@ -46,6 +50,8 @@ DATA: gv_subscr3_repid TYPE syrepid.
 DATA: gv_subscr3_dynnr TYPE sydynnr.
 DATA: gv_subscr4_repid TYPE syrepid.
 DATA: gv_subscr4_dynnr TYPE sydynnr.
+DATA: gv_subscr5_repid TYPE syrepid.
+DATA: gv_subscr5_dynnr TYPE sydynnr.
 
 
 INITIALIZATION.
@@ -179,6 +185,10 @@ MODULE subscr4_pbo OUTPUT.
   PERFORM subscreen_pbo USING 'SUBSCR4'.
 ENDMODULE.
 
+
+MODULE subscr5_pbo OUTPUT.
+  PERFORM subscreen_pbo USING 'SUBSCR5'.
+ENDMODULE.
 *&---------------------------------------------------------------------*
 *&      Module  SUBSCR1_PAI  INPUT
 *&---------------------------------------------------------------------*
@@ -198,4 +208,8 @@ ENDMODULE.
 
 MODULE subscr4_pai INPUT.
   PERFORM subscreen_pai USING 'SUBSCR4'.
+ENDMODULE.
+
+MODULE subscr5_pai INPUT.
+  PERFORM subscreen_pai USING 'SUBSCR5'.
 ENDMODULE.

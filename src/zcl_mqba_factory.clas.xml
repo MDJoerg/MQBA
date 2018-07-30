@@ -72,6 +72,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>GET_MY_LOGSYS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get my system wide identification</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
      <CMPNAME>GET_NOW</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get the current timestamp</DESCRIPT>

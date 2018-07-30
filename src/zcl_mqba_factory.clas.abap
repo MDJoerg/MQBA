@@ -12,6 +12,9 @@ public section.
   class-methods CREATE_UTIL_SELPAR
     returning
       value(RR_UTIL) type ref to ZIF_MQBA_UTIL_SELPAR .
+  class-methods GET_MY_LOGSYS
+    returning
+      value(RV_LOGSYS) type LOGSYS .
   class-methods GET_NOW
     returning
       value(RV_TIMESTAMP) type ZMQBA_TIMESTAMP .
@@ -109,6 +112,12 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
 
   METHOD get_consumer.
     rr_consumer = NEW zcl_mqba_consumer( ).
+  ENDMETHOD.
+
+
+  METHOD get_my_logsys.
+    " TODO: get it from config params
+    rv_logsys = |{ sy-sysid }CLNT{ sy-mandt }|.
   ENDMETHOD.
 
 

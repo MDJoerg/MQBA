@@ -96,17 +96,17 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
                            ELSE abap_false ).
 
 * statistic and log point
-        statistic_prepare( ).
+        "statistic_prepare( ).
 
         IF rv_valid EQ abap_false.
-          ADD 1 TO ms_stat-gwi_filtered.
+          "ADD 1 TO ms_stat-gwi_filtered.
 
           LOG-POINT ID zmqba_gw
            SUBKEY 'GW_INVALID_INBOUND_MSG'
            FIELDS iv_topic lv_black lv_white rv_valid.
 
         ELSE.
-          ADD 1 TO ms_stat-gwi_routed.
+          "ADD 1 TO ms_stat-gwi_routed.
         ENDIF.
 
 * ------ error handling

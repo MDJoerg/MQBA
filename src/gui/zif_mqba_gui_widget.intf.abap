@@ -4,6 +4,7 @@ interface ZIF_MQBA_GUI_WIDGET
 
   constants C_TYPE_SENSOR type STRING value 'SEN' ##NO_TEXT.
   constants C_TYPE_SWITCH type STRING value 'SWT' ##NO_TEXT.
+  constants C_TYPE_PUBPANEL type STRING value 'PPL' ##NO_TEXT.
 
   methods GET_CFG_IDX
     returning

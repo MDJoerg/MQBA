@@ -42,6 +42,15 @@ protected section.
   methods GET_UPDATED_INFO
     returning
       value(RV_INFO) type STRING .
+  methods GET_UI_FIELD
+    importing
+      !IV_NAME type DATA
+      !IV_SUBSCREEN type ABAP_BOOL default ABAP_FALSE
+      !IS_UIDATA type DATA
+    changing
+      !CV_VALUE type DATA
+    returning
+      value(RV_SUCCESS) type ABAP_BOOL .
   methods SET_UI_FIELD
     importing
       !IV_NAME type DATA
@@ -95,6 +104,29 @@ CLASS ZCL_MQBA_GUI_WIDGET IMPLEMENTATION.
     ASSIGN COMPONENT lv_name OF STRUCTURE is_cfg TO FIELD-SYMBOL(<lfs_param>).
     IF <lfs_param> IS ASSIGNED.
       cv_prop = <lfs_param>.
+    ENDIF.
+
+  ENDMETHOD.
+
+
+  METHOD get_ui_field.
+
+* ----- local data
+    DATA: lv_name TYPE string.
+
+* ----- build name of the ui structure
+    lv_name = iv_name.
+    IF iv_subscreen EQ abap_false AND m_cfg_idx IS NOT INITIAL.
+      lv_name = lv_name && '_' && m_cfg_idx.
+    ENDIF.
+
+* ----- get the field
+    ASSIGN COMPONENT lv_name OF STRUCTURE is_uidata TO FIELD-SYMBOL(<field>).
+    IF <field> IS ASSIGNED.
+      cv_value = <field>.
+      rv_success = abap_true.
+    ELSE.
+      rv_success = abap_true.
     ENDIF.
 
   ENDMETHOD.
@@ -379,6 +411,7 @@ CLASS ZCL_MQBA_GUI_WIDGET IMPLEMENTATION.
 
     set_field 'TITLE'     m_description.
     set_field 'TOPIC_SUB' m_subscribe.
+    set_field 'TOPIC_PUB' m_publish.
     set_field 'VALUE'     m_cur.
 
 *    set_ui_field( EXPORTING iv_name = 'UPDATED_INFO'  iv_value   = lv_updated_info CHANGING cs_uidata = cs_uidata ).

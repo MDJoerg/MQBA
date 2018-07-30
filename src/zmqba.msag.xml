@@ -50,6 +50,12 @@
      <MSGNR>006</MSGNR>
      <TEXT>Error while sending message to topic &amp;1 payload &amp;2 (&amp;3).</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZMQBA</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Message published with guid &amp;1 (scope &amp;2).</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

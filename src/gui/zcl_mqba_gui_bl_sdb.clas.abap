@@ -86,6 +86,10 @@ CLASS ZCL_MQBA_GUI_BL_SDB IMPLEMENTATION.
     m_widgets->add( zcl_mqba_gui_factory=>create_widget( zif_mqba_gui_widget=>c_type_switch
     )->set_cfg_idx( 'B1')->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR4' ) ).
 
+* ------ create 1 publish panel
+    m_widgets->add( zcl_mqba_gui_factory=>create_widget( zif_mqba_gui_widget=>c_type_pubpanel
+    )->set_cfg_idx( 'P1')->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR5' ) ).
+
 
   ENDMETHOD.
 

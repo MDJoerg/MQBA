@@ -42,11 +42,33 @@
       </RPY_DYCATT>
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
-       <NAME>SUBSCR2</NAME>
+       <NAME>SUBSCR4</NAME>
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>002</LINE>
-       <COLUMN>062</COLUMN>
+       <COLUMN>061</COLUMN>
        <LENGTH>052</LENGTH>
+       <HEIGHT>006</HEIGHT>
+       <C_LINE_MIN>001</C_LINE_MIN>
+       <C_COLN_MIN>001</C_COLN_MIN>
+      </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>SUBSCREEN</TYPE>
+       <NAME>SUBSCR2</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>011</LINE>
+       <COLUMN>003</COLUMN>
+       <LENGTH>052</LENGTH>
+       <HEIGHT>006</HEIGHT>
+       <C_LINE_MIN>001</C_LINE_MIN>
+       <C_COLN_MIN>001</C_COLN_MIN>
+      </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>SUBSCREEN</TYPE>
+       <NAME>SUBSCR5</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>011</LINE>
+       <COLUMN>060</COLUMN>
+       <LENGTH>111</LENGTH>
        <HEIGHT>006</HEIGHT>
        <C_LINE_MIN>001</C_LINE_MIN>
        <C_COLN_MIN>001</C_COLN_MIN>
@@ -55,18 +77,7 @@
        <TYPE>SUBSCREEN</TYPE>
        <NAME>SUBSCR3</NAME>
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
-       <LINE>002</LINE>
-       <COLUMN>120</COLUMN>
-       <LENGTH>052</LENGTH>
-       <HEIGHT>006</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
-      </RPY_DYCATT>
-      <RPY_DYCATT>
-       <TYPE>SUBSCREEN</TYPE>
-       <NAME>SUBSCR4</NAME>
-       <ELEMENT_OF>SCREEN</ELEMENT_OF>
-       <LINE>011</LINE>
+       <LINE>020</LINE>
        <COLUMN>003</COLUMN>
        <LENGTH>052</LENGTH>
        <HEIGHT>006</HEIGHT>
@@ -93,12 +104,40 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>FRAME</TYPE>
-       <NAME>FRAMES2</NAME>
-       <TEXT>Sensor_2_______________________________________________</TEXT>
+       <NAME>FRAMEW1</NAME>
+       <TEXT>Switch_________________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>060</COLUMN>
+       <COLUMN>059</COLUMN>
        <LENGTH>056</LENGTH>
        <VISLENGTH>056</VISLENGTH>
+       <HEIGHT>008</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>FRAME</TYPE>
+       <NAME>FRAMES2</NAME>
+       <TEXT>Sensor_2_______________________________________________</TEXT>
+       <LINE>010</LINE>
+       <COLUMN>001</COLUMN>
+       <LENGTH>056</LENGTH>
+       <VISLENGTH>056</VISLENGTH>
+       <HEIGHT>008</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <REQU_ENTRY>N</REQU_ENTRY>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>FRAME</TYPE>
+       <NAME>FRAMEP1</NAME>
+       <TEXT>Publish__________________________________________________________________________________________________________</TEXT>
+       <LINE>010</LINE>
+       <COLUMN>059</COLUMN>
+       <LENGTH>114</LENGTH>
+       <VISLENGTH>114</VISLENGTH>
        <HEIGHT>008</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <REQU_ENTRY>N</REQU_ENTRY>
@@ -109,21 +148,7 @@
        <TYPE>FRAME</TYPE>
        <NAME>FRAMES3</NAME>
        <TEXT>Sensor_3_______________________________________________</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>118</COLUMN>
-       <LENGTH>056</LENGTH>
-       <VISLENGTH>056</VISLENGTH>
-       <HEIGHT>008</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <REQU_ENTRY>N</REQU_ENTRY>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>FRAME</TYPE>
-       <NAME>FRAMEW1</NAME>
-       <TEXT>Switch_________________________________________________</TEXT>
-       <LINE>010</LINE>
+       <LINE>019</LINE>
        <COLUMN>001</COLUMN>
        <LENGTH>056</LENGTH>
        <VISLENGTH>056</VISLENGTH>
@@ -181,10 +206,23 @@
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
+       <LINE>MODULE subscr5_pbo.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>CALL SUBSCREEN subscr5 INCLUDING gv_subscr5_repid gv_subscr5_dynnr.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
        <LINE>*</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>MODULE subscr5_pai.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>CALL SUBSCREEN subscr5.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
@@ -236,8 +274,13 @@
       <item>2</item>
       <item>2</item>
       <item>0</item>
+      <item>2</item>
+      <item>2</item>
       <item>0</item>
       <item>0</item>
+      <item>0</item>
+      <item>2</item>
+      <item>2</item>
       <item>0</item>
       <item>2</item>
       <item>2</item>

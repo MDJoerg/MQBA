@@ -53,6 +53,7 @@ CLASS ZCL_MQBA_GUI_WIDGET_SWT IMPLEMENTATION.
     ).
 
 * ---- check for button and append my index
+    CHECK sy-ucomm NE 'RFSH'.
     IF sy-ucomm EQ 'BT_SWITCH'.
       IF m_publish IS NOT INITIAL.
 *        switch

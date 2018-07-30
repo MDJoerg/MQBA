@@ -19,3 +19,10 @@ MODULE pbo_swt OUTPUT.
     CLEAR gr_subscreen.
   ENDIF.
 ENDMODULE.
+
+MODULE pbo_ppl OUTPUT.
+  IF gr_subscreen IS NOT INITIAL.
+    gr_subscreen->pbo( CHANGING cs_uidata = zmqba_gui_s_wgt_ppl_out ).
+    CLEAR gr_subscreen.
+  ENDIF.
+ENDMODULE.
