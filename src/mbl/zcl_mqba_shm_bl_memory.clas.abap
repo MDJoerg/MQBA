@@ -242,13 +242,13 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
     MOVE-CORRESPONDING is_msg TO ls_msg.
     APPEND ls_msg TO ct_history.
 
-* ----- save to database required
-    DATA(lv_max) = get_param_int( 'HISTORY_MAX' ).
-    DESCRIBE TABLE ct_history LINES DATA(lv_count).
-
-    IF lv_max = 0 OR lv_count GE lv_max.
-      history_save( ).
-    ENDIF.
+** ----- save to database required
+*    DATA(lv_max) = get_param_int( 'HISTORY_MAX' ).
+*    DESCRIBE TABLE ct_history LINES DATA(lv_count).
+*
+*    IF lv_max = 0 OR lv_count GE lv_max.
+*      history_save( ).
+*    ENDIF.
 
   ENDMETHOD.
 
@@ -344,12 +344,15 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
     FIELD-SYMBOLS <lfs_msg> LIKE LINE OF mt_msg.
     DATA: ls_cfg LIKE rs_config.
 
-* ---- prepare
+* ---- prepare and check
+    CLEAR rs_config.
+    ls_cfg-valid_for_dist = abap_false.
     DATA(lv_topic) = ir_msg->get_topic( ).
-    ls_cfg-valid_for_dist = abap_true.
+    CHECK lv_topic IS NOT INITIAL.
 
 
 * ---- get message config
+    ls_cfg-valid_for_dist = abap_true.
     DATA(ls_msg_cfg) = message_get_config( lv_topic ).
 
 
@@ -364,7 +367,9 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
 *       payload is different, put to history and process as new message
         DATA(lt_history) = <lfs_msg>-history.
         history_add( EXPORTING is_msg = <lfs_msg> is_msg_cfg = ls_msg_cfg CHANGING ct_history = lt_history ).
-        CLEAR <lfs_msg>.
+        CLEAR: <lfs_msg>-payload,
+               <lfs_msg>-msg_props,
+               <lfs_msg>-repeats.
         <lfs_msg>-history = lt_history.
       ENDIF.
     ELSE.
@@ -376,7 +381,7 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
 
 * ---- fill line
 * for initial lines...
-    IF <lfs_msg> IS INITIAL.
+    IF <lfs_msg>-payload IS INITIAL.
       <lfs_msg>-topic   = ir_msg->get_topic( ).
       <lfs_msg>-payload = ir_msg->get_payload( ).
       <lfs_msg>-repeats = 1.
