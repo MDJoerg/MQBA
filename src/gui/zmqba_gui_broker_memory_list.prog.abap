@@ -11,7 +11,7 @@ PARAMETERS: p_top   TYPE zmqba_topic DEFAULT '*'.
 PARAMETERS: p_ctx   TYPE zmqba_context.
 PARAMETERS: p_snd   TYPE zmqba_sender.
 PARAMETERS: p_sndr  TYPE zmqba_sender_ref.
-PARAMETERS: p_tsf   TYPE zmqba_timestamp DEFAULT sy-datum.
+PARAMETERS: p_tsf   TYPE zmqba_timestamp.
 SELECTION-SCREEN: ULINE.
 PARAMETERS: p_rfsh  TYPE zmqba_flag_auto_refresh AS CHECKBOX DEFAULT abap_true.
 PARAMETERS: p_tint  TYPE zmqba_timer_interval DEFAULT 5.
@@ -41,7 +41,7 @@ DATA: gs_result      TYPE zmqba_api_s_brk_msg.
 INITIALIZATION.
 
 *
-  GET TIME STAMP FIELD p_tsf.
+"  GET TIME STAMP FIELD p_tsf.
 
 * ----------------------------------------------------- START
 START-OF-SELECTION.

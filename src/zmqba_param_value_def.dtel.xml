@@ -3,21 +3,19 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>ZMQBA_PARAM_NAME</ROLLNAME>
+    <ROLLNAME>ZMQBA_PARAM_VALUE_DEF</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DOMNAME>ZMQBA_PARAM_NAME</DOMNAME>
+    <DOMNAME>ZMQBA_PARAM_VALUE</DOMNAME>
     <HEADLEN>55</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>MQBA: Parameter Name</DDTEXT>
-    <REPTEXT>Parameter Name</REPTEXT>
-    <SCRTEXT_S>Par. Name</SCRTEXT_S>
-    <SCRTEXT_M>Par, Name</SCRTEXT_M>
-    <SCRTEXT_L>Parameter Name</SCRTEXT_L>
+    <DDTEXT>MQBA: Parameter Default Value</DDTEXT>
+    <REPTEXT>Default Value</REPTEXT>
+    <SCRTEXT_S>Def. Value</SCRTEXT_S>
+    <SCRTEXT_M>Default Value</SCRTEXT_M>
+    <SCRTEXT_L>Default Value</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
-    <SHLPNAME>ZMQBA_SHLP_PARAM_NAME</SHLPNAME>
-    <SHLPFIELD>PARAMETERNAME</SHLPFIELD>
     <REFKIND>D</REFKIND>
    </DD04V>
   </asx:values>

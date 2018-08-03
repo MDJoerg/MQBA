@@ -50,63 +50,87 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_PARAM_CLEANUP_INTERVAL_DEF</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>default: 5 minutes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_PARAM_CLEANUP_INTERVAL_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>broker message cleanup interval in sec</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>C_PARAM_HISTORY_BPRMOD_DEF</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>save history module - default</DESCRIPT>
+     <DESCRIPT>default:</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>C_PARAM_HISTORY_BPRMOD_NAME</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>save history module - param</DESCRIPT>
+     <DESCRIPT>name for the history processing module</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>C_PARAM_HISTORY_ENABLED_DEF</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>save msg to history - default</DESCRIPT>
+     <DESCRIPT>default: history is off</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>C_PARAM_HISTORY_ENABLED_NAME</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>save msg to history - param</DESCRIPT>
+     <DESCRIPT>save msg to history on/off</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>C_PARAM_HISTORY_MAX_DEF</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>max msg in history - default</DESCRIPT>
+     <DESCRIPT>default: 5 entries per topic</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>C_PARAM_HISTORY_MAX_NAME</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>max msg in history - param</DESCRIPT>
+     <DESCRIPT>max history entries per topic</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>C_PARAM_HISTORY_QUEUE_DEF</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>save msg to history - default</DESCRIPT>
+     <DESCRIPT>default: save it to ZMQBA*</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>C_PARAM_HISTORY_QUEUE_NAME</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>save msg to history - param</DESCRIPT>
+     <DESCRIPT>queue for saving history</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>C_PARAM_HISTORY_RFCDEST_DEF</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>save history dest - default</DESCRIPT>
+     <DESCRIPT>default: local processing</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>C_PARAM_HISTORY_RFCDEST_NAME</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>save history dest - param</DESCRIPT>
+     <DESCRIPT>saving history to destination</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_PARAM_MESSAGE_EXPIRE_DEF</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>default: 5 minutes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>C_PARAM_MESSAGE_EXPIRE_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>message expiration in sec</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>

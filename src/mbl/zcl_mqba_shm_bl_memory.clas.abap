@@ -10,6 +10,7 @@ public section.
       value(RS_STATISTIC) type ZMQBA_SHM_S_STC .
   methods STATISTIC_RESET .
   methods INITIALIZE .
+  methods DESTROY .
   methods MESSAGE_PUT
     importing
       !IR_MSG type ref to ZIF_MQBA_REQUEST
@@ -32,22 +33,46 @@ protected section.
   data MT_MSG type ZMQBA_SHM_T_MSG .
   data MS_STAT type ZMQBA_SHM_S_STC .
   data MS_CUST type ZMQBA_SHM_S_CUS .
+  constants C_BROKER_INTF type STRING value 'ZIF_MQBA_BROKER' ##NO_TEXT.
 
-  methods GET_PARAM_BOOL
+  methods STATISTIC_INIT .
+  methods STATISTIC_DESTROY .
+  methods MESSAGE_INIT .
+  methods MESSAGE_DESTROY .
+  methods CONFIG_DESTROY .
+  methods CLEANUP .
+  methods CONFIG_GET_PARAM_BOOL
     importing
       !IV_PARAM type DATA
     returning
       value(RV_PARAM) type ABAP_BOOL .
-  methods GET_PARAM_INT
+  methods CONFIG_GET_PARAM_INT
     importing
       !IV_PARAM type DATA
     returning
       value(RV_PARAM) type I .
-  methods GET_PARAM_STRING
+  methods CONFIG_GET_PARAM_STRING
     importing
       !IV_PARAM type DATA
     returning
       value(RV_PARAM) type STRING .
+  methods PARAM_GET_CONFIG
+    importing
+      !IV_PARAM type DATA
+      !IV_DEFAULT type DATA optional
+    returning
+      value(RV_PARAM) type STRING .
+  methods PARAM_GET_DEFAULT
+    importing
+      !IV_PARAM type DATA
+    returning
+      value(RV_PARAM) type STRING .
+  methods PARAM_GET_NAME
+    importing
+      !IV_PARAM type DATA
+    returning
+      value(RV_NAME) type STRING .
+  methods CONFIG_INIT .
   methods HISTORY_ADD
     importing
       !IS_MSG type ZMQBA_SHM_S_MSG
@@ -118,6 +143,86 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD cleanup.
+
+* ---------- check for next cleanup time
+    DATA(lv_now) = zcl_mqba_factory=>get_now( ).
+    CHECK ms_stat-cleanup_next IS INITIAL
+       OR lv_now          GT ms_stat-cleanup_next.
+
+
+* ---------- cleanup message table
+    DELETE mt_msg WHERE expire LT lv_now.
+
+
+* ---------- calculate new interval
+    DATA(lv_interval) = config_get_param_int( 'CLEANUP_INTERVAL' ).
+    IF lv_interval EQ 0.
+      lv_interval = 300.
+    ENDIF.
+
+* ----------- set statistics
+    ms_stat-cleanup_next = lv_now + lv_interval.
+    ms_stat-cleanup_last = lv_now.
+
+  ENDMETHOD.
+
+
+  method CONFIG_DESTROY.
+  endmethod.
+
+
+  method CONFIG_GET_PARAM_BOOL.
+*  get param value as string cast to bool
+   rv_param = param_get_config( iv_param ).
+  endmethod.
+
+
+  METHOD CONFIG_GET_PARAM_INT.
+*  get param value as string cast to int
+   rv_param = param_get_config( iv_param ).
+  ENDMETHOD.
+
+
+  METHOD CONFIG_GET_PARAM_STRING.
+*  get param value as string
+   rv_param = param_get_config( iv_param ).
+  ENDMETHOD.
+
+
+  METHOD config_init.
+
+* ------ reset all
+    CLEAR ms_cust.
+
+
+* ------ general broker parameters (cust table ZTC_MQBACPD or default from broker interface
+    DATA(lv_now) = zcl_mqba_factory=>get_base_date( ).
+
+    SELECT * FROM ztc_mqbacpd
+      INTO CORRESPONDING FIELDS OF TABLE ms_cust-params
+     WHERE valid_from LE lv_now
+       AND valid_to   GE lv_now
+       AND activated  EQ abap_true.
+
+
+* ------ gateway inbound
+* blacklist
+    DATA(lr_gwibl) = zcl_mqba_factory=>create_topic_filter_config( 'ZTC_MQBAGIBL' ).
+    ms_cust-gwi_blacklist_cf = lr_gwibl->get_config_table( ).
+    ms_cust-gwi_blacklist_rg = lr_gwibl->get_range( )->get_range( ).
+* whitelist
+    DATA(lr_gwiwl) = zcl_mqba_factory=>create_topic_filter_config( 'ZTC_MQBAGIWL' ).
+    ms_cust-gwi_whitelist_cf = lr_gwiwl->get_config_table( ).
+    ms_cust-gwi_whitelist_rg = lr_gwiwl->get_range( )->get_range( ).
+
+
+* ------- finally set current time
+    ms_cust-loaded_at = zcl_mqba_factory=>get_now( ).
+
+  ENDMETHOD.
+
+
   METHOD constructor.
 
 * ---- initialize: helper, ...
@@ -127,106 +232,15 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
   ENDMETHOD.
 
 
-  method GET_PARAM_BOOL.
+  method DESTROY.
 
-*   build access name
-    data(lv_prefix)   = |ZIF_MQBA_BROKER=>C_PARAM_{ iv_param }|.
-    data(lv_name)     = lv_prefix && '_NAME'.
-    data(lv_default)  = lv_prefix && '_DEF'.
-
-*   assign field symbols
-    assign (lv_name) to field-symbol(<lfs_name>).
-    assign (lv_default) to field-symbol(<lfs_default>).
-
-*   assert
-    ASSERT ID zmqba_shm
-     SUBKEY 'get_param_string_failed'
-     FIELDS lv_name lv_default
-    CONDITION <lfs_name> IS ASSIGNED AND <lfs_default> IS ASSIGNED.
-
-
-*   get from parameter table
-"   TODO
-
-
-*   not found? set default
-    rv_param = <lfs_default>.
-
-*   log point
-    LOG-POINT ID zmqba_shm
-      SUBKEY 'get_param_string'
-      FIELDS lv_name     <lfs_name>
-             lv_default  <lfs_default>.
+* -------- cleanup and flush some data to database
+  message_destroy( ).
+  config_destroy( ).
+  statistic_destroy( ).
 
 
   endmethod.
-
-
-  METHOD get_param_int.
-*   build access name
-    DATA(lv_prefix)   = |ZIF_MQBA_BROKER=>C_PARAM_{ iv_param }|.
-    DATA(lv_name)     = lv_prefix && '_NAME'.
-    DATA(lv_default)  = lv_prefix && '_DEF'.
-
-*   assign field symbols
-    ASSIGN (lv_name) TO FIELD-SYMBOL(<lfs_name>).
-    ASSIGN (lv_default) TO FIELD-SYMBOL(<lfs_default>).
-
-*   assert
-    ASSERT ID zmqba_shm
-     SUBKEY 'get_param_string_failed'
-     FIELDS lv_name lv_default
-    CONDITION <lfs_name> IS ASSIGNED AND <lfs_default> IS ASSIGNED.
-
-
-*   get from parameter table
-    "   TODO
-
-
-*   not found? set default
-    rv_param = <lfs_default>.
-
-
-*   log point
-    LOG-POINT ID zmqba_shm
-      SUBKEY 'get_param_string'
-      FIELDS lv_name     <lfs_name>
-             lv_default  <lfs_default>.
-
-  ENDMETHOD.
-
-
-  METHOD get_param_string.
-*   build access name
-    DATA(lv_prefix)   = |ZIF_MQBA_BROKER=>C_PARAM_{ iv_param }|.
-    DATA(lv_name)     = lv_prefix && '_NAME'.
-    DATA(lv_default)  = lv_prefix && '_DEF'.
-
-*   assign field symbols
-    ASSIGN (lv_name) TO FIELD-SYMBOL(<lfs_name>).
-    ASSIGN (lv_default) TO FIELD-SYMBOL(<lfs_default>).
-
-*   assert
-    ASSERT ID zmqba_shm
-     SUBKEY 'get_param_string_failed'
-     FIELDS lv_name lv_default
-    CONDITION <lfs_name> IS ASSIGNED AND <lfs_default> IS ASSIGNED.
-
-
-*   get from parameter table
-    "   TODO
-
-
-*   not found? set default
-    rv_param = <lfs_default>.
-
-*   log point
-    LOG-POINT ID zmqba_shm
-      SUBKEY 'get_param_string'
-      FIELDS lv_name     <lfs_name>
-             lv_default  <lfs_default>.
-
-  ENDMETHOD.
 
 
   METHOD history_add.
@@ -236,7 +250,7 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
 
 * ----- check
     CHECK is_msg IS NOT INITIAL.
-    CHECK get_param_bool( 'HISTORY_ENABLED' ) EQ abap_true.
+    CHECK config_get_param_bool( 'HISTORY_ENABLED' ) EQ abap_true.
 
 * ----- append to history store
     MOVE-CORRESPONDING is_msg TO ls_msg.
@@ -312,15 +326,17 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
 * ================== init topic based filters
     TRY.
 
-* ------ gateway inbound
-* blacklist
-        DATA(lr_gwibl) = zcl_mqba_factory=>create_topic_filter_config( 'ZTC_MQBAGIBL' ).
-        ms_cust-gwi_blacklist_cf = lr_gwibl->get_config_table( ).
-        ms_cust-gwi_blacklist_rg = lr_gwibl->get_range( )->get_range( ).
-* whitelist
-        DATA(lr_gwiwl) = zcl_mqba_factory=>create_topic_filter_config( 'ZTC_MQBAGIWL' ).
-        ms_cust-gwi_whitelist_cf = lr_gwiwl->get_config_table( ).
-        ms_cust-gwi_whitelist_rg = lr_gwiwl->get_range( )->get_range( ).
+* ------ init statistic
+        statistic_init( ).
+
+
+* ------ init configuration
+        config_init( ).
+
+* ------ message store init
+        message_init( ).
+
+
 
 * ------ error handling
       CATCH cx_root
@@ -334,7 +350,15 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
   ENDMETHOD.
 
 
+  method MESSAGE_DESTROY.
+  endmethod.
+
+
   method MESSAGE_GET_CONFIG.
+  endmethod.
+
+
+  method MESSAGE_INIT.
   endmethod.
 
 
@@ -397,6 +421,15 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
     <lfs_msg>-msg_guid    = ir_msg->get_guid( ).
     <lfs_msg>-msg_scope   = ir_msg->get_scope( ).
 
+* fill expiration
+    DATA(lv_expiration)     = config_get_param_int( 'MESSAGE_EXPIRE' ).
+    IF ls_msg_cfg-expiration IS NOT INITIAL.
+      lv_expiration = ls_msg_cfg-expiration.
+    ENDIF.
+    IF lv_expiration GT 0.
+      <lfs_msg>-expire = <lfs_msg>-updated + lv_expiration.
+    ENDIF.
+
 * fill properties
     CLEAR <lfs_msg>-msg_props.
     LOOP AT ir_msg->get_properties( ) ASSIGNING FIELD-SYMBOL(<lfs_name>).
@@ -410,9 +443,88 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
     statistic_prepare( ).
     ADD 1 TO ms_stat-msg_processed.
 
+* -------- cleanup
+    cleanup( ).
+
+
 * -------- fill result
     rs_config = ls_cfg.
 
+  ENDMETHOD.
+
+
+  METHOD param_get_config.
+
+*  get the broker default first
+    DATA(lv_default) = param_get_default( iv_param ).
+    IF lv_default IS INITIAL.
+      lv_default = iv_default.
+    ENDIF.
+
+
+*  get from customizing table
+    DATA(lv_name) = param_get_name( iv_param ).
+    READ TABLE ms_cust-params INTO DATA(ls_config)
+     WITH KEY param_name = lv_name.
+    IF sy-subrc EQ 0.
+      rv_param = ls_config-param_value.
+    ELSE.
+      rv_param = lv_default.
+    ENDIF.
+
+
+*   log point
+    LOG-POINT ID zmqba_shm
+      SUBKEY 'param_get_config'
+      FIELDS lv_name
+             lv_default
+             rv_param.
+
+  ENDMETHOD.
+
+
+  METHOD param_get_default.
+
+*   get parameter name
+    DATA(lv_name) = param_get_name( iv_param ).
+
+*   build access name
+    DATA(lv_prefix)   = |{ c_broker_intf }=>C_PARAM_{ iv_param }|.
+    DATA(lv_default)  = lv_prefix && '_DEF'.
+
+*   assign field symbols
+    ASSIGN (lv_default) TO FIELD-SYMBOL(<lfs_default>).
+
+*   assert
+    ASSERT ID zmqba_shm
+     SUBKEY 'get_param_default_failed'
+     FIELDS lv_name lv_default
+    CONDITION lv_name IS NOT INITIAL AND <lfs_default> IS ASSIGNED.
+
+*   not found? set default
+    rv_param = <lfs_default>.
+
+  ENDMETHOD.
+
+
+  METHOD param_get_name.
+
+*   build access name
+    DATA(lv_prefix)   = |{ c_broker_intf }=>C_PARAM_{ iv_param }|.
+    DATA(lv_name)     = lv_prefix && '_NAME'.
+
+*   assign field symbols
+    ASSIGN (lv_name) TO FIELD-SYMBOL(<lfs_name>).
+
+*   assert
+    ASSERT ID zmqba_shm
+     SUBKEY 'get_param_name_failed'
+     FIELDS lv_name
+    CONDITION <lfs_name> IS ASSIGNED.
+
+
+*   not found? set default
+    rv_name = <lfs_name>.
   ENDMETHOD.
 
 
@@ -484,8 +596,21 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
   ENDMETHOD.
 
 
+  method STATISTIC_DESTROY.
+
+" do nothing at the moment, but later the data could be saved to database?
+
+
+  endmethod.
+
+
   METHOD statistic_get.
     rs_statistic = ms_stat.
+  ENDMETHOD.
+
+
+  METHOD statistic_init.
+    CLEAR ms_stat.
   ENDMETHOD.
 
 
@@ -503,6 +628,7 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
 
 
   METHOD statistic_reset.
-    CLEAR ms_stat.
+    statistic_destroy( ).
+    statistic_init( ).
   ENDMETHOD.
 ENDCLASS.

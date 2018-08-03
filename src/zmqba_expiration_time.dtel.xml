@@ -3,22 +3,21 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>ZMQBA_PARAM_NAME</ROLLNAME>
+    <ROLLNAME>ZMQBA_EXPIRATION_TIME</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DOMNAME>ZMQBA_PARAM_NAME</DOMNAME>
     <HEADLEN>55</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>MQBA: Parameter Name</DDTEXT>
-    <REPTEXT>Parameter Name</REPTEXT>
-    <SCRTEXT_S>Par. Name</SCRTEXT_S>
-    <SCRTEXT_M>Par, Name</SCRTEXT_M>
-    <SCRTEXT_L>Parameter Name</SCRTEXT_L>
+    <DDTEXT>MQBA: expiration time in seconds</DDTEXT>
+    <REPTEXT>expiration time (s)</REPTEXT>
+    <SCRTEXT_S>exp. time</SCRTEXT_S>
+    <SCRTEXT_M>exp. time (s)</SCRTEXT_M>
+    <SCRTEXT_L>expiration time (s)</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
-    <SHLPNAME>ZMQBA_SHLP_PARAM_NAME</SHLPNAME>
-    <SHLPFIELD>PARAMETERNAME</SHLPFIELD>
-    <REFKIND>D</REFKIND>
+    <DATATYPE>INT4</DATATYPE>
+    <LENG>000010</LENG>
+    <OUTPUTLEN>000011</OUTPUTLEN>
    </DD04V>
   </asx:values>
  </asx:abap>

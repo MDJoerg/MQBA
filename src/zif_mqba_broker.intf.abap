@@ -21,7 +21,7 @@ interface ZIF_MQBA_BROKER
   constants C_SCOPE_UNKNOWN type ZMQBA_MSG_SCOPE value ' ' ##NO_TEXT.
   constants C_CHAR_NEWLINE type ABAP_CHAR1 value %_NEWLINE ##NO_TEXT.
   constants C_PARAM_HISTORY_ENABLED_NAME type STRING value 'broker.history.enabled' ##NO_TEXT.
-  constants C_PARAM_HISTORY_ENABLED_DEF type ABAP_BOOL value ABAP_TRUE ##NO_TEXT.
+  constants C_PARAM_HISTORY_ENABLED_DEF type ABAP_BOOL value ABAP_FALSE ##NO_TEXT.
   constants C_PARAM_HISTORY_MAX_NAME type STRING value 'broker.history.max' ##NO_TEXT.
   constants C_PARAM_HISTORY_MAX_DEF type I value 5 ##NO_TEXT.
   constants C_PARAM_HISTORY_QUEUE_NAME type STRING value 'broker.history.queue' ##NO_TEXT.
@@ -30,6 +30,10 @@ interface ZIF_MQBA_BROKER
   constants C_PARAM_HISTORY_BPRMOD_DEF type STRING value 'Z_MQBA_MBL_BPR_SAVE_HISTORY' ##NO_TEXT.
   constants C_PARAM_HISTORY_RFCDEST_NAME type STRING value 'broker.history.destination' ##NO_TEXT.
   constants C_PARAM_HISTORY_RFCDEST_DEF type STRING value 'NONE' ##NO_TEXT.
+  constants C_PARAM_MESSAGE_EXPIRE_NAME type STRING value 'broker.message.expiration' ##NO_TEXT.
+  constants C_PARAM_MESSAGE_EXPIRE_DEF type STRING value 300 ##NO_TEXT.
+  constants C_PARAM_CLEANUP_INTERVAL_NAME type STRING value 'broker.message.cleanup' ##NO_TEXT.
+  constants C_PARAM_CLEANUP_INTERVAL_DEF type STRING value 300 ##NO_TEXT.
 
   methods GET_EXCEPTION
     returning
