@@ -34,6 +34,12 @@ interface ZIF_MQBA_BROKER
   constants C_PARAM_MESSAGE_EXPIRE_DEF type STRING value 300 ##NO_TEXT.
   constants C_PARAM_CLEANUP_INTERVAL_NAME type STRING value 'broker.message.cleanup' ##NO_TEXT.
   constants C_PARAM_CLEANUP_INTERVAL_DEF type STRING value 300 ##NO_TEXT.
+  constants C_PARAM_SUBSCRIBE_QUEUE_NAME type STRING value 'broker.subscriber.queue' ##NO_TEXT.
+  constants C_PARAM_SUBSCRIBE_QUEUE_DEF type STRING value 'ZMQBA-SUB' ##NO_TEXT.
+  constants C_PARAM_SUBSCRIBE_RFCDEST_NAME type STRING value 'broker.history.destination' ##NO_TEXT.
+  constants C_PARAM_SUBSCRIBE_RFCDEST_DEF type STRING value 'NONE' ##NO_TEXT.
+  constants C_PARAM_SUBSCRIBE_BPRMOD_NAME type STRING value 'broker.history.module' ##NO_TEXT.
+  constants C_PARAM_SUBSCRIBE_BPRMOD_DEF type STRING value 'Z_MQBA_MBL_BPR_CALL_SUBSCRIBER' ##NO_TEXT.
 
   methods GET_EXCEPTION
     returning

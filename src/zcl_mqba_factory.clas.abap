@@ -9,6 +9,9 @@ public section.
       !IV_BASE_TAB type TABNAME
     returning
       value(RR_INSTANCE) type ref to ZIF_MQBA_CFG_TOPIC_FILTER .
+  class-methods CREATE_UTIL_QRFC
+    returning
+      value(RR_UTIL) type ref to ZIF_MQBA_UTIL_QRFC .
   class-methods CREATE_UTIL_SELPAR
     returning
       value(RR_UTIL) type ref to ZIF_MQBA_UTIL_SELPAR .
@@ -80,6 +83,11 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
 
   METHOD create_topic_filter_config.
     rr_instance = NEW zcl_mqba_cfg_topic_filter( iv_base_tab ).
+  ENDMETHOD.
+
+
+  METHOD create_util_qrfc.
+    rr_util = zcl_mqba_util_qrfc=>create( ).
   ENDMETHOD.
 
 

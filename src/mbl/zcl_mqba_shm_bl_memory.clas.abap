@@ -496,9 +496,9 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
 * store to output
     MOVE-CORRESPONDING <lfs_msg> TO ls_cfg-msg_data.
 
-* -------- check subscribers
+* -------- add other information
     ls_cfg-subscribers = subscriber_get( lv_topic ).
-
+    ls_cfg-brk_cfg     = ms_cust-params.
 
 * -------- statistics
     statistic_prepare( ).

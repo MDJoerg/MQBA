@@ -40,6 +40,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_BROKER</CLSNAME>
+     <CMPNAME>GET_MEMORY_PARAM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the broker configuration from last message put</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_BROKER</CLSNAME>
      <CMPNAME>M_EXCEPTION</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Abstract Superclass for All Global Exceptions</DESCRIPT>

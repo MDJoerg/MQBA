@@ -14,16 +14,8 @@
      <SHORT_TEXT>MQBA: Call Subscriber in background</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
-       <PARAMETER>IS_MSG</PARAMETER>
-       <TYP>ZMQBA_MSG_S_MAIN</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>IS_CFG_MSG</PARAMETER>
-       <TYP>ZMQBA_SHM_S_CFG_MSG</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>IS_CFG_SUB</PARAMETER>
-       <TYP>ZMQBA_SHM_S_CFG_SUB</TYP>
+       <PARAMETER>IS_CONTEXT</PARAMETER>
+       <TYP>ZMQBA_API_S_BPR_SUB_CALL</TYP>
       </RSIMP>
      </IMPORT>
      <EXCEPTION>
@@ -33,27 +25,15 @@
      </EXCEPTION>
      <DOCUMENTATION>
       <RSFDO>
-       <PARAMETER>IS_MSG</PARAMETER>
+       <PARAMETER>IS_CONTEXT</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>MQBA: main fields of a handled message</STEXT>
+       <STEXT>MQBA: forward message to Subscriber</STEXT>
        <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>IS_CFG_MSG</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>MQBA: topic specific message configuration</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>IS_CFG_SUB</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>MQBA: topic specific message configuration</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ERRORS_OCCURED</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 004</INDEX>
+       <INDEX> 002</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

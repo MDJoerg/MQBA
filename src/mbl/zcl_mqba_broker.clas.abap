@@ -20,6 +20,12 @@ protected section.
       !IR_MSG type ref to ZIF_MQBA_REQUEST
     returning
       value(RV_SUCCESS) type ABAP_BOOL .
+  methods GET_MEMORY_PARAM
+    importing
+      !IV_NAME type DATA
+      !IV_DEF type DATA
+    returning
+      value(RV_VALUE) type STRING .
   methods CREATE_EXCEPTION
     importing
       !IV_TEXT type DATA .
@@ -140,61 +146,118 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
   METHOD distribute_subscribers.
 
 * ------- local data
-    DATA: lv_error TYPE abap_bool.
-    DATA: lv_qname TYPE trfcqnam.
-
-    DATA: ls_msg      TYPE  zmqba_msg_s_main.
-    DATA: ls_cfg_msg  TYPE  zmqba_shm_s_cfg_msg.
-    DATA: ls_cfg_sub  TYPE  zmqba_shm_s_cfg_sub.
+    DATA: lv_error    TYPE abap_bool.
+    DATA: lv_qprefix  TYPE trfcqnam.
+    DATA: lv_qname    TYPE trfcqnam.
+    DATA: lv_module   TYPE rs38l_fnam.
+    DATA: lv_defrfc   TYPE rfcdest.
+    DATA: lv_rfc      TYPE rfcdest.
+    DATA: ls_context  TYPE zmqba_api_s_bpr_sub_call.
+    DATA: lv_inbound  TYPE abap_bool.
 
 * ------- check
     rv_success = abap_true.
     CHECK m_shm_config IS NOT INITIAL
       AND m_shm_config-subscribers[] IS NOT INITIAL.
 
-* ------- prepare loop
-    lv_qname = 'ZMQBA-SUB'.
+
+* ------ prepare qrfc
+    DATA(lr_qrfc) = zcl_mqba_factory=>create_util_qrfc( ).
+
+    lv_qprefix = get_memory_param( iv_name = zif_mqba_broker=>c_param_subscribe_queue_name
+                                   iv_def  = zif_mqba_broker=>c_param_subscribe_queue_def ).
+    lv_defrfc  = get_memory_param( iv_name = zif_mqba_broker=>c_param_subscribe_rfcdest_name
+                                   iv_def  = zif_mqba_broker=>c_param_subscribe_rfcdest_def ).
+
+    lv_module  = get_memory_param( iv_name = zif_mqba_broker=>c_param_subscribe_bprmod_name
+                                   iv_def  = zif_mqba_broker=>c_param_subscribe_bprmod_def ).
+    IF lv_defrfc IS INITIAL.
+      lv_defrfc = 'NONE'.
+    ENDIF.
 
 
+
+* ------- prepare data
+    CLEAR ls_context.
+    MOVE-CORRESPONDING m_shm_config-msg_data   TO ls_context-msg.
+    MOVE-CORRESPONDING m_shm_config-msg_config TO ls_context-msg_cfg.
+
+
+* ------- log point
+    DESCRIBE TABLE m_shm_config-subscribers LINES DATA(lv_sub_cnt).
+    LOG-POINT ID zmqba_int
+       SUBKEY 'distribute_subscribers'
+       FIELDS ls_context-msg-topic
+              lv_sub_cnt
+              lv_qprefix
+              lv_defrfc
+              lv_module.
 
 
 * ------- loop all subscribers and process
     LOOP AT m_shm_config-subscribers INTO DATA(ls_sub_scfg).
 
 * prepare data
-      MOVE-CORRESPONDING m_shm_config-msg_data   TO ls_msg.
-      MOVE-CORRESPONDING m_shm_config-msg_config TO ls_cfg_msg.
-      MOVE-CORRESPONDING ls_sub_scfg             TO ls_cfg_sub.
+      MOVE-CORRESPONDING ls_sub_scfg             TO ls_context-sub_cfg.
 
-* open luw
-      SET UPDATE TASK LOCAL.
-
-* set qname
-      CALL FUNCTION 'TRFC_SET_QIN_PROPERTIES'
-        EXPORTING
-*         QOUT_NAME          = ' '
-          qin_name           = lv_qname
-*         QIN_COUNT          =
-*         CALL_EVENT         = ' '
-*         NO_EXECUTE         = ' '
-        EXCEPTIONS
-          invalid_queue_name = 1
-          OTHERS             = 2.
-      IF sy-subrc <> 0.
-        lv_error = abap_true.
+* prepare api call: destination and queue
+      IF ls_sub_scfg-sub_dest IS NOT INITIAL.
+        lv_rfc = lr_qrfc->get_rfc_dest_from_logsys( ls_sub_scfg-sub_dest  ).
+      ELSE.
+        lv_rfc = lv_defrfc.
       ENDIF.
 
+      IF ls_sub_scfg-sub_qname IS NOT INITIAL.
+        lv_qname = lv_qprefix && '-' && ls_sub_scfg-sub_qname.
+      ELSE.
+        lv_qname = lv_qprefix.
+      ENDIF.
+
+      IF lv_rfc IS INITIAL OR lv_rfc EQ 'NONE'.
+        lv_inbound = abap_true.
+      ELSE.
+        lv_inbound = abap_false.
+      ENDIF.
+
+
+* log point
+      LOG-POINT ID zmqba_int
+         SUBKEY 'forward_to_subscriber'
+         FIELDS ls_context-msg-topic
+                ls_context-sub_cfg-sub_action
+                ls_context-sub_cfg-sub_module
+                lv_rfc
+                lv_qname
+                lv_inbound.
+
+* open luw
+      lr_qrfc->transaction_begin( ).
+
+* set qname
+      IF lr_qrfc->set_queue( iv_inbound = lv_inbound
+                               iv_queue = lv_qname ) EQ abap_false.
+
+        lv_error = abap_true.
+        ASSERT ID zmqba_int
+           SUBKEY 'forward_subscriber_set_queue'
+           FIELDS ls_context-msg-topic
+                  ls_context-sub_cfg-sub_action
+                  ls_context-sub_cfg-sub_module
+                  lv_rfc
+                  lv_qname
+        CONDITION lv_error EQ abap_false.
+      ENDIF.
+
+
 * call background processing
-      CALL FUNCTION 'Z_MQBA_MBL_BPR_CALL_SUBSCRIBER'
+      CALL FUNCTION lv_module
         IN BACKGROUND TASK AS SEPARATE UNIT
-        DESTINATION 'NONE'
+        DESTINATION lv_rfc
         EXPORTING
-          is_msg     = ls_msg
-          is_cfg_msg = ls_cfg_msg
-          is_cfg_sub = ls_cfg_sub.
+          is_context = ls_context.
 
 * finish
-      COMMIT WORK.
+      lr_qrfc->transaction_end( ).
 
     ENDLOOP.
 
@@ -204,6 +267,19 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
     rv_success = COND #( WHEN lv_error EQ abap_true
                          THEN abap_false
                          ELSE abap_true ).
+
+  ENDMETHOD.
+
+
+  METHOD get_memory_param.
+
+    READ TABLE m_shm_config-brk_cfg INTO DATA(ls_cfgqp)
+      WITH KEY param_name = iv_name.
+    IF sy-subrc EQ 0 AND ls_cfgqp-param_value IS NOT INITIAL.
+      rv_value = ls_cfgqp-param_value.
+    ELSE.
+      rv_value = iv_def.
+    ENDIF.
 
   ENDMETHOD.
 

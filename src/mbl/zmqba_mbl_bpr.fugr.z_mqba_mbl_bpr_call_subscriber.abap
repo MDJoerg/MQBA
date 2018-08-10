@@ -2,9 +2,7 @@ FUNCTION z_mqba_mbl_bpr_call_subscriber.
 *"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
-*"     VALUE(IS_MSG) TYPE  ZMQBA_MSG_S_MAIN
-*"     VALUE(IS_CFG_MSG) TYPE  ZMQBA_SHM_S_CFG_MSG
-*"     VALUE(IS_CFG_SUB) TYPE  ZMQBA_SHM_S_CFG_SUB
+*"     VALUE(IS_CONTEXT) TYPE  ZMQBA_API_S_BPR_SUB_CALL
 *"  EXCEPTIONS
 *"      ERRORS_OCCURED
 *"----------------------------------------------------------------------
