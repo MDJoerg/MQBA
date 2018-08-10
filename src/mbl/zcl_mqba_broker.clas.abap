@@ -8,9 +8,14 @@ public section.
 protected section.
 
   data M_EXCEPTION type ref to CX_ROOT .
-  data M_SHM_CONFIG type ZMQBA_SHM_S_CFG .
+  data M_SHM_CONFIG type ZMQBA_SHM_S_PMG_OUT .
 
   methods DISTRIBUTE_EXTERNAL
+    importing
+      !IR_MSG type ref to ZIF_MQBA_REQUEST
+    returning
+      value(RV_SUCCESS) type ABAP_BOOL .
+  methods DISTRIBUTE_SUBSCRIBERS
     importing
       !IR_MSG type ref to ZIF_MQBA_REQUEST
     returning
@@ -128,6 +133,77 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 * ------ at the moment only distribution to apc channel exists...
 * TODO: routing, differend gateway methods and private messaging are planned
     rv_success = send_gateway_message( ir_msg ).
+
+  ENDMETHOD.
+
+
+  METHOD distribute_subscribers.
+
+* ------- local data
+    DATA: lv_error TYPE abap_bool.
+    DATA: lv_qname TYPE trfcqnam.
+
+    DATA: ls_msg      TYPE  zmqba_msg_s_main.
+    DATA: ls_cfg_msg  TYPE  zmqba_shm_s_cfg_msg.
+    DATA: ls_cfg_sub  TYPE  zmqba_shm_s_cfg_sub.
+
+* ------- check
+    rv_success = abap_true.
+    CHECK m_shm_config IS NOT INITIAL
+      AND m_shm_config-subscribers[] IS NOT INITIAL.
+
+* ------- prepare loop
+    lv_qname = 'ZMQBA-SUB'.
+
+
+
+
+* ------- loop all subscribers and process
+    LOOP AT m_shm_config-subscribers INTO DATA(ls_sub_scfg).
+
+* prepare data
+      MOVE-CORRESPONDING m_shm_config-msg_data   TO ls_msg.
+      MOVE-CORRESPONDING m_shm_config-msg_config TO ls_cfg_msg.
+      MOVE-CORRESPONDING ls_sub_scfg             TO ls_cfg_sub.
+
+* open luw
+      SET UPDATE TASK LOCAL.
+
+* set qname
+      CALL FUNCTION 'TRFC_SET_QIN_PROPERTIES'
+        EXPORTING
+*         QOUT_NAME          = ' '
+          qin_name           = lv_qname
+*         QIN_COUNT          =
+*         CALL_EVENT         = ' '
+*         NO_EXECUTE         = ' '
+        EXCEPTIONS
+          invalid_queue_name = 1
+          OTHERS             = 2.
+      IF sy-subrc <> 0.
+        lv_error = abap_true.
+      ENDIF.
+
+* call background processing
+      CALL FUNCTION 'Z_MQBA_MBL_BPR_CALL_SUBSCRIBER'
+        IN BACKGROUND TASK AS SEPARATE UNIT
+        DESTINATION 'NONE'
+        EXPORTING
+          is_msg     = ls_msg
+          is_cfg_msg = ls_cfg_msg
+          is_cfg_sub = ls_cfg_sub.
+
+* finish
+      COMMIT WORK.
+
+    ENDLOOP.
+
+
+
+* final result
+    rv_success = COND #( WHEN lv_error EQ abap_true
+                         THEN abap_false
+                         ELSE abap_true ).
 
   ENDMETHOD.
 
@@ -345,6 +421,8 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 * ------ call amc channel
     CHECK send_pcp_message( ir_msg ) EQ abap_true.
 
+* ----- trigger subscribers
+    CHECK distribute_subscribers( ir_msg ) EQ abap_true.
 
 * ------ result
     rv_success = abap_true.
@@ -468,8 +546,8 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
     CHECK distribute_external( ir_msg ) EQ abap_true.
 
 
-* ----- start internal distribution
-
+* ----- trigger subscribers
+    CHECK distribute_subscribers( ir_msg ) EQ abap_true.
 
 
 * ----- finally success

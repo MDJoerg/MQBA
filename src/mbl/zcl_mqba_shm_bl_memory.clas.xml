@@ -190,6 +190,18 @@
      <LANGU>E</LANGU>
      <DESCRIPT>reset statistic</DESCRIPT>
     </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_SHM_BL_MEMORY</CLSNAME>
+     <CMPNAME>SUBSCRIBER_GET</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get all subscribers for topic</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_SHM_BL_MEMORY</CLSNAME>
+     <CMPNAME>SUBSCRIBER_INIT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>initialize subscriber configuration</DESCRIPT>
+    </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>
  </asx:abap>

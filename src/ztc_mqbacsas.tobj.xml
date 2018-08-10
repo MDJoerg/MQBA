@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TOBJ" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <OBJH>
+    <OBJECTNAME>ZTC_MQBACSA</OBJECTNAME>
+    <OBJECTTYPE>S</OBJECTTYPE>
+    <CLIDEP>X</CLIDEP>
+    <OBJCATEG>CUST</OBJCATEG>
+    <OBJTRANSP>2</OBJTRANSP>
+    <IMPORTABLE>3</IMPORTABLE>
+   </OBJH>
+   <OBJT>
+    <LANGUAGE>E</LANGUAGE>
+    <OBJECTNAME>ZTC_MQBACSA</OBJECTNAME>
+    <OBJECTTYPE>S</OBJECTTYPE>
+    <DDTEXT>MQBA: subscriber configuration</DDTEXT>
+   </OBJT>
+   <OBJS>
+    <OBJS>
+     <OBJECTNAME>ZTC_MQBACSA</OBJECTNAME>
+     <OBJECTTYPE>S</OBJECTTYPE>
+     <TABNAME>ZTC_MQBACSA</TABNAME>
+     <DDIC>X</DDIC>
+     <PRIM_TABLE>X</PRIM_TABLE>
+    </OBJS>
+   </OBJS>
+   <TOBJ>
+    <TDDAT>
+     <TABNAME>ZTC_MQBACSA</TABNAME>
+     <CCLASS>&amp;NC&amp;</CCLASS>
+    </TDDAT>
+    <TVDIR>
+     <TABNAME>ZTC_MQBACSA</TABNAME>
+     <AREA>ZMQBA_TAB</AREA>
+     <DEVCLASS>ZMQBA</DEVCLASS>
+     <TYPE>2</TYPE>
+     <LISTE>2040</LISTE>
+     <DETAIL>2041</DETAIL>
+     <BASTAB>X</BASTAB>
+    </TVDIR>
+   </TOBJ>
+  </asx:values>
+ </asx:abap>
+</abapGit>

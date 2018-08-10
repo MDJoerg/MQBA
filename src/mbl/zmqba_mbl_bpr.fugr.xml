@@ -9,6 +9,55 @@
    </INCLUDES>
    <FUNCTIONS>
     <item>
+     <FUNCNAME>Z_MQBA_MBL_BPR_CALL_SUBSCRIBER</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>MQBA: Call Subscriber in background</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IS_MSG</PARAMETER>
+       <TYP>ZMQBA_MSG_S_MAIN</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_CFG_MSG</PARAMETER>
+       <TYP>ZMQBA_SHM_S_CFG_MSG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IS_CFG_SUB</PARAMETER>
+       <TYP>ZMQBA_SHM_S_CFG_SUB</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>ERRORS_OCCURED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IS_MSG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: main fields of a handled message</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_CFG_MSG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: topic specific message configuration</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IS_CFG_SUB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: topic specific message configuration</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ERRORS_OCCURED</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
      <FUNCNAME>Z_MQBA_MBL_BPR_SAVE_HISTORY</FUNCNAME>
      <REMOTE_CALL>R</REMOTE_CALL>
      <SHORT_TEXT>MQBA: Save History forwarded from Broker</SHORT_TEXT>

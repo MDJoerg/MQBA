@@ -15,7 +15,7 @@ public section.
     importing
       !IR_MSG type ref to ZIF_MQBA_REQUEST
     returning
-      value(RS_CONFIG) type ZMQBA_SHM_S_CFG .
+      value(RS_CONFIG) type ZMQBA_SHM_S_PMG_OUT .
   methods READ_MSG_MEMORY
     importing
       !IS_PARAMS type ZMQBA_API_S_BRK_MSG_IN
@@ -35,12 +35,18 @@ protected section.
   data MS_CUST type ZMQBA_SHM_S_CUS .
   constants C_BROKER_INTF type STRING value 'ZIF_MQBA_BROKER' ##NO_TEXT.
 
+  methods SUBSCRIBER_INIT .
+  methods CLEANUP .
+  methods CONFIG_DESTROY .
+  methods SUBSCRIBER_GET
+    importing
+      !IV_TOPIC type DATA
+    returning
+      value(RT_SUBSCRIBERS) type ZMQBA_SHM_T_CFG_SUB .
   methods STATISTIC_INIT .
   methods STATISTIC_DESTROY .
-  methods MESSAGE_INIT .
   methods MESSAGE_DESTROY .
-  methods CONFIG_DESTROY .
-  methods CLEANUP .
+  methods MESSAGE_INIT .
   methods CONFIG_GET_PARAM_BOOL
     importing
       !IV_PARAM type DATA
@@ -56,22 +62,22 @@ protected section.
       !IV_PARAM type DATA
     returning
       value(RV_PARAM) type STRING .
+  methods PARAM_GET_NAME
+    importing
+      !IV_PARAM type DATA
+    returning
+      value(RV_NAME) type STRING .
+  methods PARAM_GET_DEFAULT
+    importing
+      !IV_PARAM type DATA
+    returning
+      value(RV_PARAM) type STRING .
   methods PARAM_GET_CONFIG
     importing
       !IV_PARAM type DATA
       !IV_DEFAULT type DATA optional
     returning
       value(RV_PARAM) type STRING .
-  methods PARAM_GET_DEFAULT
-    importing
-      !IV_PARAM type DATA
-    returning
-      value(RV_PARAM) type STRING .
-  methods PARAM_GET_NAME
-    importing
-      !IV_PARAM type DATA
-    returning
-      value(RV_NAME) type STRING .
   methods CONFIG_INIT .
   methods HISTORY_ADD
     importing
@@ -336,6 +342,8 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
 * ------ message store init
         message_init( ).
 
+* ------ subscriber init
+        subscriber_init( ).
 
 
 * ------ error handling
@@ -354,12 +362,59 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
   endmethod.
 
 
-  method MESSAGE_GET_CONFIG.
-  endmethod.
+  METHOD message_get_config.
+
+* ----- check cache for existing topic
+    READ TABLE ms_cust-msg_cache INTO DATA(ls_cfg)
+      WITH KEY topic = iv_topic.
+
+* ----- not existing: check and add to cache
+    IF sy-subrc NE 0.
+      LOOP AT ms_cust-msg_config INTO DATA(ls_cust).
+        IF iv_topic CP ls_cust-topic.
+          MOVE-CORRESPONDING ls_cust TO ls_cfg.
+          ls_cfg-topic = iv_topic.
+          EXIT.
+        ENDIF.
+      ENDLOOP.
+
+      APPEND ls_cfg TO ms_cust-msg_cache.
+
+    ENDIF.
+
+* ------ finally fill output
+    MOVE-CORRESPONDING ls_cfg TO rs_config.
+
+  ENDMETHOD.
 
 
-  method MESSAGE_INIT.
-  endmethod.
+  METHOD message_init.
+
+* -------- local data
+    DATA: ls_cfg LIKE LINE OF ms_cust-msg_config.
+
+* -------- init prepare
+    DATA(lv_date) = zcl_mqba_factory=>get_base_date( ).
+    CLEAR: ms_cust-sub_config.
+
+
+* -------- select all table data
+    SELECT * FROM ztc_mqbacmp
+      INTO TABLE @DATA(lt_db)
+     WHERE activated  EQ @abap_true
+       AND valid_from LE @lv_date
+       AND valid_to   GE @lv_date
+     ORDER BY sort_order.
+
+    CHECK lt_db[] IS NOT INITIAL.
+
+* -------- loop all entries and build internal structure
+    LOOP AT lt_db INTO DATA(ls_db).
+      MOVE-CORRESPONDING ls_db TO ls_cfg.
+      APPEND ls_cfg TO ms_cust-msg_config.
+    ENDLOOP.
+
+  ENDMETHOD.
 
 
   METHOD message_put.
@@ -376,8 +431,9 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
 
 
 * ---- get message config
-    ls_cfg-valid_for_dist = abap_true.
     DATA(ls_msg_cfg) = message_get_config( lv_topic ).
+    ls_cfg-valid_for_dist = abap_true.
+    ls_cfg-msg_config = ls_msg_cfg.
 
 
 * ---- check existing
@@ -437,6 +493,11 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
       <lfs_line>-name = <lfs_name>.
       <lfs_line>-value = ir_msg->get_property( <lfs_name> ).
     ENDLOOP.
+* store to output
+    MOVE-CORRESPONDING <lfs_msg> TO ls_cfg-msg_data.
+
+* -------- check subscribers
+    ls_cfg-subscribers = subscriber_get( lv_topic ).
 
 
 * -------- statistics
@@ -630,5 +691,50 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
   METHOD statistic_reset.
     statistic_destroy( ).
     statistic_init( ).
+  ENDMETHOD.
+
+
+  METHOD subscriber_get.
+
+* ----- init check
+    CHECK ms_cust-sub_config[] IS NOT INITIAL.
+
+* ----- loop
+    LOOP AT ms_cust-sub_config INTO DATA(ls_cfg).
+      IF iv_topic CP ls_cfg-topic.
+        APPEND INITIAL LINE TO rt_subscribers ASSIGNING FIELD-SYMBOL(<lfs_line>).
+        MOVE-CORRESPONDING ls_cfg TO <lfs_line>.
+      ENDIF.
+    ENDLOOP.
+
+  ENDMETHOD.
+
+
+  METHOD subscriber_init.
+
+* -------- local data
+    DATA: ls_cfg LIKE LINE OF ms_cust-sub_config.
+
+* -------- init prepare
+    DATA(lv_date) = zcl_mqba_factory=>get_base_date( ).
+    CLEAR: ms_cust-sub_config.
+
+
+* -------- select all table data
+    SELECT * FROM ztc_mqbacsa
+      INTO TABLE @DATA(lt_db)
+     WHERE activated  EQ @abap_true
+       AND valid_from LE @lv_date
+       AND valid_to   GE @lv_date
+     ORDER BY sort_order.
+
+    CHECK lt_db[] IS NOT INITIAL.
+
+* -------- loop all entries and build internal structure
+    LOOP AT lt_db INTO DATA(ls_db).
+      MOVE-CORRESPONDING ls_db TO ls_cfg.
+      APPEND ls_cfg TO ms_cust-sub_config.
+    ENDLOOP.
+
   ENDMETHOD.
 ENDCLASS.
