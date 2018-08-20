@@ -22,6 +22,15 @@
       <RSEXC>
        <EXCEPTION>ERRORS_OCCURED</EXCEPTION>
       </RSEXC>
+      <RSEXC>
+       <EXCEPTION>WRONG_CONFIG</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>UNKNOWN_RESULT</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>MESSAGE_TYPE_X</EXCEPTION>
+      </RSEXC>
      </EXCEPTION>
      <DOCUMENTATION>
       <RSFDO>
@@ -34,6 +43,21 @@
        <PARAMETER>ERRORS_OCCURED</PARAMETER>
        <KIND>X</KIND>
        <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WRONG_CONFIG</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>UNKNOWN_RESULT</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MESSAGE_TYPE_X</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

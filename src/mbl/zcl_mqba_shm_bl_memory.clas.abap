@@ -498,6 +498,7 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
 
 * -------- add other information
     ls_cfg-subscribers = subscriber_get( lv_topic ).
+    ls_cfg-sub_actions = ms_cust-sub_action.
     ls_cfg-brk_cfg     = ms_cust-params.
 
 * -------- statistics
@@ -719,8 +720,17 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
     DATA(lv_date) = zcl_mqba_factory=>get_base_date( ).
     CLEAR: ms_cust-sub_config.
 
+* -------- select all subscriber actions
+    SELECT * FROM ztc_mqbacsm
+      INTO TABLE @DATA(lt_sad).
+    LOOP AT lt_sad INTO DATA(ls_sad).
+      APPEND INITIAL LINE TO ms_cust-sub_action ASSIGNING FIELD-SYMBOL(<lfs_sad>).
+      MOVE-CORRESPONDING ls_sad TO <lfs_sad>.
+    ENDLOOP.
 
-* -------- select all table data
+
+
+* -------- select all topic based subscriptions
     SELECT * FROM ztc_mqbacsa
       INTO TABLE @DATA(lt_db)
      WHERE activated  EQ @abap_true

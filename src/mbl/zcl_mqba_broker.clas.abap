@@ -200,6 +200,23 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 * prepare data
       MOVE-CORRESPONDING ls_sub_scfg             TO ls_context-sub_cfg.
 
+
+* read subscriber action config
+      IF ls_sub_scfg-sub_action IS NOT INITIAL.
+
+        READ TABLE m_shm_config-sub_actions INTO DATA(ls_sad)
+          WITH KEY sub_action = ls_sub_scfg-sub_action.
+
+        ASSERT ID zmqba_int
+           SUBKEY 'subscriber_action_not_defined'
+           FIELDS ls_sub_scfg-sub_action
+        CONDITION sy-subrc EQ 0 AND ls_sad IS NOT INITIAL.
+
+        MOVE-CORRESPONDING ls_sad TO ls_context-sub_act_cfg.
+
+      ENDIF.
+
+
 * prepare api call: destination and queue
       IF ls_sub_scfg-sub_dest IS NOT INITIAL.
         lv_rfc = lr_qrfc->get_rfc_dest_from_logsys( ls_sub_scfg-sub_dest  ).
