@@ -20,7 +20,17 @@ FUNCTION z_mqba_mbl_bpr_call_subscriber.
   IF lv_class IS INITIAL.
     lv_class = is_context-sub_act_cfg-sub_module.
   ENDIF.
+
   IF lv_class IS INITIAL.
+
+    ASSERT ID zmqba_qrfc
+       SUBKEY 'call_subscriber_wrong_class'
+       FIELDS is_context-msg-topic
+              lv_class
+              is_context-sub_cfg-sub_module
+              is_context-sub_act_cfg-sub_module
+      condition 1 = 2.
+
     RAISE wrong_config.
   ENDIF.
 
@@ -31,6 +41,14 @@ FUNCTION z_mqba_mbl_bpr_call_subscriber.
 * ----- create class and process
   CREATE OBJECT lr_subscriber TYPE (lv_class).
   DATA(lv_result) = lr_subscriber->process( is_context ).
+
+
+* ----- log point
+  LOG-POINT ID zmqba_qrfc
+     SUBKEY 'call_subscriber_result'
+     FIELDS is_context-msg-topic
+            lv_class
+            lv_result.
 
 
 * ----- process result
@@ -54,7 +72,6 @@ FUNCTION z_mqba_mbl_bpr_call_subscriber.
     WHEN OTHERS.
       RAISE unknown_result.
   ENDCASE.
-
 
 
 ENDFUNCTION.

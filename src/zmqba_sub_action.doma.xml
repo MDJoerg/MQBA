@@ -8,6 +8,7 @@
     <DATATYPE>CHAR</DATATYPE>
     <LENG>000020</LENG>
     <OUTPUTLEN>000020</OUTPUTLEN>
+    <ENTITYTAB>ZTC_MQBACSM</ENTITYTAB>
     <DDTEXT>MQBA: subscriber action defined by configured action</DDTEXT>
    </DD01V>
   </asx:values>
