@@ -65,7 +65,9 @@ See function group ZMQBA_API_BROKER for use the broker features from other ABAP 
 
 ## Realtime messaging to WebUI and Websocket Apps
 
-The internal messaging uses the SICF Service ZMQBA_INT with ABAP Push Channel (APC) Technology and the PCP Protocol. You can connect to websocket ws://<yoursaphost>:<yourport>/sap/bc/apc/sap/zmqba_int with a Websocket client like the Chrome plugin [Simple Websocket Client](https://chrome.google.com/webstore/search/simple%20websocket%20client). SAP supports the PCP Protocol with a special javascript library. See [SAP Help](https://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abenpcp.htm) for more information.
+The internal messaging uses the SICF Service ZMQBA_INT with ABAP Push Channel (APC) Technology and the PCP Protocol. You can connect to websocket ws://yoursaphost:yourport/sap/bc/apc/sap/zmqba_int with a Websocket client like the Chrome plugin [Simple Websocket Client](https://chrome.google.com/webstore/search/simple%20websocket%20client). Or use the SAP APC test application http://yoursaphost:yourport/sap/bc/webdynpro/sap/wdr_test_apc_wsp?apc_application=zmqba_int to receive and send messages.
+
+SAP supports the PCP Protocol with a special javascript library. See [SAP Help](https://help.sap.com/doc/abapdocu_752_index_htm/7.52/en-US/abenpcp.htm) for more information.
 
 # Project supporters
 
