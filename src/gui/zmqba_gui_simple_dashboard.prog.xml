@@ -37,8 +37,6 @@
        <COLUMN>003</COLUMN>
        <LENGTH>052</LENGTH>
        <HEIGHT>006</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
@@ -48,8 +46,6 @@
        <COLUMN>061</COLUMN>
        <LENGTH>052</LENGTH>
        <HEIGHT>006</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
@@ -59,8 +55,6 @@
        <COLUMN>003</COLUMN>
        <LENGTH>052</LENGTH>
        <HEIGHT>006</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
@@ -70,8 +64,6 @@
        <COLUMN>060</COLUMN>
        <LENGTH>111</LENGTH>
        <HEIGHT>006</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
@@ -81,8 +73,6 @@
        <COLUMN>003</COLUMN>
        <LENGTH>052</LENGTH>
        <HEIGHT>006</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
