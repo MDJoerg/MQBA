@@ -1,6 +1,7 @@
 interface ZIF_MQBA_GUI_BL
   public .
 
+  types: ty_subscreens type standard table of ref to ZIF_MQBA_GUI_SUBSCREEN with default key.
 
   methods DESTROY .
   methods GET_PARAMETERS
@@ -26,7 +27,7 @@ interface ZIF_MQBA_GUI_BL
       value(RV_SUCCESS) type ABAP_BOOL .
   methods GET_SUBSCREENS
     returning
-      value(RT_SUBSCREEN) type ZMQBA_GUI_T_SUBSCREEN .
+      value(RT_SUBSCREEN) type ty_subscreens .
   methods GET_SUBSCREEN
     importing
       !IV_CONTAINER type DATA
