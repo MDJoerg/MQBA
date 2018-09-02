@@ -18,7 +18,7 @@
      <MIN_RELEASE>750</MIN_RELEASE>
      <MIN_PATCH>0001</MIN_PATCH>
     </item>
-  </REQUIREMENTS>   
+   </REQUIREMENTS>
   </DATA>
  </asx:values>
 </asx:abap>

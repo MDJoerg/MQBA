@@ -57,15 +57,6 @@ CLASS ZCL_MQBA_GUI_BL IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_mqba_gui_bl~catch_parameters.
-
-* ---- create selpar helper and fill data from current program
-    m_params = zcl_mqba_factory=>create_util_selpar( ).
-    rv_success = m_params->add_from_selection_screen( iv_prog = sy-cprog iv_dynnr = sy-dynnr ).
-
-  ENDMETHOD.
-
-
   METHOD zif_mqba_gui_bl~collect_params.
 * ---- create selpar helper and fill data from current program
     m_params = zcl_mqba_factory=>create_util_selpar( ).
