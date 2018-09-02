@@ -21,6 +21,11 @@ protected section.
       !IR_MSG type ref to IF_APC_WSP_MESSAGE
     returning
       value(RR_MSG) type ref to ZCL_MQBA_APC_MESSAGE .
+  methods PROCESS_MESSAGE
+    importing
+      !IR_MSG type ref to ZCL_MQBA_APC_MESSAGE
+    returning
+      value(RV_ANSWER) type STRING .
 private section.
 ENDCLASS.
 
@@ -122,20 +127,18 @@ CLASS ZCL_APC_WSP_EXT_ZMQBA_GW IMPLEMENTATION.
     DATA: lv_answer TYPE string.
 
 
-
 * ----- PROCESS MESSAGE
     TRY.
 * ----- testing issues
         BREAK-POINT ID zmqba_gw.
         DATA(lv_msg_text) = i_message->get_text( ).
 
-* ----- create own apc context
-        DATA(lr_context)   = zcl_mqba_apc_factory=>create_context( i_context ).
-        DATA(lr_response)  = zcl_mqba_apc_factory=>create_response( i_message_manager ).
 
-        ASSERT ID zmqba_gw
-          SUBKEY 'apc_context'
-          CONDITION lr_context IS BOUND AND lr_response IS BOUND.
+* ----- quick check (performance issues)
+        DATA(lv_len) = strlen( lv_msg_text ).
+        CHECK lv_len GT 2
+          AND lv_msg_text(2) EQ 't:'.
+
 
 * ----- retrieve the text message
         DATA(lr_request) = get_request_from_message( i_message ).
@@ -146,30 +149,30 @@ CLASS ZCL_APC_WSP_EXT_ZMQBA_GW IMPLEMENTATION.
 
           LOG-POINT ID zmqba_gw SUBKEY 'invalid_message_in' FIELDS lv_msg_text.
           BREAK-POINT ID zmqba_gw.
-
         ELSE.
-* ----- set context information
+* ----- process now
+* create own apc context
+          DATA(lr_context)   = zcl_mqba_apc_factory=>create_context( i_context ).
+          DATA(lr_response)  = zcl_mqba_apc_factory=>create_response( i_message_manager ).
+
+          ASSERT ID zmqba_gw
+            SUBKEY 'apc_context'
+            CONDITION lr_context IS BOUND
+                  AND lr_response IS BOUND.
+
+*  set context information
           lr_request->set_msg_context( lr_context ).
           lr_request->set_msg_response( lr_response ).
 
-* ----- forward message to abap message broker
-          DATA(lr_broker) = zcl_mqba_factory=>get_broker( lr_request->zif_mqba_request~get_context( ) ).
-          IF lr_broker->external_message_arrived( lr_request ) EQ abap_false.
-            lv_answer = |500 - ERROR WHILE FORWARDING TO BROKER|.
-
-            DATA(lv_err_msg) = lr_broker->get_last_error( ).
-
-            LOG-POINT ID zmqba_gw SUBKEY 'invalid_message_forwarding' FIELDS lv_msg_text lv_err_msg.
-
-            BREAK-POINT ID zmqba_gw.
-
-          ENDIF.
+*  forward message
+          lv_answer = process_message( lr_request ).
         ENDIF.
 
 * ----- create the answer
         IF lv_answer IS NOT INITIAL.
-          LOG-POINT ID zmqba_gw SUBKEY 'send_answer' FIELDS lv_answer.
           lr_response->zif_mqba_response~post_answer( lv_answer ).
+
+          LOG-POINT ID zmqba_gw SUBKEY 'send_answer' FIELDS lv_answer.
         ENDIF.
 
       CATCH cx_apc_error
@@ -251,6 +254,26 @@ CLASS ZCL_APC_WSP_EXT_ZMQBA_GW IMPLEMENTATION.
 
     ENDTRY.
 
+
+  ENDMETHOD.
+
+
+  METHOD process_message.
+
+* ----- forward message to abap message broker
+    DATA(lr_broker) = zcl_mqba_factory=>get_broker( ir_msg->zif_mqba_request~get_context( ) ).
+    IF lr_broker->external_message_arrived( ir_msg ) EQ abap_false.
+      rv_answer = |500 - ERROR WHILE FORWARDING TO BROKER|.
+
+      DATA(lv_err_msg) = lr_broker->get_last_error( ).
+
+      LOG-POINT ID zmqba_gw
+         SUBKEY 'invalid_message_forwarding'
+         FIELDS lv_err_msg.
+
+      BREAK-POINT ID zmqba_gw.
+
+    ENDIF.
 
   ENDMETHOD.
 ENDCLASS.

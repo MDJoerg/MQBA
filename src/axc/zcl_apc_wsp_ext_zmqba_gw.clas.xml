@@ -21,6 +21,12 @@
      <LANGU>E</LANGU>
      <DESCRIPT>map the transfer format to message object</DESCRIPT>
     </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_APC_WSP_EXT_ZMQBA_GW</CLSNAME>
+     <CMPNAME>PROCESS_MESSAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>process incoming message</DESCRIPT>
+    </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>
  </asx:abap>
