@@ -6,6 +6,7 @@
     <DDLNAME>ZI_MQBA_DDL_OO_CONSTANTS</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Contants of ABAP OO Elements</DDTEXT>
+    <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

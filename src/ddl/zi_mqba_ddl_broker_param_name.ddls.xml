@@ -6,6 +6,7 @@
     <DDLNAME>ZI_MQBA_DDL_BROKER_PARAM_NAME</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Broker Config ParamName from Interface - Interface view</DDTEXT>
+    <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>
