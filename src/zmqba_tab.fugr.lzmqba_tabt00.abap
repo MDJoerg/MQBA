@@ -1,8 +1,14 @@
 *---------------------------------------------------------------------*
 *    view related data declarations
-*   generation date: 20.08.2018 at 06:13:59
+*   generation date: 06.11.2018 at 23:24:28
 *   view maintenance generator version: #001407#
 *---------------------------------------------------------------------*
+*...processing: ZTC_MQBABRK.....................................*
+DATA:  BEGIN OF STATUS_ZTC_MQBABRK                   .   "state vector
+         INCLUDE STRUCTURE VIMSTATUS.
+DATA:  END OF STATUS_ZTC_MQBABRK                   .
+CONTROLS: TCTRL_ZTC_MQBABRK
+            TYPE TABLEVIEW USING SCREEN '2060'.
 *...processing: ZTC_MQBACMP.....................................*
 DATA:  BEGIN OF STATUS_ZTC_MQBACMP                   .   "state vector
          INCLUDE STRUCTURE VIMSTATUS.
@@ -40,12 +46,14 @@ DATA:  END OF STATUS_ZTC_MQBAGIWL                  .
 CONTROLS: TCTRL_ZTC_MQBAGIWL
             TYPE TABLEVIEW USING SCREEN '2020'.
 *.........table declarations:.................................*
+TABLES: *ZTC_MQBABRK                   .
 TABLES: *ZTC_MQBACMP                   .
 TABLES: *ZTC_MQBACPD                   .
 TABLES: *ZTC_MQBACSA                   .
 TABLES: *ZTC_MQBACSM                   .
 TABLES: *ZTC_MQBAGIBL                  .
 TABLES: *ZTC_MQBAGIWL                  .
+TABLES: ZTC_MQBABRK                    .
 TABLES: ZTC_MQBACMP                    .
 TABLES: ZTC_MQBACPD                    .
 TABLES: ZTC_MQBACSA                    .
