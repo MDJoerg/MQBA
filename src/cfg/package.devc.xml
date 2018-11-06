@@ -4,8 +4,6 @@
   <asx:values>
    <DEVC>
     <CTEXT>MQBA: Configuration</CTEXT>
-    <COMP_POSID>CA</COMP_POSID>
-    <COMPONENT>HLB0009110</COMPONENT>
    </DEVC>
   </asx:values>
  </asx:abap>
