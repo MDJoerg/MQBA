@@ -4,6 +4,11 @@ class ZCL_MQBA_FACTORY definition
 
 public section.
 
+  class-methods GET_BROKER_CONFIG
+    importing
+      !IV_BROKER_ID type ZMQBA_BROKER_ID
+    returning
+      value(RR_BROKER_CFG) type ref to ZIF_MQBA_CFG_BROKER .
   class-methods CREATE_TOPIC_FILTER_CONFIG
     importing
       !IV_BASE_TAB type TABNAME
@@ -115,6 +120,19 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
 
     rr_broker = lr_instance.
 
+  ENDMETHOD.
+
+
+  METHOD get_broker_config.
+* ------- init
+    rr_broker_cfg = NEW zcl_mqba_cfg_broker( ).
+    rr_broker_cfg->set_id( iv_broker_id ).
+* ------- read cust to cache
+    DATA(ls_cfg) = rr_broker_cfg->get_config( ).
+* ------- check valid?
+    IF rr_broker_cfg->is_valid( ) EQ abap_false.
+      CLEAR rr_broker_cfg.
+    ENDIF.
   ENDMETHOD.
 
 

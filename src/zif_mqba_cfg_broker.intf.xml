@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_CFG_BROKER</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Broker Configuration</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CFG_BROKER</CLSNAME>
+     <CMPNAME>GET_CONFIG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the broker config</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CFG_BROKER</CLSNAME>
+     <CMPNAME>GET_ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get id of an broker</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CFG_BROKER</CLSNAME>
+     <CMPNAME>IS_VALID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>check broker is valid</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_CFG_BROKER</CLSNAME>
+     <CMPNAME>SET_ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set id of a broker</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

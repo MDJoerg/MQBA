@@ -6665,27 +6665,10 @@
        <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
        <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
        <TYPE>TEXT</TYPE>
-       <NAME>*ZTC_MQBABRK-BROKER_PREFIX</NAME>
-       <TEXT>Broker_Prefix___________________________</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>005</COLUMN>
-       <LENGTH>040</LENGTH>
-       <VISLENGTH>050</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <FROM_DICT>X</FROM_DICT>
-       <MODIFIC>V</MODIFIC>
-       <REQU_ENTRY>N</REQU_ENTRY>
-       <TC_HEADING>X</TC_HEADING>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
-       <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
-       <TYPE>TEXT</TYPE>
        <NAME>*ZTC_MQBABRK-PROXY_HOST</NAME>
        <TEXT>Proxy_Host______________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>006</COLUMN>
+       <COLUMN>005</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>050</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6702,7 +6685,7 @@
        <NAME>*ZTC_MQBABRK-PROXY_USER</NAME>
        <TEXT>Proxy_User______________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>007</COLUMN>
+       <COLUMN>006</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6719,9 +6702,77 @@
        <NAME>*ZTC_MQBABRK-PROXY_PW</NAME>
        <TEXT>Proxy_Password__________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>008</COLUMN>
+       <COLUMN>007</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>V</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <TC_HEADING>X</TC_HEADING>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>*ZTC_MQBABRK-PREFIX</NAME>
+       <TEXT>Broker_Prefix___________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>008</COLUMN>
+       <LENGTH>040</LENGTH>
+       <VISLENGTH>050</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>V</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <TC_HEADING>X</TC_HEADING>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>*ZTC_MQBABRK-IMPL_CLASS</NAME>
+       <TEXT>Broker_Impl_____________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>009</COLUMN>
+       <LENGTH>040</LENGTH>
+       <VISLENGTH>030</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>V</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <TC_HEADING>X</TC_HEADING>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>*ZTC_MQBABRK-USE_QUEUE</NAME>
+       <TEXT>use_QRFC________________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>010</COLUMN>
+       <LENGTH>040</LENGTH>
+       <VISLENGTH>010</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>1</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <TC_HEADING>X</TC_HEADING>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>*ZTC_MQBABRK-QUEUE_NAME</NAME>
+       <TEXT>Queue_name______________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>011</COLUMN>
+       <LENGTH>040</LENGTH>
+       <VISLENGTH>024</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
@@ -6736,7 +6787,7 @@
        <NAME>*ZTC_MQBABRK-RESPONSIBLE</NAME>
        <TEXT>responsible_____________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>009</COLUMN>
+       <COLUMN>012</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>012</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6753,7 +6804,7 @@
        <NAME>*ZTC_MQBABRK-PROJECT_REF</NAME>
        <TEXT>project_ref_____________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>010</COLUMN>
+       <COLUMN>013</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>030</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6770,7 +6821,7 @@
        <NAME>*ZTC_MQBABRK-REMARKS</NAME>
        <TEXT>remarks_________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>011</COLUMN>
+       <COLUMN>014</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>120</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6787,7 +6838,7 @@
        <NAME>*ZTC_MQBABRK-PARAM_DESCR1</NAME>
        <TEXT>Parameter_Description_1_________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>012</COLUMN>
+       <COLUMN>015</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6804,7 +6855,7 @@
        <NAME>*ZTC_MQBABRK-PARAM_DESCR2</NAME>
        <TEXT>Parameter_Description_2_________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>013</COLUMN>
+       <COLUMN>016</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6821,7 +6872,7 @@
        <NAME>*ZTC_MQBABRK-PARAM_DESCR3</NAME>
        <TEXT>Parameter_Description_3_________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>014</COLUMN>
+       <COLUMN>017</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6838,7 +6889,7 @@
        <NAME>*ZTC_MQBABRK-PARAM_DESCR4</NAME>
        <TEXT>Parameter_Description_4_________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>015</COLUMN>
+       <COLUMN>018</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6855,7 +6906,7 @@
        <NAME>*ZTC_MQBABRK-PARAM_DESCR5</NAME>
        <TEXT>Parameter_Description_5_________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>016</COLUMN>
+       <COLUMN>019</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6872,7 +6923,7 @@
        <NAME>*ZTC_MQBABRK-PARAM1</NAME>
        <TEXT>Parameter_1_____________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>017</COLUMN>
+       <COLUMN>020</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6889,7 +6940,7 @@
        <NAME>*ZTC_MQBABRK-PARAM2</NAME>
        <TEXT>Parameter_2_____________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>018</COLUMN>
+       <COLUMN>021</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6906,7 +6957,7 @@
        <NAME>*ZTC_MQBABRK-PARAM3</NAME>
        <TEXT>Parameter_3_____________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>019</COLUMN>
+       <COLUMN>022</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6923,7 +6974,7 @@
        <NAME>*ZTC_MQBABRK-PARAM4</NAME>
        <TEXT>Parameter_4_____________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>020</COLUMN>
+       <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -6940,7 +6991,7 @@
        <NAME>*ZTC_MQBABRK-PARAM5</NAME>
        <TEXT>Parameter_5_____________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>021</COLUMN>
+       <COLUMN>024</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7042,7 +7093,7 @@
        <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
        <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>ZTC_MQBABRK-BROKER_PREFIX</NAME>
+       <NAME>ZTC_MQBABRK-PROXY_HOST</NAME>
        <TEXT>__________________________________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>005</COLUMN>
@@ -7061,29 +7112,10 @@
        <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
        <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>ZTC_MQBABRK-PROXY_HOST</NAME>
-       <TEXT>__________________________________________________</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>006</COLUMN>
-       <LENGTH>050</LENGTH>
-       <VISLENGTH>050</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <FROM_DICT>X</FROM_DICT>
-       <MODIFIC>X</MODIFIC>
-       <UP_LOWER>X</UP_LOWER>
-       <FOREIGNKEY>X</FOREIGNKEY>
-       <INPUT_FLD>X</INPUT_FLD>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
-       <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PROXY_USER</NAME>
        <TEXT>________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>007</COLUMN>
+       <COLUMN>006</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7101,7 +7133,7 @@
        <NAME>ZTC_MQBABRK-PROXY_PW</NAME>
        <TEXT>________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>008</COLUMN>
+       <COLUMN>007</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7116,10 +7148,83 @@
        <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
        <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
+       <NAME>ZTC_MQBABRK-PREFIX</NAME>
+       <TEXT>__________________________________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>008</COLUMN>
+       <LENGTH>050</LENGTH>
+       <VISLENGTH>050</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>X</MODIFIC>
+       <UP_LOWER>X</UP_LOWER>
+       <FOREIGNKEY>X</FOREIGNKEY>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>ZTC_MQBABRK-IMPL_CLASS</NAME>
+       <TEXT>______________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>009</COLUMN>
+       <LENGTH>030</LENGTH>
+       <VISLENGTH>030</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>X</MODIFIC>
+       <FOREIGNKEY>X</FOREIGNKEY>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
+       <TYPE>CHECK</TYPE>
+       <NAME>ZTC_MQBABRK-USE_QUEUE</NAME>
+       <LINE>001</LINE>
+       <COLUMN>010</COLUMN>
+       <LENGTH>001</LENGTH>
+       <VISLENGTH>010</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>X</MODIFIC>
+       <FOREIGNKEY>X</FOREIGNKEY>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <DICT_I_VAL>X</DICT_I_VAL>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>ZTC_MQBABRK-QUEUE_NAME</NAME>
+       <TEXT>________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>011</COLUMN>
+       <LENGTH>024</LENGTH>
+       <VISLENGTH>024</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>X</MODIFIC>
+       <FOREIGNKEY>X</FOREIGNKEY>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_ZTC_MQBABRK</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-RESPONSIBLE</NAME>
        <TEXT>____________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>009</COLUMN>
+       <COLUMN>012</COLUMN>
        <LENGTH>012</LENGTH>
        <VISLENGTH>012</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7137,7 +7242,7 @@
        <NAME>ZTC_MQBABRK-PROJECT_REF</NAME>
        <TEXT>______________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>010</COLUMN>
+       <COLUMN>013</COLUMN>
        <LENGTH>030</LENGTH>
        <VISLENGTH>030</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7156,7 +7261,7 @@
        <NAME>ZTC_MQBABRK-REMARKS</NAME>
        <TEXT>________________________________________________________________________________________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>011</COLUMN>
+       <COLUMN>014</COLUMN>
        <LENGTH>120</LENGTH>
        <VISLENGTH>120</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7175,7 +7280,7 @@
        <NAME>ZTC_MQBABRK-PARAM_DESCR1</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>012</COLUMN>
+       <COLUMN>015</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7194,7 +7299,7 @@
        <NAME>ZTC_MQBABRK-PARAM_DESCR2</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>013</COLUMN>
+       <COLUMN>016</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7213,7 +7318,7 @@
        <NAME>ZTC_MQBABRK-PARAM_DESCR3</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>014</COLUMN>
+       <COLUMN>017</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7232,7 +7337,7 @@
        <NAME>ZTC_MQBABRK-PARAM_DESCR4</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>015</COLUMN>
+       <COLUMN>018</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7251,7 +7356,7 @@
        <NAME>ZTC_MQBABRK-PARAM_DESCR5</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>016</COLUMN>
+       <COLUMN>019</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7270,7 +7375,7 @@
        <NAME>ZTC_MQBABRK-PARAM1</NAME>
        <TEXT>________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>017</COLUMN>
+       <COLUMN>020</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7288,7 +7393,7 @@
        <NAME>ZTC_MQBABRK-PARAM2</NAME>
        <TEXT>________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>018</COLUMN>
+       <COLUMN>021</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7306,7 +7411,7 @@
        <NAME>ZTC_MQBABRK-PARAM3</NAME>
        <TEXT>________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>019</COLUMN>
+       <COLUMN>022</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7324,7 +7429,7 @@
        <NAME>ZTC_MQBABRK-PARAM4</NAME>
        <TEXT>________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>020</COLUMN>
+       <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7342,7 +7447,7 @@
        <NAME>ZTC_MQBABRK-PARAM5</NAME>
        <TEXT>________________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>021</COLUMN>
+       <COLUMN>024</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -7407,9 +7512,6 @@
        <LINE>FIELD ZTC_MQBABRK-BROKER_PW .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>FIELD ZTC_MQBABRK-BROKER_PREFIX .</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
        <LINE>FIELD ZTC_MQBABRK-PROXY_HOST .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
@@ -7417,6 +7519,18 @@
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>FIELD ZTC_MQBABRK-PROXY_PW .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD ZTC_MQBABRK-PREFIX .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD ZTC_MQBABRK-IMPL_CLASS .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD ZTC_MQBABRK-USE_QUEUE .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD ZTC_MQBABRK-QUEUE_NAME .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>FIELD ZTC_MQBABRK-RESPONSIBLE .</LINE>
@@ -7521,6 +7635,9 @@
       <item>4</item>
       <item>4</item>
       <item>4</item>
+      <item>4</item>
+      <item>4</item>
+      <item>4</item>
       <item>3</item>
       <item>3</item>
       <item>3</item>
@@ -7594,7 +7711,7 @@
        <COLUMN>001</COLUMN>
        <LENGTH>151</LENGTH>
        <VISLENGTH>151</VISLENGTH>
-       <HEIGHT>023</HEIGHT>
+       <HEIGHT>027</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <UP_LOWER>X</UP_LOWER>
        <OUTPUT_FLD>X</OUTPUT_FLD>
@@ -7709,44 +7826,9 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEXT</TYPE>
-       <NAME>ZTC_MQBABRK-BROKER_PREFIX</NAME>
-       <TEXT>Broker_Prefix_______</TEXT>
-       <LINE>007</LINE>
-       <COLUMN>002</COLUMN>
-       <LENGTH>020</LENGTH>
-       <VISLENGTH>020</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <FROM_DICT>X</FROM_DICT>
-       <MODIFIC>2</MODIFIC>
-       <REQU_ENTRY>N</REQU_ENTRY>
-       <LABELLEFT>X</LABELLEFT>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>ZTC_MQBABRK-BROKER_PREFIX</NAME>
-       <TEXT>__________________________________________________</TEXT>
-       <LINE>007</LINE>
-       <COLUMN>023</COLUMN>
-       <LENGTH>050</LENGTH>
-       <VISLENGTH>050</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <FROM_DICT>X</FROM_DICT>
-       <UP_LOWER>X</UP_LOWER>
-       <FOREIGNKEY>X</FOREIGNKEY>
-       <INPUT_FLD>X</INPUT_FLD>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>SCREEN</CONT_TYPE>
-       <CONT_NAME>SCREEN</CONT_NAME>
-       <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PROXY_HOST</NAME>
        <TEXT>Proxy_Host</TEXT>
-       <LINE>008</LINE>
+       <LINE>007</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>010</LENGTH>
        <VISLENGTH>010</VISLENGTH>
@@ -7763,7 +7845,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PROXY_HOST</NAME>
        <TEXT>__________________________________________________</TEXT>
-       <LINE>008</LINE>
+       <LINE>007</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>050</LENGTH>
        <VISLENGTH>050</VISLENGTH>
@@ -7781,7 +7863,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PROXY_POST</NAME>
        <TEXT>Proxy_Port</TEXT>
-       <LINE>009</LINE>
+       <LINE>008</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>010</LENGTH>
        <VISLENGTH>010</VISLENGTH>
@@ -7798,7 +7880,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PROXY_POST</NAME>
        <TEXT>_______.___</TEXT>
-       <LINE>009</LINE>
+       <LINE>008</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>011</LENGTH>
        <VISLENGTH>011</VISLENGTH>
@@ -7815,7 +7897,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PROXY_USER</NAME>
        <TEXT>Proxy_User__________</TEXT>
-       <LINE>010</LINE>
+       <LINE>009</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -7832,7 +7914,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PROXY_USER</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>010</LINE>
+       <LINE>009</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -7850,7 +7932,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PROXY_PW</NAME>
        <TEXT>Proxy_Password_</TEXT>
-       <LINE>011</LINE>
+       <LINE>010</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>015</LENGTH>
        <VISLENGTH>015</VISLENGTH>
@@ -7867,7 +7949,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PROXY_PW</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>011</LINE>
+       <LINE>010</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -7883,9 +7965,166 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEXT</TYPE>
+       <NAME>ZTC_MQBABRK-PREFIX</NAME>
+       <TEXT>Broker_Prefix_______</TEXT>
+       <LINE>011</LINE>
+       <COLUMN>002</COLUMN>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>2</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>ZTC_MQBABRK-PREFIX</NAME>
+       <TEXT>__________________________________________________</TEXT>
+       <LINE>011</LINE>
+       <COLUMN>023</COLUMN>
+       <LENGTH>050</LENGTH>
+       <VISLENGTH>050</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <UP_LOWER>X</UP_LOWER>
+       <FOREIGNKEY>X</FOREIGNKEY>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>ZTC_MQBABRK-IMPL_CLASS</NAME>
+       <TEXT>Broker_Impl_________</TEXT>
+       <LINE>012</LINE>
+       <COLUMN>002</COLUMN>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>2</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>ZTC_MQBABRK-IMPL_CLASS</NAME>
+       <TEXT>______________________________</TEXT>
+       <LINE>012</LINE>
+       <COLUMN>023</COLUMN>
+       <LENGTH>030</LENGTH>
+       <VISLENGTH>030</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <FOREIGNKEY>X</FOREIGNKEY>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>CHECK</TYPE>
+       <NAME>ZTC_MQBABRK-USE_QUEUE</NAME>
+       <TEXT>use_QRFC____________</TEXT>
+       <LINE>013</LINE>
+       <COLUMN>002</COLUMN>
+       <LENGTH>022</LENGTH>
+       <VISLENGTH>022</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>2</MODIFIC>
+       <FOREIGNKEY>X</FOREIGNKEY>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <DICT_I_VAL>X</DICT_I_VAL>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>ZTC_MQBABRK-QUEUE_NAME</NAME>
+       <TEXT>Queue_name__________</TEXT>
+       <LINE>014</LINE>
+       <COLUMN>002</COLUMN>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>2</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>ZTC_MQBABRK-QUEUE_NAME</NAME>
+       <TEXT>________________________</TEXT>
+       <LINE>014</LINE>
+       <COLUMN>023</COLUMN>
+       <LENGTH>024</LENGTH>
+       <VISLENGTH>024</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <FOREIGNKEY>X</FOREIGNKEY>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>ZTC_MQBABRK-MAX_PAYLOAD</NAME>
+       <TEXT>max_Payload_________</TEXT>
+       <LINE>015</LINE>
+       <COLUMN>002</COLUMN>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>2</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>ZTC_MQBABRK-MAX_PAYLOAD</NAME>
+       <TEXT>__________V</TEXT>
+       <LINE>015</LINE>
+       <COLUMN>023</COLUMN>
+       <LENGTH>011</LENGTH>
+       <VISLENGTH>011</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>INT4</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <FOREIGNKEY>X</FOREIGNKEY>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <DICT_I_SGN>X</DICT_I_SGN>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-RESPONSIBLE</NAME>
        <TEXT>responsible_________</TEXT>
-       <LINE>012</LINE>
+       <LINE>016</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -7902,7 +8141,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-RESPONSIBLE</NAME>
        <TEXT>____________</TEXT>
-       <LINE>012</LINE>
+       <LINE>016</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>012</LENGTH>
        <VISLENGTH>012</VISLENGTH>
@@ -7919,7 +8158,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PROJECT_REF</NAME>
        <TEXT>project_ref_________</TEXT>
-       <LINE>013</LINE>
+       <LINE>017</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -7936,7 +8175,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PROJECT_REF</NAME>
        <TEXT>______________________________</TEXT>
-       <LINE>013</LINE>
+       <LINE>017</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>030</LENGTH>
        <VISLENGTH>030</VISLENGTH>
@@ -7954,7 +8193,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-REMARKS</NAME>
        <TEXT>remarks_____________</TEXT>
-       <LINE>014</LINE>
+       <LINE>018</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -7971,7 +8210,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-REMARKS</NAME>
        <TEXT>________________________________________________________________________________________________________________________</TEXT>
-       <LINE>014</LINE>
+       <LINE>018</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>120</LENGTH>
        <VISLENGTH>120</VISLENGTH>
@@ -7989,7 +8228,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR1</NAME>
        <TEXT>Param._Descr._1_____</TEXT>
-       <LINE>015</LINE>
+       <LINE>019</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8006,7 +8245,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR1</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <LINE>015</LINE>
+       <LINE>019</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
@@ -8024,7 +8263,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR2</NAME>
        <TEXT>Param._Descr._2_____</TEXT>
-       <LINE>016</LINE>
+       <LINE>020</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8041,7 +8280,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR2</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <LINE>016</LINE>
+       <LINE>020</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
@@ -8059,7 +8298,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR3</NAME>
        <TEXT>Param._Descr._3_____</TEXT>
-       <LINE>017</LINE>
+       <LINE>021</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8076,7 +8315,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR3</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <LINE>017</LINE>
+       <LINE>021</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
@@ -8094,7 +8333,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR4</NAME>
        <TEXT>Param._Descr._4_____</TEXT>
-       <LINE>018</LINE>
+       <LINE>022</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8111,7 +8350,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR4</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <LINE>018</LINE>
+       <LINE>022</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
@@ -8129,7 +8368,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR5</NAME>
        <TEXT>Param._Descr._5_____</TEXT>
-       <LINE>019</LINE>
+       <LINE>023</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8146,7 +8385,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR5</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <LINE>019</LINE>
+       <LINE>023</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
@@ -8164,7 +8403,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM1</NAME>
        <TEXT>Parameter_1_________</TEXT>
-       <LINE>020</LINE>
+       <LINE>024</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8181,7 +8420,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM1</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>020</LINE>
+       <LINE>024</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -8199,7 +8438,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM2</NAME>
        <TEXT>Parameter_2_________</TEXT>
-       <LINE>021</LINE>
+       <LINE>025</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8216,7 +8455,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM2</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>021</LINE>
+       <LINE>025</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -8234,7 +8473,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM3</NAME>
        <TEXT>Parameter_3_________</TEXT>
-       <LINE>022</LINE>
+       <LINE>026</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8251,7 +8490,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM3</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>022</LINE>
+       <LINE>026</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -8269,7 +8508,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM4</NAME>
        <TEXT>Parameter_4_________</TEXT>
-       <LINE>023</LINE>
+       <LINE>027</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8286,7 +8525,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM4</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>023</LINE>
+       <LINE>027</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -8304,7 +8543,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM5</NAME>
        <TEXT>Parameter_5_________</TEXT>
-       <LINE>024</LINE>
+       <LINE>028</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8321,7 +8560,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM5</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>024</LINE>
+       <LINE>028</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -8381,9 +8620,6 @@
        <LINE>FIELD ZTC_MQBABRK-BROKER_PW .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>FIELD ZTC_MQBABRK-BROKER_PREFIX .</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
        <LINE>FIELD ZTC_MQBABRK-PROXY_HOST .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
@@ -8394,6 +8630,21 @@
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>FIELD ZTC_MQBABRK-PROXY_PW .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD ZTC_MQBABRK-PREFIX .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD ZTC_MQBABRK-IMPL_CLASS .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD ZTC_MQBABRK-USE_QUEUE .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD ZTC_MQBABRK-QUEUE_NAME .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD ZTC_MQBABRK-MAX_PAYLOAD .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>FIELD ZTC_MQBABRK-RESPONSIBLE .</LINE>
@@ -8461,6 +8712,10 @@
       <item>1</item>
       <item>1</item>
       <item>1</item>
+      <item>4</item>
+      <item>4</item>
+      <item>4</item>
+      <item>4</item>
       <item>4</item>
       <item>4</item>
       <item>4</item>

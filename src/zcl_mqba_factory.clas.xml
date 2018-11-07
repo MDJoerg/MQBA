@@ -72,6 +72,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>GET_BROKER_CONFIG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the broker configuration</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
      <CMPNAME>GET_CONSUMER</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get a consumer instance to catch messages</DESCRIPT>
