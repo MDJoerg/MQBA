@@ -8,7 +8,7 @@ public section.
 protected section.
 
   data MV_ID type STRING .
-  data MS_CONFIG type ZMQBA_BRK_S_BCF .
+  data MS_CONFIG type ZMQBA_API_S_BRK_CFG .
 private section.
 ENDCLASS.
 

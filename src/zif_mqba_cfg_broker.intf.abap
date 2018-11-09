@@ -12,7 +12,7 @@ interface ZIF_MQBA_CFG_BROKER
       value(RV_ID) type STRING .
   methods GET_CONFIG
     returning
-      value(RS_CONFIG) type ZMQBA_BRK_S_BCF .
+      value(RS_CONFIG) type ZMQBA_API_S_BRK_CFG .
   methods IS_VALID
     returning
       value(RV_VALID) type STRING .
