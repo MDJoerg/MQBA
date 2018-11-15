@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZMQBA_MQTT_QOS</DOMNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DATATYPE>INT4</DATATYPE>
+    <LENG>000010</LENG>
+    <OUTPUTLEN>000011</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DDTEXT>MQTT Quality of service option</DDTEXT>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <DOMNAME>ZMQBA_MQTT_QOS</DOMNAME>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>0</DOMVALUE_L>
+     <DDTEXT>at most once</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZMQBA_MQTT_QOS</DOMNAME>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>1</DOMVALUE_L>
+     <DDTEXT>at least once</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZMQBA_MQTT_QOS</DOMNAME>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>2</DOMVALUE_L>
+     <DDTEXT>excactly once</DDTEXT>
+    </DD07V>
+   </DD07V_TAB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
