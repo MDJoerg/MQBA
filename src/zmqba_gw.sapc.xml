@@ -10,6 +10,12 @@
      <CLASS_NAME>ZCL_APC_WSP_EXT_ZMQBA_GW</CLASS_NAME>
      <APPLICATION_VERSION>1</APPLICATION_VERSION>
     </HEADER>
+    <TEXT>
+     <APPLICATION_ID>ZMQBA_GW</APPLICATION_ID>
+     <VERSION>A</VERSION>
+     <LANG>E</LANG>
+     <DESCRIPTION>MQBA: Gateway to external broker (mqtt)</DESCRIPTION>
+    </TEXT>
    </SAPC>
   </asx:values>
  </asx:abap>

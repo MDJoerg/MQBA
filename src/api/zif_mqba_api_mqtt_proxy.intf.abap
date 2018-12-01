@@ -50,7 +50,7 @@ interface ZIF_MQBA_API_MQTT_PROXY
     importing
       !IV_DELETE type ABAP_BOOL default ABAP_TRUE
     returning
-      value(RT_MSG) type ZMQBA_PINS_T_MQTT_MSG .
+      value(RT_MSG) type ZMQBA_API_T_EBR_MSG .
   methods SUBSCRIBE_TO
     importing
       !IV_TOPIC type DATA

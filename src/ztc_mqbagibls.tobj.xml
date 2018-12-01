@@ -14,6 +14,7 @@
     <LANGUAGE>E</LANGUAGE>
     <OBJECTNAME>ZTC_MQBAGIBL</OBJECTNAME>
     <OBJECTTYPE>S</OBJECTTYPE>
+    <DDTEXT>MQBA: Gateway Inbound - Blacklist</DDTEXT>
    </OBJT>
    <OBJS>
     <OBJS>

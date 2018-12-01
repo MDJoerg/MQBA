@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>MQBA: API External Broker</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZMQBA_API_EBROKERTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZMQBA_API_EBROKER</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_MQBA_API_EBROKER_MSGS_ADD</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>MQBA: add a external broker message</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_BROKER</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_MSG</PARAMETER>
+       <TYP>ZMQBA_API_T_EBR_MSG</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <TYP>ZMQBA_FLAG_ERROR</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_BROKER</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_MSG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table of external broker messages</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag errors occured</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_MQBA_API_EBROKER_MSG_ADD</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>MQBA: add a external broker message</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_BROKER</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_TOPIC</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_PAYLOAD</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_MSG_ID</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_PROPS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZMQBA_MSG_T_PRP</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_ERROR_TEXT</PARAMETER>
+       <TYP>ZMQBA_ERROR_TEXT</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <TYP>ZMQBA_FLAG_ERROR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_GUID</PARAMETER>
+       <TYP>ZMQBA_MSG_GUID</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EV_SCOPE</PARAMETER>
+       <TYP>ZMQBA_MSG_SCOPE</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_BROKER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>external broker</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_TOPIC</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>message topic</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_PAYLOAD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>message payload</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IV_MSG_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>message id</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_PROPS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>additional message props</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR_TEXT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: Error message</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag errors occured</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_GUID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: global unique id of a message</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_SCOPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: scope of a message</STEXT>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
