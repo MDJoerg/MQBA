@@ -52,6 +52,11 @@ interface ZIF_MQBA_BROKER
       !IR_MSG type ref to ZIF_MQBA_REQUEST
     returning
       value(RV_SUCCESS) type ABAP_BOOL .
+  methods EXTERNAL_MESSAGES_ARRIVED
+    importing
+      !IS_PARAMS type ZMQBA_API_S_EBR_MSG_IN
+    returning
+      value(RS_RESULT) type ZMQBA_API_S_EBR_MSG_OUT .
   methods INTERNAL_MESSAGE_ARRIVED
     importing
       !IR_MSG type ref to ZIF_MQBA_REQUEST

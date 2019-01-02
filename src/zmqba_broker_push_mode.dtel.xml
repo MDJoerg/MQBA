@@ -3,18 +3,18 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>ZMQBA_BROKER_IMPL_CLASS</ROLLNAME>
+    <ROLLNAME>ZMQBA_BROKER_PUSH_MODE</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DOMNAME>SEOCLSNAME</DOMNAME>
+    <DOMNAME>XFELD</DOMNAME>
     <HEADLEN>55</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>Implementation Class for external Broker (Daemon)</DDTEXT>
-    <REPTEXT>Broker Impl Daemon</REPTEXT>
-    <SCRTEXT_S>Brk Imp Dm</SCRTEXT_S>
-    <SCRTEXT_M>Brk Impl Daemon</SCRTEXT_M>
-    <SCRTEXT_L>Broker Impl Daemon</SCRTEXT_L>
+    <DDTEXT>Flag for foward messages realtime</DDTEXT>
+    <REPTEXT>Push Mode</REPTEXT>
+    <SCRTEXT_S>Push Mode</SCRTEXT_S>
+    <SCRTEXT_M>Push Mode</SCRTEXT_M>
+    <SCRTEXT_L>Push Mode</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>

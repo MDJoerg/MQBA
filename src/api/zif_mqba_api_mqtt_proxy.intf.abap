@@ -59,4 +59,17 @@ interface ZIF_MQBA_API_MQTT_PROXY
     returning
       value(RV_SUCCESS) type ABAP_BOOL .
   methods DESTROY .
+  methods SET_CALLBACK_NEW_MSG
+    importing
+      !IR_CALLBACK type ref to ZIF_MQBA_CALLBACK_NEW_MSG optional
+    returning
+      value(RR_SELF) type ref to ZIF_MQBA_API_MQTT_PROXY .
+  methods PUBLISH
+    importing
+      !IV_TOPIC type STRING
+      !IV_PAYLOAD type STRING
+      !IV_QOS type I default 0
+      !IV_RETAIN type ABAP_BOOL default ABAP_FALSE
+    returning
+      value(RV_SUCCESS) type ABAP_BOOL .
 endinterface.

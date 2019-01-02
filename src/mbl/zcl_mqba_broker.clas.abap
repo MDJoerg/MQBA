@@ -39,7 +39,9 @@ protected section.
       !IR_MSG type ref to ZIF_MQBA_REQUEST
     returning
       value(RV_SUCCESS) type ABAP_BOOL .
-  methods RESET .
+  methods RESET
+    importing
+      !IV_FULL type ABAP_BOOL default ABAP_FALSE .
   methods SEND_GATEWAY_MESSAGE
     importing
       !IR_MSG type ref to ZIF_MQBA_REQUEST
@@ -376,8 +378,15 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 
 
   METHOD reset.
-    CLEAR: m_exception,
-           m_shm_config.
+
+* ------ reset normal fields
+    CLEAR: m_exception.
+
+* ------ full reset
+    IF iv_full EQ abap_true.
+      CLEAR: m_shm_config.
+    ENDIF.
+
   ENDMETHOD.
 
 
@@ -498,11 +507,74 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD zif_mqba_broker~external_messages_arrived.
+
+* ---------- init
+    CLEAR rs_result.
+    rs_result-error_flag = abap_true.
+
+
+
+
+    GET TIME STAMP FIELD: rs_result-proc_start,
+                          rs_result-proc_end.
+
+* ---------- check
+    IF is_params IS INITIAL
+      OR is_params-broker IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ---------- prepare table
+    DESCRIBE TABLE is_params-msgs LINES rs_result-cnt_all.
+    IF rs_result-cnt_all EQ 0.
+      rs_result-error_flag = abap_false.
+      RETURN.
+    ENDIF.
+
+* ---------- loop all messages
+    LOOP AT is_params-msgs ASSIGNING FIELD-SYMBOL(<lfs_in>).
+*    prepare out
+      APPEND INITIAL LINE TO rs_result-result ASSIGNING FIELD-SYMBOL(<lfs_out>).
+      MOVE-CORRESPONDING <lfs_in> TO <lfs_out>.
+
+*   create message from in
+      DATA(lr_msg) = zcl_mqba_factory=>create_ext_message( ).
+      IF lr_msg->set_data_from_ext_msg(
+          is_msg     = <lfs_in>
+          iv_broker  = is_params-broker
+      ) EQ abap_false.
+        <lfs_out>-error      = abap_true.
+        <lfs_out>-error_text = 'wrong external message'.
+        ADD 1 TO rs_result-cnt_error.
+      ELSE.
+*   forward to single processing
+        IF zif_mqba_broker~external_message_arrived( lr_msg ) EQ abap_true.
+          <lfs_out>-msg_guid   = lr_msg->zif_mqba_request~get_guid( ).
+          <lfs_out>-msg_scope  = lr_msg->zif_mqba_request~get_scope( ).
+          ADD 1 TO rs_result-cnt_success.
+        ELSE.
+          <lfs_out>-error      = abap_true.
+          <lfs_out>-error_text = zif_mqba_broker~get_last_error( ).
+          ADD 1 TO rs_result-cnt_error.
+        ENDIF.
+      ENDIF.
+
+    ENDLOOP.
+
+* ------------ fill result
+    GET TIME STAMP FIELD rs_result-proc_end.
+    rs_result-error_flag = COND #( WHEN rs_result-cnt_error EQ 0
+                                   THEN abap_false ELSE abap_true ).
+
+  ENDMETHOD.
+
+
   METHOD zif_mqba_broker~external_message_arrived.
 
 
 * ------ set default
-    reset( ).
+    reset( abap_true ). "full reset
     CLEAR rv_success.
 
 * ------ check against black and whitelist

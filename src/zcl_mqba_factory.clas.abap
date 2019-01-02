@@ -4,6 +4,11 @@ class ZCL_MQBA_FACTORY definition
 
 public section.
 
+  class-methods GET_BROKER_PROXY
+    importing
+      !IV_BROKER_ID type ZMQBA_BROKER_ID
+    returning
+      value(RR_PROXY) type ref to ZIF_MQBA_API_MQTT_PROXY .
   class-methods GET_BROKER_CONFIG
     importing
       !IV_BROKER_ID type ZMQBA_BROKER_ID
@@ -31,6 +36,9 @@ public section.
       !IV_TEXT type DATA
     returning
       value(RR_EXCEPTION) type ref to ZCX_MQBA_EXCEPTION .
+  class-methods CREATE_EXT_MESSAGE
+    returning
+      value(RR_MESSAGE) type ref to ZCL_MQBA_EXT_MESSAGE .
   class-methods CREATE_MESSAGE
     returning
       value(RR_MESSAGE) type ref to ZCL_MQBA_INT_MESSAGE .
@@ -57,6 +65,9 @@ public section.
   class-methods GET_BASE_DATE
     returning
       value(RV_DATE) type DATUM .
+  class-methods REBUILD_MEMORY
+    returning
+      value(RV_SUCCESS) type ABAP_BOOL .
 protected section.
 
   class-data M_BASE_DATE type DATUM .
@@ -73,6 +84,11 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
         zcx_mqba_exception=>raise( iv_text ).
       CATCH zcx_mqba_exception INTO rr_exception.
     ENDTRY.
+  ENDMETHOD.
+
+
+  METHOD CREATE_EXT_MESSAGE.
+    rr_message ?= zcl_mqba_message=>create( 'ZCL_MQBA_EXT_MESSAGE' ).
   ENDMETHOD.
 
 
@@ -136,6 +152,40 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD get_broker_proxy.
+
+* ------- check broker config
+    DATA(lr_cfg) = zcl_mqba_factory=>get_broker_config( iv_broker_id ).
+    IF lr_cfg IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ------- get config
+    DATA(ls_cfg) = lr_cfg->get_config( ).
+    IF ls_cfg IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ------- check class
+    IF ls_cfg-impl_class_cl IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ------- create instance
+    CREATE OBJECT rr_proxy TYPE (ls_cfg-impl_class_cl).
+    IF rr_proxy IS INITIAL.
+      RETURN.
+    ENDIF.
+
+
+* ------- set cfg
+    IF rr_proxy->set_config( lr_cfg ) EQ abap_false.
+      CLEAR rr_proxy.
+    ENDIF.
+
+  ENDMETHOD.
+
+
   METHOD get_consumer.
     rr_consumer = NEW zcl_mqba_consumer( ).
   ENDMETHOD.
@@ -160,4 +210,8 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
   METHOD get_util.
     rr_util = NEW zcl_mqba_util( ).
   ENDMETHOD.
+
+
+  method REBUILD_MEMORY.
+  endmethod.
 ENDCLASS.
