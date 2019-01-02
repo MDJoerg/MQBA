@@ -9,6 +9,9 @@ public section.
       !IV_BROKER_ID type ZMQBA_BROKER_ID
     returning
       value(RR_PROXY) type ref to ZIF_MQBA_API_MQTT_PROXY .
+  class-methods GET_SHM_CONTEXT
+    returning
+      value(RR_CONTEXT) type ref to ZIF_MQBA_SHM_CONTEXT .
   class-methods GET_BROKER_CONFIG
     importing
       !IV_BROKER_ID type ZMQBA_BROKER_ID
@@ -205,6 +208,11 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
   method GET_PRODUCER.
     rr_producer = new ZCL_MQBA_PRODUCER( ).
   endmethod.
+
+
+  METHOD get_shm_context.
+    rr_context = NEW zcl_mqba_shm_context_access( ).
+  ENDMETHOD.
 
 
   METHOD get_util.
