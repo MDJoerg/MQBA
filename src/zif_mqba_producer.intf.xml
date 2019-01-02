@@ -62,6 +62,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
+     <CMPNAME>SET_EXTERNAL_BROKER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the external broker for external distribution</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_PRODUCER</CLSNAME>
      <CMPNAME>SET_FIELD</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>set an additional field and value</DESCRIPT>

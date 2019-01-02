@@ -43,4 +43,7 @@ interface ZIF_MQBA_REQUEST
   methods GET_TIMESTAMP
     returning
       value(RV_TIMESTAMP) type ZMQBA_TIMESTAMP .
+  methods GET_GATEWAY
+    returning
+      value(RV_GATEWAY) type STRING .
 endinterface.

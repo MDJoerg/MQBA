@@ -139,8 +139,17 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 
 
 * ------ at the moment only distribution to apc channel exists...
-* TODO: routing, differend gateway methods and private messaging are planned
-    rv_success = send_gateway_message( ir_msg ).
+* get the broker id from message
+    DATA(lv_gateway) = ir_msg->get_gateway( ).
+    IF lv_gateway IS NOT INITIAL.
+      rv_success = zif_mqba_broker~external_message_publish(
+             iv_topic       = ir_msg->get_topic( )
+             iv_payload     = ir_msg->get_payload( )
+             iv_broker_id   = CONV zmqba_broker_id( ir_msg->get_gateway( ) )
+      ).
+    ELSE.
+      rv_success = send_gateway_message( ir_msg ).
+    ENDIF.
 
   ENDMETHOD.
 
@@ -395,7 +404,7 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 * ----- init and check
     IF ir_msg->get_scope( ) NE zif_mqba_broker=>c_scope_distributed.
       rv_success = abap_true.
-      EXIT.
+      RETURN.
     ENDIF.
 
 
@@ -591,6 +600,46 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 
 * ------ result
     rv_success = abap_true.
+
+  ENDMETHOD.
+
+
+  METHOD zif_mqba_broker~external_message_publish.
+
+* ---------- init
+    rv_success = abap_false.
+    CLEAR m_exception.
+
+
+* ---------- get an instance
+    DATA(lr_ebroker) = zcl_mqba_factory=>get_broker_proxy( iv_broker_id ).
+    IF lr_ebroker IS INITIAL.
+      create_exception( |unknown broker { iv_broker_id }| ).
+      RETURN.
+    ENDIF.
+
+
+* ----------- connect
+    IF lr_ebroker->connect( ) EQ abap_false.
+      create_exception( |connection failed to { iv_broker_id }| ).
+      lr_ebroker->destroy( ).
+      RETURN.
+    ENDIF.
+
+
+* ----------- publish
+    IF lr_ebroker->publish(
+         iv_topic   = iv_topic
+         iv_payload = iv_payload
+       ) EQ abap_false.
+      create_exception( |publish failed to { iv_broker_id }| ).
+    ELSE.
+      rv_success = abap_true.
+    ENDIF.
+
+
+* ------------ destoy
+    lr_ebroker->destroy( ).
 
   ENDMETHOD.
 

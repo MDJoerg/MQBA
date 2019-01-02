@@ -41,6 +41,13 @@ interface ZIF_MQBA_BROKER
   constants C_PARAM_SUBSCRIBE_BPRMOD_NAME type STRING value 'broker.history.module' ##NO_TEXT.
   constants C_PARAM_SUBSCRIBE_BPRMOD_DEF type STRING value 'Z_MQBA_MBL_BPR_CALL_SUBSCRIBER' ##NO_TEXT.
 
+  methods EXTERNAL_MESSAGE_PUBLISH
+    importing
+      !IV_TOPIC type STRING
+      !IV_PAYLOAD type STRING
+      !IV_BROKER_ID type ZMQBA_BROKER_ID optional
+    returning
+      value(RV_SUCCESS) type ABAP_BOOL .
   methods GET_EXCEPTION
     returning
       value(RR_EXCEPTION) type ref to CX_ROOT .

@@ -212,6 +212,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
+     <CMPNAME>EXTERNAL_MESSAGE_PUBLISH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>publish external message direct to external gateway</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_BROKER</CLSNAME>
      <CMPNAME>GET_CURRENT_MEMORY</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get the current messages from memory</DESCRIPT>

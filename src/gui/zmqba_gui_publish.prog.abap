@@ -9,6 +9,7 @@ PARAMETERS: p_topic     TYPE zmqba_topic_publish OBLIGATORY.
 PARAMETERS: p_payld     TYPE zmqba_value_text OBLIGATORY.
 PARAMETERS: p_consid    TYPE zmqba_consumer_id.
 PARAMETERS: p_ext       TYPE zmqba_flag_external AS CHECKBOX.
+PARAMETERS: p_broker    TYPE zmqba_broker_id.
 
 START-OF-SELECTION.
 
@@ -27,6 +28,7 @@ START-OF-SELECTION.
       iv_payload    = CONV string( p_payld )
       iv_session_id = p_consid
       iv_external   = p_ext
+      iv_gateway    = p_broker
 *     IV_CONTEXT    =
 *     IT_PROPS      =
     IMPORTING

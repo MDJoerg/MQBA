@@ -7828,7 +7828,7 @@
        <COLUMN>001</COLUMN>
        <LENGTH>151</LENGTH>
        <VISLENGTH>151</VISLENGTH>
-       <HEIGHT>031</HEIGHT>
+       <HEIGHT>032</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <UP_LOWER>X</UP_LOWER>
        <OUTPUT_FLD>X</OUTPUT_FLD>
@@ -8361,9 +8361,45 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEXT</TYPE>
+       <NAME>ZTC_MQBABRK-QOS_IN</NAME>
+       <TEXT>QOS_________________</TEXT>
+       <LINE>020</LINE>
+       <COLUMN>002</COLUMN>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>2</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>ZTC_MQBABRK-QOS_IN</NAME>
+       <TEXT>_______.___</TEXT>
+       <DROPDOWN>L</DROPDOWN>
+       <LINE>020</LINE>
+       <COLUMN>023</COLUMN>
+       <LENGTH>011</LENGTH>
+       <VISLENGTH>060</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>INT4</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <FOREIGNKEY>X</FOREIGNKEY>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <DICT_I_VAL>X</DICT_I_VAL>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-RESPONSIBLE</NAME>
        <TEXT>responsible_________</TEXT>
-       <LINE>020</LINE>
+       <LINE>021</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8380,7 +8416,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-RESPONSIBLE</NAME>
        <TEXT>____________</TEXT>
-       <LINE>020</LINE>
+       <LINE>021</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>012</LENGTH>
        <VISLENGTH>012</VISLENGTH>
@@ -8397,7 +8433,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PROJECT_REF</NAME>
        <TEXT>project_ref_________</TEXT>
-       <LINE>021</LINE>
+       <LINE>022</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8414,7 +8450,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PROJECT_REF</NAME>
        <TEXT>______________________________</TEXT>
-       <LINE>021</LINE>
+       <LINE>022</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>030</LENGTH>
        <VISLENGTH>030</VISLENGTH>
@@ -8432,7 +8468,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-REMARKS</NAME>
        <TEXT>remarks_____________</TEXT>
-       <LINE>022</LINE>
+       <LINE>023</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8449,7 +8485,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-REMARKS</NAME>
        <TEXT>________________________________________________________________________________________________________________________</TEXT>
-       <LINE>022</LINE>
+       <LINE>023</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>120</LENGTH>
        <VISLENGTH>120</VISLENGTH>
@@ -8467,7 +8503,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR1</NAME>
        <TEXT>Param._Descr._1_____</TEXT>
-       <LINE>023</LINE>
+       <LINE>024</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8484,7 +8520,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR1</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <LINE>023</LINE>
+       <LINE>024</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
@@ -8502,7 +8538,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR2</NAME>
        <TEXT>Param._Descr._2_____</TEXT>
-       <LINE>024</LINE>
+       <LINE>025</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8519,7 +8555,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR2</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <LINE>024</LINE>
+       <LINE>025</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
@@ -8537,7 +8573,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR3</NAME>
        <TEXT>Param._Descr._3_____</TEXT>
-       <LINE>025</LINE>
+       <LINE>026</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8554,7 +8590,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR3</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <LINE>025</LINE>
+       <LINE>026</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
@@ -8572,7 +8608,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR4</NAME>
        <TEXT>Param._Descr._4_____</TEXT>
-       <LINE>026</LINE>
+       <LINE>027</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8589,7 +8625,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR4</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <LINE>026</LINE>
+       <LINE>027</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
@@ -8607,7 +8643,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR5</NAME>
        <TEXT>Param._Descr._5_____</TEXT>
-       <LINE>027</LINE>
+       <LINE>028</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8624,7 +8660,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM_DESCR5</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <LINE>027</LINE>
+       <LINE>028</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
        <VISLENGTH>080</VISLENGTH>
@@ -8642,7 +8678,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM1</NAME>
        <TEXT>Parameter_1_________</TEXT>
-       <LINE>028</LINE>
+       <LINE>029</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8659,7 +8695,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM1</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>028</LINE>
+       <LINE>029</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -8677,7 +8713,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM2</NAME>
        <TEXT>Parameter_2_________</TEXT>
-       <LINE>029</LINE>
+       <LINE>030</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8694,7 +8730,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM2</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>029</LINE>
+       <LINE>030</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -8712,7 +8748,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM3</NAME>
        <TEXT>Parameter_3_________</TEXT>
-       <LINE>030</LINE>
+       <LINE>031</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8729,7 +8765,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM3</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>030</LINE>
+       <LINE>031</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -8747,7 +8783,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM4</NAME>
        <TEXT>Parameter_4_________</TEXT>
-       <LINE>031</LINE>
+       <LINE>032</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8764,7 +8800,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM4</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>031</LINE>
+       <LINE>032</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -8782,7 +8818,7 @@
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBABRK-PARAM5</NAME>
        <TEXT>Parameter_5_________</TEXT>
-       <LINE>032</LINE>
+       <LINE>033</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
        <VISLENGTH>020</VISLENGTH>
@@ -8799,7 +8835,7 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBABRK-PARAM5</NAME>
        <TEXT>________________________________________</TEXT>
-       <LINE>032</LINE>
+       <LINE>033</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>040</VISLENGTH>
@@ -8898,6 +8934,9 @@
        <LINE>FIELD ZTC_MQBABRK-PUSH_MODE .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
+       <LINE>FIELD ZTC_MQBABRK-QOS_IN .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
        <LINE>FIELD ZTC_MQBABRK-RESPONSIBLE .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
@@ -8963,6 +9002,7 @@
       <item>1</item>
       <item>1</item>
       <item>1</item>
+      <item>4</item>
       <item>4</item>
       <item>4</item>
       <item>4</item>

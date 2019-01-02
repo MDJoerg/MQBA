@@ -7,6 +7,11 @@ interface ZIF_MQBA_PRODUCER
       !IV_TOPIC type DATA
     returning
       value(RR_SELF) type ref to ZIF_MQBA_PRODUCER .
+  methods SET_EXTERNAL_BROKER
+    importing
+      !IV_BROKER_ID type DATA
+    returning
+      value(RR_SELF) type ref to ZIF_MQBA_PRODUCER .
   methods SET_PAYLOAD
     importing
       !IV_PAYLOAD type DATA

@@ -20,6 +20,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
+     <CMPNAME>GET_GATEWAY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the external broker for routing</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_REQUEST</CLSNAME>
      <CMPNAME>GET_GUID</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get the message guid (internal)</DESCRIPT>

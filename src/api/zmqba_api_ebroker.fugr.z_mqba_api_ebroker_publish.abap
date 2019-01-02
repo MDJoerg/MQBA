@@ -15,34 +15,28 @@ FUNCTION z_mqba_api_ebroker_publish.
   ev_error_text = |unknown error|.
 
 
-* ---------- get an instance
-  DATA(lr_ebroker) = zcl_mqba_factory=>get_broker_proxy( iv_broker_id ).
-  IF lr_ebroker IS INITIAL.
-    ev_error_text = |unknown broker { iv_broker_id }|.
+* ---------- get broker
+  DATA(lr_broker) = zcl_mqba_factory=>get_broker( ).
+  IF lr_broker IS INITIAL.
     RETURN.
   ENDIF.
 
 
-* ----------- connect
-  IF lr_ebroker->connect( ) EQ abap_false.
-    ev_error_text = |connection failed to { iv_broker_id }|.
-    RETURN.
-  ENDIF.
+* ---------- call broker
+  DATA(lv_success) = lr_broker->external_message_publish(
+      iv_topic     = iv_topic
+      iv_payload   = iv_payload
+      iv_broker_id = iv_broker_id
+  ).
 
-
-* ----------- publish
-  IF lr_ebroker->publish(
-       iv_topic   = iv_topic
-       iv_payload = iv_payload
-     ) EQ abap_false.
-    ev_error_text = |publish failed to { iv_broker_id }|.
+* ---------- error handling
+  IF lv_success EQ abap_true.
+    CLEAR: ev_error, ev_error_text.
   ELSE.
-    CLEAR ev_error.
-    CLEAR ev_error_text.
+    ev_error_text = lr_broker->get_last_error( ).
   ENDIF.
 
 
-* ------------ destoy
-  lr_ebroker->destroy( ).
+
 
 ENDFUNCTION.
