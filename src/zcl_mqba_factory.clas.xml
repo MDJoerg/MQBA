@@ -136,6 +136,12 @@
      <LANGU>E</LANGU>
      <DESCRIPT>rebuild the memory (for incosistencies)</DESCRIPT>
     </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>REBUILD_MEMORY_TRANSACTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>transaction entry point for rebuild memory</DESCRIPT>
+    </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>
  </asx:abap>

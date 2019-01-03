@@ -12,6 +12,7 @@ public section.
   class-methods GET_SHM_CONTEXT
     returning
       value(RR_CONTEXT) type ref to ZIF_MQBA_SHM_CONTEXT .
+  methods REBUILD_MEMORY_TRANSACTION .
   class-methods GET_BROKER_CONFIG
     importing
       !IV_BROKER_ID type ZMQBA_BROKER_ID
@@ -220,6 +221,23 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
   ENDMETHOD.
 
 
-  method REBUILD_MEMORY.
-  endmethod.
+  METHOD rebuild_memory.
+
+    TRY.
+        zcl_mqba_shm_data_root=>if_shm_build_instance~build( ).
+        rv_success = abap_true.
+      CATCH cx_shm_build_failed .
+        rv_success = abap_false.
+    ENDTRY.
+
+  ENDMETHOD.
+
+
+  METHOD rebuild_memory_transaction.
+    IF rebuild_memory( ) EQ abap_true.
+      MESSAGE i008(zmqba).  " rebuild finished
+    ELSE.
+      MESSAGE e009(zmqba).  " rebuildig failed
+    ENDIF.
+  ENDMETHOD.
 ENDCLASS.

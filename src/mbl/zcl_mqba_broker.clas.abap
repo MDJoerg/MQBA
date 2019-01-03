@@ -145,8 +145,16 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 
 * set default gateway from config
     IF lv_gateway IS INITIAL.
-      "TODO
+      READ TABLE m_shm_config-brk_cfg
+         ASSIGNING FIELD-SYMBOL(<lfs_cfg>)
+         WITH KEY param_name = zif_mqba_broker=>c_param_gateway_name.
+      IF sy-subrc EQ 0 AND <lfs_cfg> IS ASSIGNED.
+        lv_gateway = <lfs_cfg>-param_value.
+      ELSE.
+        lv_gateway = zif_mqba_broker=>c_param_gateway_def.
+      ENDIF.
     ENDIF.
+
 
 * call real external gateway or post it to default apc based service
     IF lv_gateway IS INITIAL
@@ -156,7 +164,7 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
       rv_success = zif_mqba_broker~external_message_publish(
            iv_topic       = ir_msg->get_topic( )
            iv_payload     = ir_msg->get_payload( )
-           iv_broker_id   = CONV zmqba_broker_id( ir_msg->get_gateway( ) )
+           iv_broker_id   = CONV zmqba_broker_id( lv_gateway )
         ).
     ENDIF.
 
