@@ -9,6 +9,11 @@ public section.
       !IV_BROKER_ID type ZMQBA_BROKER_ID
     returning
       value(RR_PROXY) type ref to ZIF_MQBA_API_MQTT_PROXY .
+  class-methods GET_DAEMON_MGR
+    importing
+      !IV_BROKER_ID type ZMQBA_BROKER_ID
+    returning
+      value(RR_MGR) type ref to ZIF_MQBA_DAEMON_MGR .
   class-methods GET_SHM_CONTEXT
     returning
       value(RR_CONTEXT) type ref to ZIF_MQBA_SHM_CONTEXT .
@@ -192,6 +197,42 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
 
   METHOD get_consumer.
     rr_consumer = NEW zcl_mqba_consumer( ).
+  ENDMETHOD.
+
+
+  METHOD get_daemon_mgr.
+
+* ----- get config
+    DATA(lr_cfg) = zcl_mqba_factory=>get_broker_config( iv_broker_id ).
+    IF lr_cfg IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ------ get implementation class
+    DATA(ls_cfg) = lr_cfg->get_config( ).
+    IF ls_cfg IS INITIAL
+      OR ls_cfg-impl_class IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ------ create an object
+    DATA lr_instance TYPE REF TO object.
+    CREATE OBJECT lr_instance TYPE (ls_cfg-impl_class).
+    IF lr_instance IS INITIAL
+      OR lr_instance IS NOT INSTANCE OF zif_mqba_daemon_mgr.
+      RETURN.
+    ENDIF.
+
+* ------- cast and set config
+    DATA(lr_mgr) = CAST zif_mqba_daemon_mgr( lr_instance ).
+    IF lr_mgr->set_config( lr_cfg ) EQ abap_false.
+      RETURN.
+    ENDIF.
+
+
+* ------- return
+    rr_mgr = lr_mgr.
+
   ENDMETHOD.
 
 

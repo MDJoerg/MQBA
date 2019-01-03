@@ -96,6 +96,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>GET_DAEMON_MGR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the daemon manager for external gateways</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
      <CMPNAME>GET_MY_LOGSYS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get my system wide identification</DESCRIPT>

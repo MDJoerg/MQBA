@@ -2,6 +2,14 @@ interface ZIF_MQBA_API_MQTT_PROXY
   public .
 
 
+  constants C_STATE_NOT_INITIALIZED type STRING value 'notinitialized' ##NO_TEXT.
+  constants C_STATE_CONNECTING type STRING value 'connecting' ##NO_TEXT.
+  constants C_STATE_CONNECTED type STRING value 'connected' ##NO_TEXT.
+  constants C_STATE_DISCONNECTING type STRING value 'disconnecting' ##NO_TEXT.
+  constants C_STATE_DISCONNECTED type STRING value 'disconnected' ##NO_TEXT.
+  constants C_STATE_UNKNOWN type STRING value 'unknown' ##NO_TEXT.
+  constants C_STATE_ERROR type STRING value 'error' ##NO_TEXT.
+
   methods CONNECT
     returning
       value(RV_SUCCESS) type ABAP_BOOL .
@@ -75,4 +83,7 @@ interface ZIF_MQBA_API_MQTT_PROXY
   methods GET_CLIENT_ID
     returning
       value(RV_CLIENT_ID) type STRING .
+  methods GET_CLIENT_STATE
+    returning
+      value(RV_STATE) type STRING .
 endinterface.

@@ -675,13 +675,33 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
     rv_success = abap_false.
     CLEAR m_exception.
 
+* ====================== 1st option: check daemon
+    DATA(lr_daemon) = zcl_mqba_factory=>get_daemon_mgr( iv_broker_id ).
+    IF lr_daemon IS NOT INITIAL.
+      IF lr_daemon->publish(
+          iv_topic   = iv_topic
+          iv_payload = iv_payload
+      ) EQ abap_true.
+        rv_success = abap_true.
+        RETURN.
+      ENDIF.
+    ENDIF.
 
+
+
+* ====================== 2nd option: create client
 * ---------- get an instance
     DATA(lr_ebroker) = zcl_mqba_factory=>get_broker_proxy( iv_broker_id ).
     IF lr_ebroker IS INITIAL.
       create_exception( |unknown broker { iv_broker_id }| ).
       RETURN.
     ENDIF.
+
+* ---------- workaround client id (because if double usage within daemon)
+    GET TIME.
+    DATA(lv_client_id) = lr_ebroker->get_client_id( ).
+    lv_client_id = lv_client_id && '-' && sy-uzeit.
+    lr_ebroker->set_client_id( lv_client_id ).
 
 
 * ----------- connect

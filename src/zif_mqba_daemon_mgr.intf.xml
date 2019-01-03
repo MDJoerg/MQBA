@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_DAEMON_MGR</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Daemon Manager for Background processing</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_DAEMON_MGR</CLSNAME>
+     <CMPNAME>IS_AVAILABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>check if daemon is available</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_DAEMON_MGR</CLSNAME>
+     <CMPNAME>PUBLISH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>publish via damon connection</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_DAEMON_MGR</CLSNAME>
+     <CMPNAME>RESTART</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>restart the daemon</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_DAEMON_MGR</CLSNAME>
+     <CMPNAME>SET_CONFIG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the broker config</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_DAEMON_MGR</CLSNAME>
+     <CMPNAME>START</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>start the daemon</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_DAEMON_MGR</CLSNAME>
+     <CMPNAME>STOP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>stop the daemon</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
