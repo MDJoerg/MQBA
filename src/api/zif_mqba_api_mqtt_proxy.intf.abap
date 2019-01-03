@@ -72,4 +72,7 @@ interface ZIF_MQBA_API_MQTT_PROXY
       !IV_RETAIN type ABAP_BOOL default ABAP_FALSE
     returning
       value(RV_SUCCESS) type ABAP_BOOL .
+  methods GET_CLIENT_ID
+    returning
+      value(RV_CLIENT_ID) type STRING .
 endinterface.

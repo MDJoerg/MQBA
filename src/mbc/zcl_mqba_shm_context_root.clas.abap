@@ -69,6 +69,29 @@ CLASS ZCL_MQBA_SHM_CONTEXT_ROOT IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD zif_mqba_shm_context~calc_int.
+    DATA(lv_group) = get_group( iv_group ).
+
+    READ TABLE mt_cache ASSIGNING FIELD-SYMBOL(<lfs_row>)
+      WITH KEY param_group = lv_group
+               param_name  = iv_param.
+    IF sy-subrc EQ 0
+      AND <lfs_row> IS ASSIGNED.
+      rv_int = <lfs_row>-param_value.
+      ADD iv_delta TO rv_int.
+      <lfs_row>-param_value = rv_int.
+    ELSE.
+      DATA: ls_row LIKE LINE OF mt_cache.
+      ls_row-param_group = lv_group.
+      ls_row-param_name  = iv_param.
+      ls_row-param_value = iv_delta.
+      INSERT ls_row INTO TABLE mt_cache.
+      rv_int = iv_delta.
+    ENDIF.
+
+  ENDMETHOD.
+
+
   METHOD zif_mqba_shm_context~clear.
     DATA(lv_group) = get_group( iv_group ).
     DESCRIBE TABLE mt_cache LINES DATA(lv_old).
@@ -107,6 +130,18 @@ CLASS ZCL_MQBA_SHM_CONTEXT_ROOT IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD zif_mqba_shm_context~get_groups.
+    LOOP AT mt_cache ASSIGNING FIELD-SYMBOL(<lfs_cache>).
+      READ TABLE rt_groups TRANSPORTING NO FIELDS
+        WITH KEY table_line = <lfs_cache>-param_group.
+      IF sy-subrc NE 0.
+        APPEND INITIAL LINE TO rt_groups ASSIGNING FIELD-SYMBOL(<lfs_out>).
+        <lfs_out> = <lfs_cache>-param_group.
+      ENDIF.
+    ENDLOOP.
+  ENDMETHOD.
+
+
   METHOD zif_mqba_shm_context~get_names.
     DATA(lv_group) = get_group( iv_group ).
     LOOP AT mt_cache ASSIGNING FIELD-SYMBOL(<lfs_row>)
@@ -114,6 +149,29 @@ CLASS ZCL_MQBA_SHM_CONTEXT_ROOT IMPLEMENTATION.
       APPEND INITIAL LINE TO rt_names ASSIGNING FIELD-SYMBOL(<lfs_name>).
       <lfs_name> = <lfs_row>-param_name.
     ENDLOOP.
+  ENDMETHOD.
+
+
+  METHOD zif_mqba_shm_context~get_tab.
+
+    DATA: ls_out LIKE LINE OF rt_param.
+    DATA(lv_group) = get_group( iv_group ).
+
+    LOOP AT mt_cache ASSIGNING FIELD-SYMBOL(<lfs_cache>)
+      WHERE param_group = lv_group.
+
+      IF it_param[] IS NOT INITIAL.
+        READ TABLE it_param TRANSPORTING NO FIELDS
+          WITH KEY table_line = <lfs_cache>-param_name.
+        IF sy-subrc NE 0.
+          CONTINUE.
+        ENDIF.
+      ENDIF.
+
+      MOVE-CORRESPONDING <lfs_cache> TO ls_out.
+      INSERT ls_out INTO TABLE rt_param.
+    ENDLOOP.
+
   ENDMETHOD.
 
 
@@ -137,6 +195,39 @@ CLASS ZCL_MQBA_SHM_CONTEXT_ROOT IMPLEMENTATION.
 
     rv_success = abap_true.
 
+  ENDMETHOD.
+
+
+  METHOD zif_mqba_shm_context~put_tab.
+
+    DATA(lv_group) = get_group( iv_group ).
+    rv_success = abap_true.
+
+    LOOP AT it_param ASSIGNING FIELD-SYMBOL(<lfs_row>).
+      IF zif_mqba_shm_context~put(
+        iv_group = lv_group
+        iv_param = <lfs_row>-param_name
+        iv_value = <lfs_row>-param_value ) EQ abap_false.
+
+        rv_success = abap_false.
+      ENDIF.
+    ENDLOOP.
+
+  ENDMETHOD.
+
+
+  METHOD zif_mqba_shm_context~remove.
+    DATA ls_row LIKE LINE OF mt_cache.
+    DATA(lv_group) = get_group( iv_group ).
+
+    ls_row-param_group = lv_group.
+    ls_row-param_name  = iv_param.
+
+    DELETE TABLE mt_cache FROM ls_row.
+
+    rv_success = COND #( WHEN sy-subrc = 0
+                         THEN abap_true
+                         ELSE abap_false ).
   ENDMETHOD.
 
 

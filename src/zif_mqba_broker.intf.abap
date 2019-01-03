@@ -40,6 +40,8 @@ interface ZIF_MQBA_BROKER
   constants C_PARAM_SUBSCRIBE_RFCDEST_DEF type STRING value 'NONE' ##NO_TEXT.
   constants C_PARAM_SUBSCRIBE_BPRMOD_NAME type STRING value 'broker.history.module' ##NO_TEXT.
   constants C_PARAM_SUBSCRIBE_BPRMOD_DEF type STRING value 'Z_MQBA_MBL_BPR_CALL_SUBSCRIBER' ##NO_TEXT.
+  constants C_PARAM_GATEWAY_NAME type STRING value 'broker.gateway.default' ##NO_TEXT.
+  constants C_PARAM_GATEWAY_DEF type STRING value 'LOCAL' ##NO_TEXT.
 
   methods EXTERNAL_MESSAGE_PUBLISH
     importing

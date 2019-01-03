@@ -21,6 +21,12 @@
        <PARAMETER>IT_MSG</PARAMETER>
        <TYP>ZMQBA_API_T_EBR_MSG</TYP>
       </RSIMP>
+      <RSIMP>
+       <PARAMETER>IV_NO_QUEUE</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BAPI_FLAG</TYP>
+      </RSIMP>
      </IMPORT>
      <EXPORT>
       <RSEXP>
@@ -45,16 +51,22 @@
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
+       <PARAMETER>IV_NO_QUEUE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>no queue processing if activated</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
        <PARAMETER>EV_ERROR</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Flag errors occured</STEXT>
-       <INDEX> 003</INDEX>
+       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ES_RESULT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>MQBA: external MQTT messages - process result</STEXT>
-       <INDEX> 004</INDEX>
+       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -218,6 +230,56 @@
        <KIND>P</KIND>
        <STEXT>Flag errors occured</STEXT>
        <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>Z_MQBA_API_EBROKER_QUEUE_PROC</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>MQBA: add a external broker message</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IV_BROKER</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_MSG</PARAMETER>
+       <TYP>ZMQBA_API_T_EBR_MSG</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <TYP>ZMQBA_FLAG_ERROR</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>ES_RESULT</PARAMETER>
+       <TYP>ZMQBA_API_S_EBR_MSG_OUT</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IV_BROKER</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_MSG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table of external broker messages</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EV_ERROR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag errors occured</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ES_RESULT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>MQBA: external MQTT messages - process result</STEXT>
+       <INDEX> 004</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

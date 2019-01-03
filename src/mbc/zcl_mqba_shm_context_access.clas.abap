@@ -24,6 +24,7 @@ protected section.
       !IV_GROUP type DATA
     returning
       value(RV_GROUP) type ZMQBA_PARAM_GROUP .
+  methods REBUILD .
   methods RELEASE
     returning
       value(RV_SUCCESS) type ABAP_BOOL .
@@ -59,14 +60,18 @@ CLASS ZCL_MQBA_SHM_CONTEXT_ACCESS IMPLEMENTATION.
             EXIT.
           ENDIF.
 *       catch errors
-        CATCH cx_shm_inconsistent
-              cx_shm_no_active_version
+        CATCH cx_shm_no_active_version
               cx_shm_exclusive_lock_active
               cx_shm_version_limit_exceeded
               cx_shm_change_lock_active
               cx_shm_parameter_error
               cx_shm_pending_lock_removed
+              cx_shm_inconsistent
+              cx_shm_read_lock_active
               INTO mx_exception.
+          IF mx_exception IS INSTANCE OF cx_shm_inconsistent.
+            rebuild( ).
+          ENDIF.
       ENDTRY.
     ENDDO.
 
@@ -105,6 +110,9 @@ CLASS ZCL_MQBA_SHM_CONTEXT_ACCESS IMPLEMENTATION.
               cx_shm_parameter_error
               cx_shm_pending_lock_removed
               INTO mx_exception.
+          IF mx_exception IS INSTANCE OF cx_shm_inconsistent.
+            rebuild( ).
+          ENDIF.
       ENDTRY.
     ENDDO.
 
@@ -115,6 +123,18 @@ CLASS ZCL_MQBA_SHM_CONTEXT_ACCESS IMPLEMENTATION.
     rv_group = COND #( WHEN iv_group IS NOT INITIAL
                        THEN iv_group
                        ELSE mv_group ).
+  ENDMETHOD.
+
+
+  METHOD rebuild.
+    TRY.
+        zcl_mqba_shm_context_root=>if_shm_build_instance~build(
+*            EXPORTING
+*              inst_name       = CL_SHM_AREA=>DEFAULT_INSTANCE
+*              invocation_mode = CL_SHM_AREA=>INVOCATION_MODE_EXPLICIT
+           ).
+      CATCH cx_shm_build_failed INTO mx_exception.
+    ENDTRY.
   ENDMETHOD.
 
 
@@ -161,6 +181,23 @@ CLASS ZCL_MQBA_SHM_CONTEXT_ACCESS IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD zif_mqba_shm_context~calc_int.
+    IF bind_update( ) EQ abap_false.
+      rv_int = 0.
+    ELSE.
+      DATA(lv_group) = get_group( iv_group ).
+
+      rv_int = mr_area->root->zif_mqba_shm_context~calc_int(
+                     iv_group = lv_group
+                     iv_param = iv_param
+                     iv_delta = iv_delta
+                   ).
+
+      release( ).
+    ENDIF.
+  ENDMETHOD.
+
+
   METHOD zif_mqba_shm_context~clear.
     IF bind_update( ) EQ abap_false.
       RETURN.
@@ -200,12 +237,35 @@ CLASS ZCL_MQBA_SHM_CONTEXT_ACCESS IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD zif_mqba_shm_context~get_groups.
+    IF bind_read( ) EQ abap_false.
+      RETURN.
+    ELSE.
+      rt_groups = mr_area->root->zif_mqba_shm_context~get_groups( ).
+      release( ).
+    ENDIF.
+  ENDMETHOD.
+
+
   METHOD zif_mqba_shm_context~get_names.
     IF bind_read( ) EQ abap_false.
       RETURN.
     ELSE.
       DATA(lv_group) = get_group( iv_group ).
       rt_names = mr_area->root->zif_mqba_shm_context~get_names( lv_group ).
+      release( ).
+    ENDIF.
+  ENDMETHOD.
+
+
+  METHOD zif_mqba_shm_context~get_tab.
+    IF bind_read( ) EQ abap_true.
+      DATA(lv_group) = get_group( iv_group ).
+
+      rt_param = mr_area->root->zif_mqba_shm_context~get_tab(
+                   iv_group = lv_group
+                   it_param = it_param
+                 ).
       release( ).
     ENDIF.
   ENDMETHOD.
@@ -227,6 +287,40 @@ CLASS ZCL_MQBA_SHM_CONTEXT_ACCESS IMPLEMENTATION.
       release( ).
     ENDIF.
 
+  ENDMETHOD.
+
+
+  METHOD zif_mqba_shm_context~put_tab.
+
+    IF bind_update( ) EQ abap_false.
+      rv_success = abap_false.
+    ELSE.
+      DATA(lv_group) = get_group( iv_group ).
+
+      rv_success = mr_area->root->zif_mqba_shm_context~put_tab(
+                     iv_group = lv_group
+                     it_param = it_param
+                   ).
+
+      release( ).
+    ENDIF.
+
+  ENDMETHOD.
+
+
+  METHOD zif_mqba_shm_context~remove.
+    IF bind_update( ) EQ abap_false.
+      rv_success = abap_false.
+    ELSE.
+      DATA(lv_group) = get_group( iv_group ).
+
+      rv_success = mr_area->root->zif_mqba_shm_context~remove(
+                     iv_group = lv_group
+                     iv_param = iv_param
+                   ).
+
+      release( ).
+    ENDIF.
   ENDMETHOD.
 
 
