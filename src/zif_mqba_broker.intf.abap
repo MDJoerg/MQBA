@@ -40,7 +40,16 @@ interface ZIF_MQBA_BROKER
   constants C_PARAM_SUBSCRIBE_RFCDEST_DEF type STRING value 'NONE' ##NO_TEXT.
   constants C_PARAM_SUBSCRIBE_BPRMOD_NAME type STRING value 'broker.history.module' ##NO_TEXT.
   constants C_PARAM_SUBSCRIBE_BPRMOD_DEF type STRING value 'Z_MQBA_MBL_BPR_CALL_SUBSCRIBER' ##NO_TEXT.
+  constants C_PARAM_GATEWAY_NAME type STRING value 'broker.gateway.default' ##NO_TEXT.
+  constants C_PARAM_GATEWAY_DEF type STRING value 'LOCAL' ##NO_TEXT.
 
+  methods EXTERNAL_MESSAGE_PUBLISH
+    importing
+      !IV_TOPIC type STRING
+      !IV_PAYLOAD type STRING
+      !IV_BROKER_ID type ZMQBA_BROKER_ID optional
+    returning
+      value(RV_SUCCESS) type ABAP_BOOL .
   methods GET_EXCEPTION
     returning
       value(RR_EXCEPTION) type ref to CX_ROOT .
@@ -52,6 +61,11 @@ interface ZIF_MQBA_BROKER
       !IR_MSG type ref to ZIF_MQBA_REQUEST
     returning
       value(RV_SUCCESS) type ABAP_BOOL .
+  methods EXTERNAL_MESSAGES_ARRIVED
+    importing
+      !IS_PARAMS type ZMQBA_API_S_EBR_MSG_IN
+    returning
+      value(RS_RESULT) type ZMQBA_API_S_EBR_MSG_OUT .
   methods INTERNAL_MESSAGE_ARRIVED
     importing
       !IR_MSG type ref to ZIF_MQBA_REQUEST

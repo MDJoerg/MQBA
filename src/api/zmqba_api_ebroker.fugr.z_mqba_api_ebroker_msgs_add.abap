@@ -21,7 +21,7 @@ FUNCTION z_mqba_api_ebroker_msgs_add.
         iv_msg_id  = CONV string( ls_msg-msg_id )
 *       IT_PROPS   =
       IMPORTING
-*       EV_ERROR_TEXT       =
+*       EV_ERROR_TEXT     =
         ev_error   = ev_error
 *       EV_GUID    =
 *       EV_SCOPE   =

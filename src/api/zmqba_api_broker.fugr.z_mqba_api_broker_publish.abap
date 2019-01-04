@@ -6,6 +6,7 @@ FUNCTION z_mqba_api_broker_publish.
 *"     VALUE(IV_PAYLOAD) TYPE  STRING
 *"     VALUE(IV_SESSION_ID) TYPE  STRING OPTIONAL
 *"     VALUE(IV_EXTERNAL) TYPE  BAPI_FLAG OPTIONAL
+*"     VALUE(IV_GATEWAY) TYPE  ZMQBA_BROKER_ID OPTIONAL
 *"     VALUE(IV_CONTEXT) TYPE  STRING OPTIONAL
 *"     VALUE(IT_PROPS) TYPE  ZMQBA_MSG_T_PRP OPTIONAL
 *"  EXPORTING
@@ -27,6 +28,7 @@ FUNCTION z_mqba_api_broker_publish.
 * distribute to external broker?
   IF iv_external = abap_true.
     lr_producer->set_external( ).
+    lr_producer->set_external_broker( iv_gateway ).
   ENDIF.
 * set additional fields
   IF it_props[] IS NOT INITIAL.

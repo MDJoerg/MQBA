@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_MQBA_SHM_CONTEXT_ACCESS</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Acess to shared memory context</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_SHM_CONTEXT_ACCESS</CLSNAME>
+     <CMPNAME>BIND_READ</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>bind data for update</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_SHM_CONTEXT_ACCESS</CLSNAME>
+     <CMPNAME>BIND_UPDATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>bind data for update</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_SHM_CONTEXT_ACCESS</CLSNAME>
+     <CMPNAME>GET_GROUP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get group from given or context</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_SHM_CONTEXT_ACCESS</CLSNAME>
+     <CMPNAME>MR_AREA</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>MQBA: Shared Memory Context</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_SHM_CONTEXT_ACCESS</CLSNAME>
+     <CMPNAME>MX_EXCEPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Abstract Superclass for All Global Exceptions</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_SHM_CONTEXT_ACCESS</CLSNAME>
+     <CMPNAME>REBUILD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>rebuild shared context</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_SHM_CONTEXT_ACCESS</CLSNAME>
+     <CMPNAME>RELEASE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>release data</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

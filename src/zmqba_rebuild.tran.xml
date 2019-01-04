@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TRAN" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TSTC>
+    <TCODE>ZMQBA_REBUILD</TCODE>
+    <CINFO>Ag==</CINFO>
+   </TSTC>
+   <TSTCC>
+    <TCODE>ZMQBA_REBUILD</TCODE>
+    <S_WEBGUI>1</S_WEBGUI>
+   </TSTCC>
+   <TSTCT>
+    <SPRSL>E</SPRSL>
+    <TCODE>ZMQBA_REBUILD</TCODE>
+    <TTEXT>Rebuild Broker Memory</TTEXT>
+   </TSTCT>
+   <TSTCP>
+    <TCODE>ZMQBA_REBUILD</TCODE>
+    <PARAM>/*OS_APPLICATION CLASS=ZCL_MQBA_FACTORY;METHOD=REBUILD_MEMORY_TRANSACTION;UPDATE_MODE=U;</PARAM>
+   </TSTCP>
+  </asx:values>
+ </asx:abap>
+</abapGit>

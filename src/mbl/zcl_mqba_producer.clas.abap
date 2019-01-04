@@ -13,6 +13,7 @@ protected section.
   data M_EXTERNAL type ABAP_BOOL value ABAP_FALSE ##NO_TEXT.
   data M_EXCEPTION type ref to CX_ROOT .
   data M_MSG type ref to ZCL_MQBA_INT_MESSAGE .
+  data M_EXT_BROKER_ID type ZMQBA_BROKER_ID .
 private section.
 ENDCLASS.
 
@@ -51,6 +52,7 @@ CLASS ZCL_MQBA_PRODUCER IMPLEMENTATION.
                            iv_value = m_consumer_id ).
     ELSEIF m_external EQ abap_true.
       m_msg->set_scope( zif_mqba_broker=>c_scope_distributed ).
+      m_msg->set_gateway( m_ext_broker_id ).
     ELSE.
       m_msg->set_scope( zif_mqba_broker=>c_scope_internal ).
     ENDIF.
@@ -102,6 +104,12 @@ CLASS ZCL_MQBA_PRODUCER IMPLEMENTATION.
 
   METHOD zif_mqba_producer~set_external.
     m_external = abap_true.
+    rr_self = me.
+  ENDMETHOD.
+
+
+  METHOD zif_mqba_producer~set_external_broker.
+    m_ext_broker_id = iv_broker_id.
     rr_self = me.
   ENDMETHOD.
 

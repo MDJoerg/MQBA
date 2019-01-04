@@ -68,6 +68,11 @@ public section.
     returning
       value(RR_INSTANCE) type ref to ZCL_MQBA_MESSAGE .
   methods CONSTRUCTOR .
+  methods SET_GATEWAY
+    importing
+      !IV_BROKER type DATA
+    returning
+      value(RR_SELF) type ref to ZCL_MQBA_MESSAGE .
 protected section.
 
   data M_TOPIC type STRING .
@@ -81,6 +86,7 @@ protected section.
   data M_GUID type ZMQBA_MSG_GUID .
   data M_PROPS type ZMQBA_MSG_T_PRP .
   data M_SCOPE type ZMQBA_MSG_SCOPE .
+  data M_BROKER type STRING .
 
   methods TO_BOOLEAN
     importing
@@ -171,6 +177,15 @@ CLASS ZCL_MQBA_MESSAGE IMPLEMENTATION.
 * finally set myself
     rr_self = me.
 
+  ENDMETHOD.
+
+
+  METHOD SET_GATEWAY.
+*   fill data
+    m_broker   = iv_broker.
+
+*   fill return
+    rr_self = me.
   ENDMETHOD.
 
 
@@ -306,6 +321,11 @@ CLASS ZCL_MQBA_MESSAGE IMPLEMENTATION.
 
   METHOD zif_mqba_request~get_context_obj.
   ENDMETHOD.
+
+
+  method ZIF_MQBA_REQUEST~GET_GATEWAY.
+    rv_gateway = m_broker.
+  endmethod.
 
 
   METHOD zif_mqba_request~get_guid.

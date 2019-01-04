@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+#<?xml version="1.0" encoding="utf-8"?>
 <abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
-   <AREAT>MQBA: API External Broker</AREAT>
+   <AREAT>MQBA:API External Broker</AREAT>
    <INCLUDES>
     <SOBJ_NAME>LZMQBA_API_EBROKERTOP</SOBJ_NAME>
     <SOBJ_NAME>SAPLZMQBA_API_EBROKER</SOBJ_NAME>
@@ -19,7 +19,7 @@
       </RSIMP>
       <RSIMP>
        <PARAMETER>IT_MSG</PARAMETER>
-       <TYP>ZMQBA_API_T_EBR_MSG</TYP>
+      <TYP>ZMQBA_API_T_EBR_MSG</TYP>
       </RSIMP>
      </IMPORT>
      <EXPORT>

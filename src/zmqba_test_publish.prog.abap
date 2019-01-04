@@ -17,11 +17,12 @@ CLASS test IMPLEMENTATION.
     DATA topic          TYPE string.
     DATA payload        TYPE string.
     DATA context        TYPE string.
-    DATA field1         TYPE string VALUE `Field1`.
-    DATA value1         TYPE string VALUE `Value1`.
-    DATA field2         TYPE string VALUE `Field2`.
-    DATA value2         TYPE string VALUE `Value2`.
-    DATA external       TYPE abap_bool.
+    DATA field1         TYPE string VALUE 'Field1'.
+    DATA value1         TYPE string VALUE 'Value1'.
+    DATA field2         TYPE string VALUE 'Field2'.
+    DATA value2         TYPE string VALUE 'Value2'.
+    DATA ext_flag       TYPE abap_bool.
+    DATA ext_brkid      TYPE string.
     DATA session_id     TYPE amc_consumer_session_id.
 
 * ---- set example data
@@ -38,7 +39,8 @@ CLASS test IMPLEMENTATION.
       )->add_field( EXPORTING text = 'Field1' CHANGING field = value1
       )->add_field( EXPORTING text = 'Field2' CHANGING field = value2
       )->add_line(
-      )->add_field( EXPORTING text  = 'as external message' as_checkbox = abap_true CHANGING  field = external
+      )->add_field( EXPORTING text  = 'as external message' as_checkbox = abap_true CHANGING  field = ext_flag
+      )->add_field( EXPORTING text  = 'external broker id' CHANGING field = ext_brkid
       )->add_field( EXPORTING text  = 'private with session id' CHANGING  field = session_id
       )->request( ).
 
@@ -52,8 +54,11 @@ CLASS test IMPLEMENTATION.
       lr_producer->set_context( context ).
     ENDIF.
 * distribute to external broker?
-    IF external = abap_true.
+    IF ext_flag = abap_true.
       lr_producer->set_external( ).
+      IF ext_brkid IS NOT INITIAL.
+        lr_producer->set_external_broker( ext_brkid ).
+      ENDIF.
     ENDIF.
 * set additional fields
     lr_producer->set_field( iv_name = 'field1' iv_value = value1 ).
@@ -65,7 +70,7 @@ CLASS test IMPLEMENTATION.
     ELSE.
 * success !
       DATA(lr_msg) = lr_producer->get_message( ).
-      cl_demo_output=>display( |Message published to Broker with internal message id { lr_msg->get_guid( ) } and scope { lr_msg->get_scope( ) }| ).
+      cl_demo_output=>display( |Message published to Broker { ext_brkid } with internal message id { lr_msg->get_guid( ) } and scope { lr_msg->get_scope( ) }| ).
     ENDIF.
 
   ENDMETHOD.

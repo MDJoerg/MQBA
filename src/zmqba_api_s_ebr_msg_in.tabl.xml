@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TABL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD02V>
+    <TABNAME>ZMQBA_API_S_EBR_MSG_IN</TABNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <TABCLASS>INTTAB</TABCLASS>
+    <DDTEXT>MQBA: external MQTT messages - params</DDTEXT>
+    <EXCLASS>1</EXCLASS>
+   </DD02V>
+   <DD03P_TABLE>
+    <DD03P>
+     <TABNAME>ZMQBA_API_S_EBR_MSG_IN</TABNAME>
+     <FIELDNAME>BROKER</FIELDNAME>
+     <POSITION>0001</POSITION>
+     <ROLLNAME>ZMQBA_BROKER_ID</ROLLNAME>
+     <ADMINFIELD>0</ADMINFIELD>
+     <COMPTYPE>E</COMPTYPE>
+    </DD03P>
+    <DD03P>
+     <TABNAME>ZMQBA_API_S_EBR_MSG_IN</TABNAME>
+     <FIELDNAME>MSGS</FIELDNAME>
+     <POSITION>0002</POSITION>
+     <ROLLNAME>ZMQBA_API_T_EBR_MSG</ROLLNAME>
+     <ADMINFIELD>0</ADMINFIELD>
+     <DATATYPE>TTYP</DATATYPE>
+     <MASK>  TTYPL</MASK>
+     <COMPTYPE>L</COMPTYPE>
+    </DD03P>
+    <DD03P>
+     <TABNAME>ZMQBA_API_S_EBR_MSG_IN</TABNAME>
+     <FIELDNAME>FLAG_NO_QUEUE</FIELDNAME>
+     <POSITION>0003</POSITION>
+     <ROLLNAME>BAPI_FLAG</ROLLNAME>
+     <ADMINFIELD>0</ADMINFIELD>
+     <COMPTYPE>E</COMPTYPE>
+    </DD03P>
+   </DD03P_TABLE>
+  </asx:values>
+ </asx:abap>
+</abapGit>

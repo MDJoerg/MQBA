@@ -9,6 +9,7 @@ protected section.
 
   data M_EXCEPTION type ref to CX_ROOT .
   data M_SHM_CONFIG type ZMQBA_SHM_S_PMG_OUT .
+  data M_SHM_RETRY type I value 5000 ##NO_TEXT.
 
   methods DISTRIBUTE_EXTERNAL
     importing
@@ -39,7 +40,9 @@ protected section.
       !IR_MSG type ref to ZIF_MQBA_REQUEST
     returning
       value(RV_SUCCESS) type ABAP_BOOL .
-  methods RESET .
+  methods RESET
+    importing
+      !IV_FULL type ABAP_BOOL default ABAP_FALSE .
   methods SEND_GATEWAY_MESSAGE
     importing
       !IR_MSG type ref to ZIF_MQBA_REQUEST
@@ -137,8 +140,33 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 
 
 * ------ at the moment only distribution to apc channel exists...
-* TODO: routing, differend gateway methods and private messaging are planned
-    rv_success = send_gateway_message( ir_msg ).
+* get the broker id from message
+    DATA(lv_gateway) = ir_msg->get_gateway( ).
+
+* set default gateway from config
+    IF lv_gateway IS INITIAL.
+      READ TABLE m_shm_config-brk_cfg
+         ASSIGNING FIELD-SYMBOL(<lfs_cfg>)
+         WITH KEY param_name = zif_mqba_broker=>c_param_gateway_name.
+      IF sy-subrc EQ 0 AND <lfs_cfg> IS ASSIGNED.
+        lv_gateway = <lfs_cfg>-param_value.
+      ELSE.
+        lv_gateway = zif_mqba_broker=>c_param_gateway_def.
+      ENDIF.
+    ENDIF.
+
+
+* call real external gateway or post it to default apc based service
+    IF lv_gateway IS INITIAL
+      OR lv_gateway EQ 'LOCAL'.
+      rv_success = send_gateway_message( ir_msg ).
+    ELSE.
+      rv_success = zif_mqba_broker~external_message_publish(
+           iv_topic       = ir_msg->get_topic( )
+           iv_payload     = ir_msg->get_payload( )
+           iv_broker_id   = CONV zmqba_broker_id( lv_gateway )
+        ).
+    ENDIF.
 
   ENDMETHOD.
 
@@ -334,7 +362,7 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 
 
 * ---- try to store the current message to shared memory
-    DO 1000 TIMES.
+    DO m_shm_retry TIMES.
       TRY.
 *   store new event to shared memory
 *       reset m_exception
@@ -356,9 +384,15 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
               cx_shm_parameter_error
               cx_shm_pending_lock_removed
               INTO m_exception.
+
           LOG-POINT ID zmqba_shm
              SUBKEY 'put_to_storage_failed'
              FIELDS sy-index m_exception->get_text( ).
+
+*         force rebuild here
+          IF m_exception IS INSTANCE OF cx_shm_inconsistent.
+            zcl_mqba_factory=>rebuild_memory( ).
+          ENDIF.
       ENDTRY.
     ENDDO.
 
@@ -376,8 +410,15 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 
 
   METHOD reset.
-    CLEAR: m_exception,
-           m_shm_config.
+
+* ------ reset normal fields
+    CLEAR: m_exception.
+
+* ------ full reset
+    IF iv_full EQ abap_true.
+      CLEAR: m_shm_config.
+    ENDIF.
+
   ENDMETHOD.
 
 
@@ -386,7 +427,7 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 * ----- init and check
     IF ir_msg->get_scope( ) NE zif_mqba_broker=>c_scope_distributed.
       rv_success = abap_true.
-      EXIT.
+      RETURN.
     ENDIF.
 
 
@@ -498,11 +539,116 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD zif_mqba_broker~external_messages_arrived.
+
+* ============== INIT & PREPARE
+* ---------- init
+    CLEAR rs_result.
+    rs_result-error_flag = abap_true.
+
+
+
+
+    GET TIME STAMP FIELD: rs_result-proc_start,
+                          rs_result-proc_end.
+
+* ---------- check
+    IF is_params IS INITIAL
+      OR is_params-broker IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ---------- prepare table
+    DESCRIBE TABLE is_params-msgs LINES rs_result-cnt_all.
+    IF rs_result-cnt_all EQ 0.
+      rs_result-error_flag = abap_false.
+      RETURN.
+    ENDIF.
+
+
+* ================ QRFC: check for queue processing
+    IF is_params-flag_no_queue EQ abap_false.
+      DATA(lr_bcfg) = zcl_mqba_factory=>get_broker_config( is_params-broker ).
+      IF lr_bcfg IS INITIAL.
+        RETURN.
+      ENDIF.
+
+      DATA(ls_cfg) = lr_bcfg->get_config( ).
+      IF ls_cfg IS INITIAL.
+        RETURN.
+      ENDIF.
+
+      IF ls_cfg-use_queue EQ abap_true.
+        DATA(lr_qrfc) = zcl_mqba_factory=>create_util_qrfc( ).
+        DATA(lv_qname) = ls_cfg-queue_name.
+        IF lv_qname IS INITIAL.
+          lv_qname = 'MQBA_INBOUND'.
+        ENDIF.
+
+        lr_qrfc->set_qrfc_inbound( lv_qname ).
+        CALL FUNCTION 'Z_MQBA_API_EBROKER_QUEUE_PROC'
+          IN BACKGROUND TASK AS SEPARATE UNIT
+          DESTINATION 'NONE'
+          EXPORTING
+            iv_broker = is_params-broker
+            it_msg    = is_params-msgs.
+        lr_qrfc->transaction_end( ).
+
+*       status and return
+        rs_result-error_flag  = abap_false.
+        rs_result-cnt_success = rs_result-cnt_all.
+        RETURN.
+      ENDIF.
+
+    ENDIF.
+
+
+
+
+* ===================== PROCESS
+* ---------- loop all messages
+    LOOP AT is_params-msgs ASSIGNING FIELD-SYMBOL(<lfs_in>).
+*    prepare out
+      APPEND INITIAL LINE TO rs_result-result ASSIGNING FIELD-SYMBOL(<lfs_out>).
+      MOVE-CORRESPONDING <lfs_in> TO <lfs_out>.
+
+*   create message from in
+      DATA(lr_msg) = zcl_mqba_factory=>create_ext_message( ).
+      IF lr_msg->set_data_from_ext_msg(
+          is_msg     = <lfs_in>
+          iv_broker  = is_params-broker
+      ) EQ abap_false.
+        <lfs_out>-error      = abap_true.
+        <lfs_out>-error_text = 'wrong external message'.
+        ADD 1 TO rs_result-cnt_error.
+      ELSE.
+*   forward to single processing
+        IF zif_mqba_broker~external_message_arrived( lr_msg ) EQ abap_true.
+          <lfs_out>-msg_guid   = lr_msg->zif_mqba_request~get_guid( ).
+          <lfs_out>-msg_scope  = lr_msg->zif_mqba_request~get_scope( ).
+          ADD 1 TO rs_result-cnt_success.
+        ELSE.
+          <lfs_out>-error      = abap_true.
+          <lfs_out>-error_text = zif_mqba_broker~get_last_error( ).
+          ADD 1 TO rs_result-cnt_error.
+        ENDIF.
+      ENDIF.
+
+    ENDLOOP.
+
+* ------------ fill result
+    GET TIME STAMP FIELD rs_result-proc_end.
+    rs_result-error_flag = COND #( WHEN rs_result-cnt_error EQ 0
+                                   THEN abap_false ELSE abap_true ).
+
+  ENDMETHOD.
+
+
   METHOD zif_mqba_broker~external_message_arrived.
 
 
 * ------ set default
-    reset( ).
+    reset( abap_true ). "full reset
     CLEAR rv_success.
 
 * ------ check against black and whitelist
@@ -519,6 +665,66 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
 
 * ------ result
     rv_success = abap_true.
+
+  ENDMETHOD.
+
+
+  METHOD zif_mqba_broker~external_message_publish.
+
+* ---------- init
+    rv_success = abap_false.
+    CLEAR m_exception.
+
+* ====================== 1st option: check daemon
+    DATA(lr_daemon) = zcl_mqba_factory=>get_daemon_mgr( iv_broker_id ).
+    IF lr_daemon IS NOT INITIAL.
+      IF lr_daemon->publish(
+          iv_topic   = iv_topic
+          iv_payload = iv_payload
+      ) EQ abap_true.
+        rv_success = abap_true.
+        RETURN.
+      ENDIF.
+    ENDIF.
+
+
+
+* ====================== 2nd option: create client
+* ---------- get an instance
+    DATA(lr_ebroker) = zcl_mqba_factory=>get_broker_proxy( iv_broker_id ).
+    IF lr_ebroker IS INITIAL.
+      create_exception( |unknown broker { iv_broker_id }| ).
+      RETURN.
+    ENDIF.
+
+* ---------- workaround client id (because if double usage within daemon)
+    GET TIME.
+    DATA(lv_client_id) = lr_ebroker->get_client_id( ).
+    lv_client_id = lv_client_id && '-' && sy-uzeit.
+    lr_ebroker->set_client_id( lv_client_id ).
+
+
+* ----------- connect
+    IF lr_ebroker->connect( ) EQ abap_false.
+      create_exception( |connection failed to { iv_broker_id }| ).
+      lr_ebroker->destroy( ).
+      RETURN.
+    ENDIF.
+
+
+* ----------- publish
+    IF lr_ebroker->publish(
+         iv_topic   = iv_topic
+         iv_payload = iv_payload
+       ) EQ abap_false.
+      create_exception( |publish failed to { iv_broker_id }| ).
+    ELSE.
+      rv_success = abap_true.
+    ENDIF.
+
+
+* ------------ destoy
+    lr_ebroker->destroy( ).
 
   ENDMETHOD.
 
@@ -560,6 +766,12 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
               cx_shm_exclusive_lock_active
               cx_shm_change_lock_active
               INTO m_exception.
+
+*         force rebuild here
+          IF m_exception IS INSTANCE OF cx_shm_inconsistent.
+            zcl_mqba_factory=>rebuild_memory( ).
+          ENDIF.
+
 *       store the message
           rs_result-error = m_exception->get_text( ).
 *       retry?
@@ -592,9 +804,9 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
   ENDMETHOD.
 
 
-  method ZIF_MQBA_BROKER~GET_STATISTIC.
+  METHOD zif_mqba_broker~get_statistic.
 
-    DO 1000 times.
+    DO m_shm_retry TIMES.
       TRY.
 *       reset
           reset( ).
@@ -613,12 +825,15 @@ CLASS ZCL_MQBA_BROKER IMPLEMENTATION.
               cx_shm_exclusive_lock_active
               cx_shm_change_lock_active
               INTO m_exception.
-*       store the message
-          "rs_result-error = m_exception->get_text( ).
+
+*         force rebuild here
+          IF m_exception IS INSTANCE OF cx_shm_inconsistent.
+            zcl_mqba_factory=>rebuild_memory( ).
+          ENDIF.
       ENDTRY.
     ENDDO.
 
-  endmethod.
+  ENDMETHOD.
 
 
   METHOD zif_mqba_broker~internal_message_arrived.

@@ -116,7 +116,7 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
 
   METHOD get_broker.
 
-    DATA(lr_instance) = NEW zcl_mqba_broker( ).
+    DATA(lr_instance) = NEWzcl_mqba_broker( ).
 
     rr_broker = lr_instance.
 

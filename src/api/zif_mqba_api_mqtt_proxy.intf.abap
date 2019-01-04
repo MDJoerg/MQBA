@@ -28,14 +28,14 @@ interface ZIF_MQBA_API_MQTT_PROXY
     importing
       !IV_CLIENT_ID type DATA
     returning
-      value(RR_SELF) type ref to ZIF_MQBA_API_MQTT_PROXY .
+value(RR_SELF) type ref to ZIF_MQBA_API_MQTT_PROXY .
   methods SET_LAST_WILL
     importing
       !IV_TOPIC type DATA
       !IV_PAYLOAD type DATA
       !IV_QOS type ZMQBA_MQTT_QOS default 0
       !IV_RETAIN type ZMQBA_MQTT_RETAIN default ABAP_FALSE
-    returning
+   returning
       value(RR_SELF) type ref to ZIF_MQBA_API_MQTT_PROXY .
   methods GET_ERROR
     returning
@@ -45,7 +45,7 @@ interface ZIF_MQBA_API_MQTT_PROXY
       value(RV_ERROR) type STRING .
   methods IS_ERROR
     returning
-      value(RV_ERROR) type ABAP_BOOL .
+     value(RV_ERROR) type ABAP_BOOL .
   methods GET_RECEIVED_MESSAGES
     importing
       !IV_DELETE type ABAP_BOOL default ABAP_TRUE
@@ -53,7 +53,7 @@ interface ZIF_MQBA_API_MQTT_PROXY
       value(RT_MSG) type ZMQBA_API_T_EBR_MSG .
   methods SUBSCRIBE_TO
     importing
-      !IV_TOPIC type DATA
+      !IV_TOPICtype DATA
       !IV_USE_PREFIX type ABAP_BOOL default ABAP_TRUE
       !IV_QOS type ZMQBA_MQTT_QOS default 0
     returning
