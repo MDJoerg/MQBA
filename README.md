@@ -11,10 +11,14 @@ In the future we will hopefully have a standard solution from SAP.
 # Current State and news
 
 The project is in an beta state. At the moment there are no experiences with productive usage. You can do it at your own risk.  
-
 Some features are planned for the future. So the programs could be changed.
-
 See project news on Twitter with hashtag [#SAPMQBA](https://twitter.com/hashtag/SAPMQBA).
+
+Update 2019/01/04:
+- new version with some bugfixes and support for external broker proxies (daemons) added
+- Plugin MQBA_PINS with native MQTT protocol support tested for S/4 1809 (ABAP 7.53)
+- support for other background broker proxies available
+
 
 # Technology background
 
@@ -35,6 +39,8 @@ Activate the services ZMQBA_GW and ZMQBA_INT (websocket nodes) with transaction 
 If you want to activate the bridge to external MQTT brokers you will need a Node-RED Service and flow as the connector. See [Node-RED-Installation documentation](nodered/README.md) for further information.
 
 The Node-RED Service can be installed on a Raspberry PI or as Docker image for example. Take a look to the [openhabian project](https://github.com/openhab/openhabian). In this distribution for Raspberry PI Node-RED, [Mosquitto MQTT](https://www.mosquitto.org/) and [openHAB](https://www.openhab.org/) are included and preconfigured.
+
+Since ABAP 7.53 a native ABAP MQTT support is existing. If you have an SAP ABAP Netweaver Stack >= 7.53 you can install the MQBA Plugin project [MQBA_PINS](https://github.com/MDJoerg/MQBA_PINS) and can use this implementation instead of the Node-RED gateway. Configure an external broker like iot.eclipse.org (area menu ZMQBA, configuration) and catch the messages via an ABAP daemon service.   
 
 ## Customizing
 
