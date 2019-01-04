@@ -74,21 +74,21 @@ CLASS ZCL_MQBA_GUI_BL_SDB IMPLEMENTATION.
 
 * ------ create 3 simple sensor widgets
     m_widgets->add( zcl_mqba_gui_factory=>create_widget( zif_mqba_gui_widget=>c_type_sensor
-    )->set_cfg_idx( 'S1')->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR1' ) ).
+    )->set_cfg_idx( 'S1' )->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR1' ) ).
 
     m_widgets->add( zcl_mqba_gui_factory=>create_widget( zif_mqba_gui_widget=>c_type_sensor
-    )->set_cfg_idx( 'S2')->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR2' ) ).
+    )->set_cfg_idx( 'S2' )->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR2' ) ).
 
     m_widgets->add( zcl_mqba_gui_factory=>create_widget( zif_mqba_gui_widget=>c_type_sensor
-    )->set_cfg_idx( 'S3')->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR3' ) ).
+    )->set_cfg_idx( 'S3' )->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR3' ) ).
 
 * ------ create 1 switch
     m_widgets->add( zcl_mqba_gui_factory=>create_widget( zif_mqba_gui_widget=>c_type_switch
-    )->set_cfg_idx( 'B1')->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR4' ) ).
+    )->set_cfg_idx( 'B1' )->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR4' ) ).
 
 * ------ create 1 publish panel
     m_widgets->add( zcl_mqba_gui_factory=>create_widget( zif_mqba_gui_widget=>c_type_pubpanel
-    )->set_cfg_idx( 'P1')->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR5' ) ).
+    )->set_cfg_idx( 'P1' )->set_from_cfg( m_config )->set_subscreen_mode( 'SUBSCR5' ) ).
 
 
   ENDMETHOD.
