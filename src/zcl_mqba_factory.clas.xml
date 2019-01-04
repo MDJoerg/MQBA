@@ -1,4 +1,4 @@
-#<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
@@ -24,6 +24,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>CREATE_EXT_MESSAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>create a new external message holder object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
      <CMPNAME>CREATE_MESSAGE</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>create a new message holder object</DESCRIPT>
@@ -36,14 +42,14 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
-<CMPNAME>CREATE_TOPIC_FILTER_CONFIG</CMPNAME>
+     <CMPNAME>CREATE_TOPIC_FILTER_CONFIG</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>create a topic based filter config</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
      <CMPNAME>CREATE_UTIL_QRFC</CMPNAME>
-  <LANGU>E</LANGU>
+     <LANGU>E</LANGU>
      <DESCRIPT>create a new qrfc utili</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -58,7 +64,7 @@
      <LANGU>E</LANGU>
      <DESCRIPT>create a new instance of selpar helper</DESCRIPT>
     </SEOCOMPOTX>
- <SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
      <CMPNAME>GET_BASE_DATE</CMPNAME>
      <LANGU>E</LANGU>
@@ -78,9 +84,21 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>GET_BROKER_PROXY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get a broker proxy (configured)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
      <CMPNAME>GET_CONSUMER</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get a consumer instance to catch messages</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>GET_DAEMON_MGR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the daemon manager for external gateways</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
@@ -102,6 +120,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>GET_SHM_CONTEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get access to shared memory context</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
      <CMPNAME>GET_UTIL</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get the utility api</DESCRIPT>
@@ -111,6 +135,18 @@
      <CMPNAME>M_BASE_DATE</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Date</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>REBUILD_MEMORY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>rebuild the memory (for incosistencies)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>REBUILD_MEMORY_TRANSACTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>transaction entry point for rebuild memory</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>

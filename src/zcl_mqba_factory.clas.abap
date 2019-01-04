@@ -4,6 +4,20 @@ class ZCL_MQBA_FACTORY definition
 
 public section.
 
+  class-methods GET_BROKER_PROXY
+    importing
+      !IV_BROKER_ID type ZMQBA_BROKER_ID
+    returning
+      value(RR_PROXY) type ref to ZIF_MQBA_API_MQTT_PROXY .
+  class-methods GET_DAEMON_MGR
+    importing
+      !IV_BROKER_ID type ZMQBA_BROKER_ID
+    returning
+      value(RR_MGR) type ref to ZIF_MQBA_DAEMON_MGR .
+  class-methods GET_SHM_CONTEXT
+    returning
+      value(RR_CONTEXT) type ref to ZIF_MQBA_SHM_CONTEXT .
+  methods REBUILD_MEMORY_TRANSACTION .
   class-methods GET_BROKER_CONFIG
     importing
       !IV_BROKER_ID type ZMQBA_BROKER_ID
@@ -31,6 +45,9 @@ public section.
       !IV_TEXT type DATA
     returning
       value(RR_EXCEPTION) type ref to ZCX_MQBA_EXCEPTION .
+  class-methods CREATE_EXT_MESSAGE
+    returning
+      value(RR_MESSAGE) type ref to ZCL_MQBA_EXT_MESSAGE .
   class-methods CREATE_MESSAGE
     returning
       value(RR_MESSAGE) type ref to ZCL_MQBA_INT_MESSAGE .
@@ -57,6 +74,9 @@ public section.
   class-methods GET_BASE_DATE
     returning
       value(RV_DATE) type DATUM .
+  class-methods REBUILD_MEMORY
+    returning
+      value(RV_SUCCESS) type ABAP_BOOL .
 protected section.
 
   class-data M_BASE_DATE type DATUM .
@@ -73,6 +93,11 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
         zcx_mqba_exception=>raise( iv_text ).
       CATCH zcx_mqba_exception INTO rr_exception.
     ENDTRY.
+  ENDMETHOD.
+
+
+  METHOD CREATE_EXT_MESSAGE.
+    rr_message ?= zcl_mqba_message=>create( 'ZCL_MQBA_EXT_MESSAGE' ).
   ENDMETHOD.
 
 
@@ -116,7 +141,7 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
 
   METHOD get_broker.
 
-    DATA(lr_instance) = NEWzcl_mqba_broker( ).
+    DATA(lr_instance) = NEW zcl_mqba_broker( ).
 
     rr_broker = lr_instance.
 
@@ -136,8 +161,78 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD get_broker_proxy.
+
+* ------- check broker config
+    DATA(lr_cfg) = zcl_mqba_factory=>get_broker_config( iv_broker_id ).
+    IF lr_cfg IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ------- get config
+    DATA(ls_cfg) = lr_cfg->get_config( ).
+    IF ls_cfg IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ------- check class
+    IF ls_cfg-impl_class_cl IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ------- create instance
+    CREATE OBJECT rr_proxy TYPE (ls_cfg-impl_class_cl).
+    IF rr_proxy IS INITIAL.
+      RETURN.
+    ENDIF.
+
+
+* ------- set cfg
+    IF rr_proxy->set_config( lr_cfg ) EQ abap_false.
+      CLEAR rr_proxy.
+    ENDIF.
+
+  ENDMETHOD.
+
+
   METHOD get_consumer.
     rr_consumer = NEW zcl_mqba_consumer( ).
+  ENDMETHOD.
+
+
+  METHOD get_daemon_mgr.
+
+* ----- get config
+    DATA(lr_cfg) = zcl_mqba_factory=>get_broker_config( iv_broker_id ).
+    IF lr_cfg IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ------ get implementation class
+    DATA(ls_cfg) = lr_cfg->get_config( ).
+    IF ls_cfg IS INITIAL
+      OR ls_cfg-impl_class IS INITIAL.
+      RETURN.
+    ENDIF.
+
+* ------ create an object
+    DATA lr_instance TYPE REF TO object.
+    CREATE OBJECT lr_instance TYPE (ls_cfg-impl_class).
+    IF lr_instance IS INITIAL
+      OR lr_instance IS NOT INSTANCE OF zif_mqba_daemon_mgr.
+      RETURN.
+    ENDIF.
+
+* ------- cast and set config
+    DATA(lr_mgr) = CAST zif_mqba_daemon_mgr( lr_instance ).
+    IF lr_mgr->set_config( lr_cfg ) EQ abap_false.
+      RETURN.
+    ENDIF.
+
+
+* ------- return
+    rr_mgr = lr_mgr.
+
   ENDMETHOD.
 
 
@@ -157,7 +252,33 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
   endmethod.
 
 
+  METHOD get_shm_context.
+    rr_context = NEW zcl_mqba_shm_context_access( ).
+  ENDMETHOD.
+
+
   METHOD get_util.
     rr_util = NEW zcl_mqba_util( ).
+  ENDMETHOD.
+
+
+  METHOD rebuild_memory.
+
+    TRY.
+        zcl_mqba_shm_data_root=>if_shm_build_instance~build( ).
+        rv_success = abap_true.
+      CATCH cx_shm_build_failed .
+        rv_success = abap_false.
+    ENDTRY.
+
+  ENDMETHOD.
+
+
+  METHOD rebuild_memory_transaction.
+    IF rebuild_memory( ) EQ abap_true.
+      MESSAGE i008(zmqba).  " rebuild finished
+    ELSE.
+      MESSAGE e009(zmqba).  " rebuildig failed
+    ENDIF.
   ENDMETHOD.
 ENDCLASS.

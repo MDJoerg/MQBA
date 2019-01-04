@@ -1,4 +1,4 @@
-#<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
@@ -32,11 +32,23 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_API_MQTT_PROXY</CLSNAME>
+     <CMPNAME>GET_CLIENT_ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the client id</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_API_MQTT_PROXY</CLSNAME>
+     <CMPNAME>GET_CLIENT_STATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the client state</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_API_MQTT_PROXY</CLSNAME>
      <CMPNAME>GET_ERROR</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get the last error code</DESCRIPT>
     </SEOCOMPOTX>
-   <SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_API_MQTT_PROXY</CLSNAME>
      <CMPNAME>GET_ERROR_TEXT</CMPNAME>
      <LANGU>E</LANGU>
@@ -62,11 +74,23 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_API_MQTT_PROXY</CLSNAME>
+     <CMPNAME>PUBLISH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>publish a message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_API_MQTT_PROXY</CLSNAME>
      <CMPNAME>RECONNECT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>reconnect broker</DESCRIPT>
     </SEOCOMPOTX>
- <SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_API_MQTT_PROXY</CLSNAME>
+     <CMPNAME>SET_CALLBACK_NEW_MSG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the callback handler for new messages</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CLSNAME>ZIF_MQBA_API_MQTT_PROXY</CLSNAME>
      <CMPNAME>SET_CLIENT_ID</CMPNAME>
      <LANGU>E</LANGU>
