@@ -80,3 +80,5 @@ SAP supports the PCP Protocol with a special javascript library. See [SAP Help](
 Some organizations and individuals support this project and make it possible. Thank you to:
 - [BA GmbH](https://www.ba-gmbh.com/)
 - [SAP UCC](http://www.sap-ucc.com/)
+- [Lars Hvam](https://github.com/larshp)
+- [Gregor Wolf](https://twitter.com/wolf_gregor)
