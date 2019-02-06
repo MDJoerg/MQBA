@@ -17,6 +17,19 @@
     <DTELMASTER>E</DTELMASTER>
     <DATATYPE>STRG</DATATYPE>
    </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>Nachricht Referenz</DDTEXT>
+     <REPTEXT>Nachricht Referenz</REPTEXT>
+     <SCRTEXT_S>Nach.Ref</SCRTEXT_S>
+     <SCRTEXT_M>Nachricht Referenz</SCRTEXT_M>
+     <SCRTEXT_L>Nachricht Referenz</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

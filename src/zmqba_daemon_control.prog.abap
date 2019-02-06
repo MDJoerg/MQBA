@@ -9,10 +9,10 @@ REPORT zmqba_daemon_control NO STANDARD PAGE HEADING.
 TABLES: ztc_mqbabrk.
 PARAMETERS: p_broker  LIKE ztc_mqbabrk-broker_id OBLIGATORY.
 SELECTION-SCREEN: ULINE.
-PARAMETERS: p_check     RADIOBUTTON GROUP grp1 DEFAULT 'X'.
-PARAMETERS: p_start     RADIOBUTTON GROUP grp1.
-PARAMETERS: p_stop      RADIOBUTTON GROUP grp1.
-PARAMETERS: p_restrt    RADIOBUTTON GROUP grp1.
+PARAMETERS: p_check     type zmqba_flag_check   RADIOBUTTON GROUP grp1 DEFAULT 'X'.
+PARAMETERS: p_start     type zmqba_flag_start   RADIOBUTTON GROUP grp1.
+PARAMETERS: p_stop      type zmqba_flag_stop    RADIOBUTTON GROUP grp1.
+PARAMETERS: p_restrt    type zmqba_flag_restart RADIOBUTTON GROUP grp1.
 
 START-OF-SELECTION.
 
