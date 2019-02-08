@@ -18,6 +18,19 @@
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>MQBA: Parameter Wert</DDTEXT>
+     <REPTEXT>Parameter Wert</REPTEXT>
+     <SCRTEXT_S>Par. Wert</SCRTEXT_S>
+     <SCRTEXT_M>Par. Wert</SCRTEXT_M>
+     <SCRTEXT_L>Parameter Wert</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

@@ -18,7 +18,26 @@
      <ENTRY>MQBA: Test Topic Configuration</ENTRY>
      <LENGTH>30</LENGTH>
     </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_TOPIC</KEY>
+     <ENTRY>.</ENTRY>
+     <LENGTH>9</LENGTH>
+     <SPLIT>D</SPLIT>
+    </item>
    </TPOOL>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>R</ID>
+       <ENTRY>MQBA: Test Topic Konfiguration</ENTRY>
+       <LENGTH>70</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

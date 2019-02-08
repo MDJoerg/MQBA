@@ -453,7 +453,7 @@
        <CONT_NAME>TCTRL_ZTC_MQBACPD</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>*ZTC_MQBACPD-VALID_TO</NAME>
-       <TEXT>valid_from______________________________</TEXT>
+       <TEXT>valid_to________________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>004</COLUMN>
        <LENGTH>040</LENGTH>
@@ -1081,7 +1081,7 @@
        <CONT_NAME>TCTRL_ZTC_MQBAGIBL</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>*ZTC_MQBAGIBL-VALID_TO</NAME>
-       <TEXT>valid_from______________________________</TEXT>
+       <TEXT>valid_to________________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>005</COLUMN>
        <LENGTH>040</LENGTH>
@@ -1731,7 +1731,7 @@
        <CONT_NAME>TCTRL_ZTC_MQBAGIWL</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>*ZTC_MQBAGIWL-VALID_TO</NAME>
-       <TEXT>valid_from______________________________</TEXT>
+       <TEXT>valid_to________________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>005</COLUMN>
        <LENGTH>040</LENGTH>
@@ -2830,7 +2830,7 @@
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBACMP-VALID_TO</NAME>
-       <TEXT>valid_from__________</TEXT>
+       <TEXT>valid_to____________</TEXT>
        <LINE>006</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
@@ -4200,7 +4200,7 @@
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBACSA-VALID_TO</NAME>
-       <TEXT>valid_from__________</TEXT>
+       <TEXT>valid_to____________</TEXT>
        <LINE>006</LINE>
        <COLUMN>002</COLUMN>
        <LENGTH>020</LENGTH>
