@@ -32,7 +32,7 @@ Other new(er) technologies are planned for future enhancements.
 Install the Project with [ABAPGit](http://abapgit.org).
 An SAP Netweaver ABAP Stack 7.50 was used for implementation. A Netweaver 7.40 was not tested so far. The default package for installation is ZMQBA.
 
-Activate the services ZMQBA_GW and ZMQBA_INT (websocket nodes) with transaction SICF. A system user have to be maintained for the services because external websocket tools do not support user based authorization.
+Activate the services ZMQBA_GW and ZMQBA_INT (websocket nodes) with transaction SICF if inactive. With newer releases of abapGit this could be done automatically. A system user have to be maintained for the services because external websocket tools do not support user based authorization.
 
 ## Bridge to external brokers
 
