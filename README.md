@@ -1,3 +1,10 @@
+![](https://img.shields.io/github/languages/top/mdjoerg/mqba.svg?style=flat)
+![](https://img.shields.io/github/last-commit/mdjoerg/mqba.svg?style=flat)
+![](https://img.shields.io/github/issues-raw/mdjoerg/mqba.svg?style=flat)
+![](https://img.shields.io/github/languages/code-size/mdjoerg/mqba.svg?style=flat)
+![](https://img.shields.io/github/repo-size/mdjoerg/mqba.svg?style=flat)
+![](https://img.shields.io/twitter/url/http/twitter.com/hashtag/sapmqba.svg?style=social)
+
 # What is MQBA?
 
 The MQBA or Message Queue Broker ABAP is an implementation of the MQTT concept for ABAP. This means a simple publish/subscribe mechanism to exchange messages via a central broker instance. See [Wikipedia](https://en.wikipedia.org/wiki/MQTT) for more information about the concept.
