@@ -12,13 +12,18 @@ The project was created to use the power of the MQTT driven IoT world within SAP
 
 A bridge to external MQTT brokers (Non-SAP) is included in this project. At the moment this will be done by a gateway service based on [Node-RED](https://nodered.org/).
 
-In the future we will hopefully have a standard solution from SAP.
+With ABAP 7.53 SAP includes native MQTT support to the standard kernel. With a release >= 7.53 the project MQBA_PINS can be used.  
 
 # Current State and news
 
 The project is in an beta state. At the moment there are no experiences with productive usage. You can do it at your own risk.  
 Some features are planned for the future. So the programs could be changed.
 See project news on Twitter with hashtag [#SAPMQBA](https://twitter.com/hashtag/SAPMQBA).
+
+Update 2019/02/17
+- native MQTT support with project MQBA_PINS seems to be stable
+- german translations added
+- german blog [Das SAP ABAP Backend als “IoT Ding”: SAP Monitoring über MQTT](https://joompde.wordpress.com/2019/02/14/das-sap-abap-backend-als-iot-ding-sap-monitoring-uber-mqtt)  
 
 Update 2019/01/04:
 - new version with some bugfixes and support for external broker proxies (daemons) added
