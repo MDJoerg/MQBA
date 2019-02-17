@@ -3,7 +3,6 @@
 ![](https://img.shields.io/github/issues-raw/mdjoerg/mqba.svg?style=flat)
 ![](https://img.shields.io/github/languages/code-size/mdjoerg/mqba.svg?style=flat)
 ![](https://img.shields.io/github/repo-size/mdjoerg/mqba.svg?style=flat)
-![](https://img.shields.io/twitter/url/http/twitter.com/hashtag/sapmqba.svg?style=social)
 
 # What is MQBA?
 
