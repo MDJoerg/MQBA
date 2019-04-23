@@ -364,26 +364,30 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
 
   METHOD message_get_config.
 
+* ----- skip invalid topic
+    IF iv_topic IS INITIAL.
+      RETURN.
+    ENDIF.
+
 * ----- check cache for existing topic
-    READ TABLE ms_cust-msg_cache INTO DATA(ls_cfg)
+    READ TABLE ms_cust-msg_cache ASSIGNING FIELD-SYMBOL(<ls_cfg>)
       WITH KEY topic = iv_topic.
 
-* ----- not existing: check and add to cache
+
+* ----- not existing: check via wildcrad and add to cache
     IF sy-subrc NE 0.
       LOOP AT ms_cust-msg_config INTO DATA(ls_cust).
         IF iv_topic CP ls_cust-topic.
-          MOVE-CORRESPONDING ls_cust TO ls_cfg.
-          ls_cfg-topic = iv_topic.
-          EXIT.
+          APPEND INITIAL LINE TO ms_cust-msg_cache ASSIGNING <ls_cfg>.
+          MOVE-CORRESPONDING ls_cust TO <ls_cfg>.
+          <ls_cfg>-topic = iv_topic.
+          EXIT. " from loop
         ENDIF.
       ENDLOOP.
-
-      APPEND ls_cfg TO ms_cust-msg_cache.
-
     ENDIF.
 
 * ------ finally fill output
-    MOVE-CORRESPONDING ls_cfg TO rs_config.
+    MOVE-CORRESPONDING <ls_cfg> TO rs_config.
 
   ENDMETHOD.
 
@@ -427,7 +431,9 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
     CLEAR rs_config.
     ls_cfg-valid_for_dist = abap_false.
     DATA(lv_topic) = ir_msg->get_topic( ).
-    CHECK lv_topic IS NOT INITIAL.
+    IF lv_topic IS INITIAL.
+      RETURN.
+    ENDIF.
 
 
 * ---- get message config

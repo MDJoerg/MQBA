@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_UTIL_SUBSCRIBER</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Util for Subscribers</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_SUBSCRIBER</CLSNAME>
+     <CMPNAME>GET_TOPIC_IN_PART</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get part of topic prepared by topic mask</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_SUBSCRIBER</CLSNAME>
+     <CMPNAME>IS_ECHO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>check if msg is echo and already known</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_SUBSCRIBER</CLSNAME>
+     <CMPNAME>SET_CONTEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the subscriber context</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_SUBSCRIBER</CLSNAME>
+     <CMPNAME>SET_TOPIC_IN_MASK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the topic mask: e.g. &quot;/{sender}/{function}</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

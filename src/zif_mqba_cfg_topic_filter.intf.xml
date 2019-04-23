@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOINTERF>
     <CLSNAME>ZIF_MQBA_CFG_TOPIC_FILTER</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>MQBA: topic based filter configuration</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>

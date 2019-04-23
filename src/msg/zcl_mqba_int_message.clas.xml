@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_MQBA_INT_MESSAGE</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>MQBA: Internal Message</DESCRIPT>
     <STATE>1</STATE>

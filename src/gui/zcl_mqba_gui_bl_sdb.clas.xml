@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_MQBA_GUI_BL_SDB</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>MQBA: Simple Dashboard Business Logic</DESCRIPT>
     <STATE>1</STATE>
