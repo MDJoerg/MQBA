@@ -387,7 +387,9 @@ CLASS ZCL_MQBA_SHM_BL_MEMORY IMPLEMENTATION.
     ENDIF.
 
 * ------ finally fill output
-    MOVE-CORRESPONDING <ls_cfg> TO rs_config.
+    IF <ls_cfg> IS ASSIGNED.
+      MOVE-CORRESPONDING <ls_cfg> TO rs_config.
+    ENDIF.
 
   ENDMETHOD.
 
