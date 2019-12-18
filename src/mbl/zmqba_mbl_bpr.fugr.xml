@@ -37,27 +37,22 @@
        <PARAMETER>IS_CONTEXT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>MQBA: forward message to Subscriber</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ERRORS_OCCURED</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>WRONG_CONFIG</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>UNKNOWN_RESULT</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>MESSAGE_TYPE_X</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -81,12 +76,10 @@
        <PARAMETER>IS_DATA</PARAMETER>
        <KIND>P</KIND>
        <STEXT>MQBA: parameter structure for history saving</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FAILED</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 002</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
