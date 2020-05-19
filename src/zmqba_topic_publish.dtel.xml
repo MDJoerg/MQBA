@@ -18,6 +18,19 @@
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>MQBA: Topic für Publish</DDTEXT>
+     <REPTEXT>Topic publish</REPTEXT>
+     <SCRTEXT_S>Topic pub</SCRTEXT_S>
+     <SCRTEXT_M>Topic publish</SCRTEXT_M>
+     <SCRTEXT_L>Topic publish</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>
