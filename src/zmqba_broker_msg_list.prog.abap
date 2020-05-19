@@ -1,7 +1,7 @@
 *&---------------------------------------------------------------------*
 *& Report ZMQBA_TEST_BROKER_MSG
 *&---------------------------------------------------------------------*
-*&
+*& display the current broker message witrh peiodic update
 *&---------------------------------------------------------------------*
 REPORT zmqba_broker_msg_list NO STANDARD PAGE HEADING
   MESSAGE-ID zmqba.
