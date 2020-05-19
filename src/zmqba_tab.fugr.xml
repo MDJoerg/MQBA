@@ -3158,7 +3158,7 @@
       <TYPE>N</TYPE>
       <NEXTSCREEN>2040</NEXTSCREEN>
       <LINES>061</LINES>
-      <COLUMNS>083</COLUMNS>
+      <COLUMNS>255</COLUMNS>
      </HEADER>
      <CONTAINERS>
       <RPY_DYCATT>
@@ -3171,7 +3171,7 @@
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
-       <LENGTH>083</LENGTH>
+       <LENGTH>255</LENGTH>
        <HEIGHT>059</HEIGHT>
        <C_RESIZE_V>X</C_RESIZE_V>
        <C_RESIZE_H>X</C_RESIZE_H>
@@ -3342,13 +3342,15 @@
        <CONT_NAME>TCTRL_ZTC_MQBACSA</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>*ZTC_MQBACSA-SUB_QNAME</NAME>
-       <TEXT>+_______________________________________</TEXT>
+       <TEXT>QName___________________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>006</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>010</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>1</MODIFIC>
        <REQU_ENTRY>N</REQU_ENTRY>
        <TC_HEADING>X</TC_HEADING>
       </RPY_DYFATC>
@@ -3986,7 +3988,7 @@
       <TYPE>N</TYPE>
       <NEXTSCREEN>2041</NEXTSCREEN>
       <LINES>061</LINES>
-      <COLUMNS>083</COLUMNS>
+      <COLUMNS>255</COLUMNS>
      </HEADER>
      <CONTAINERS>
       <RPY_DYCATT>
@@ -4018,11 +4020,10 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-TOPIC</NAME>
        <TEXT>________________________________________________________________________________________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>001</LINE>
        <COLUMN>022</COLUMN>
        <LENGTH>120</LENGTH>
-       <VISLENGTH>061</VISLENGTH>
+       <VISLENGTH>120</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <GROUP1>KEY</GROUP1>
        <FORMAT>CHAR</FORMAT>
@@ -4054,7 +4055,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-VALID_FROM</NAME>
        <TEXT>__________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>002</LINE>
        <COLUMN>022</COLUMN>
        <LENGTH>010</LENGTH>
@@ -4071,11 +4071,11 @@
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>FRAME_TMPL</TYPE>
        <NAME>VIM_FRAME_FIELD</NAME>
-       <TEXT>__________________________________________________________________________________</TEXT>
+       <TEXT>____________________________________________________________________________________________________________________________________</TEXT>
        <LINE>004</LINE>
        <COLUMN>001</COLUMN>
-       <LENGTH>082</LENGTH>
-       <VISLENGTH>082</VISLENGTH>
+       <LENGTH>143</LENGTH>
+       <VISLENGTH>143</VISLENGTH>
        <HEIGHT>019</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <UP_LOWER>X</UP_LOWER>
@@ -4123,7 +4123,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-VALID_TO</NAME>
        <TEXT>__________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>006</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>010</LENGTH>
@@ -4157,7 +4156,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-SORT_ORDER</NAME>
        <TEXT>____</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>007</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>004</LENGTH>
@@ -4191,7 +4189,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-SUB_DEST</NAME>
        <TEXT>__________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>008</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>010</LENGTH>
@@ -4208,15 +4205,15 @@
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBACSA-SUB_QNAME</NAME>
-       <TEXT>+_________</TEXT>
+       <TEXT>Queue_Name__________</TEXT>
        <LINE>009</LINE>
        <COLUMN>002</COLUMN>
-       <LENGTH>010</LENGTH>
-       <VISLENGTH>010</VISLENGTH>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
-       <MODIFIC>F</MODIFIC>
+       <MODIFIC>2</MODIFIC>
        <REQU_ENTRY>N</REQU_ENTRY>
        <LABELLEFT>X</LABELLEFT>
       </RPY_DYFATC>
@@ -4226,7 +4223,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-SUB_QNAME</NAME>
        <TEXT>__________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>009</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>010</LENGTH>
@@ -4260,7 +4256,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-SUB_ACTION</NAME>
        <TEXT>____________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>010</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>020</LENGTH>
@@ -4294,7 +4289,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-SUB_MODULE</NAME>
        <TEXT>______________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>011</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>030</LENGTH>
@@ -4328,7 +4322,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-PARAM1</NAME>
        <TEXT>________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>012</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
@@ -4363,7 +4356,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-PARAM2</NAME>
        <TEXT>________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>013</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
@@ -4398,7 +4390,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-PARAM3</NAME>
        <TEXT>________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>014</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
@@ -4433,7 +4424,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-PARAM4</NAME>
        <TEXT>________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>015</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
@@ -4468,7 +4458,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-PARAM5</NAME>
        <TEXT>________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>016</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
@@ -4503,7 +4492,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-CREATED_AT</NAME>
        <TEXT>__________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>017</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>010</LENGTH>
@@ -4537,7 +4525,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-UPDATED_AT</NAME>
        <TEXT>__________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>018</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>010</LENGTH>
@@ -4571,7 +4558,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-RESPONSIBLE</NAME>
        <TEXT>____________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>019</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>012</LENGTH>
@@ -4605,7 +4591,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-PROJECT_REF</NAME>
        <TEXT>______________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>020</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>030</LENGTH>
@@ -4640,11 +4625,10 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSA-REMARKS</NAME>
        <TEXT>________________________________________________________________________________________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>021</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>120</LENGTH>
-       <VISLENGTH>059</VISLENGTH>
+       <VISLENGTH>120</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
@@ -4811,7 +4795,7 @@
       <TYPE>N</TYPE>
       <NEXTSCREEN>2050</NEXTSCREEN>
       <LINES>061</LINES>
-      <COLUMNS>083</COLUMNS>
+      <COLUMNS>255</COLUMNS>
      </HEADER>
      <CONTAINERS>
       <RPY_DYCATT>
@@ -4824,7 +4808,7 @@
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
-       <LENGTH>083</LENGTH>
+       <LENGTH>255</LENGTH>
        <HEIGHT>059</HEIGHT>
        <C_RESIZE_V>X</C_RESIZE_V>
        <C_RESIZE_H>X</C_RESIZE_H>
@@ -4944,13 +4928,15 @@
        <CONT_NAME>TCTRL_ZTC_MQBACSM</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>*ZTC_MQBACSM-SUB_QNAME</NAME>
-       <TEXT>+_______________________________________</TEXT>
+       <TEXT>QName___________________________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>003</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>010</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>1</MODIFIC>
        <REQU_ENTRY>N</REQU_ENTRY>
        <TC_HEADING>X</TC_HEADING>
       </RPY_DYFATC>
@@ -5636,7 +5622,7 @@
       <TYPE>N</TYPE>
       <NEXTSCREEN>2051</NEXTSCREEN>
       <LINES>061</LINES>
-      <COLUMNS>083</COLUMNS>
+      <COLUMNS>255</COLUMNS>
      </HEADER>
      <CONTAINERS>
       <RPY_DYCATT>
@@ -5684,11 +5670,11 @@
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>FRAME_TMPL</TYPE>
        <NAME>VIM_FRAME_FIELD</NAME>
-       <TEXT>__________________________________________________________________________________</TEXT>
+       <TEXT>____________________________________________________________________________________________________________________________________</TEXT>
        <LINE>003</LINE>
        <COLUMN>001</COLUMN>
-       <LENGTH>082</LENGTH>
-       <VISLENGTH>082</VISLENGTH>
+       <LENGTH>143</LENGTH>
+       <VISLENGTH>143</VISLENGTH>
        <HEIGHT>017</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <UP_LOWER>X</UP_LOWER>
@@ -5733,15 +5719,15 @@
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>TEXT</TYPE>
        <NAME>ZTC_MQBACSM-SUB_QNAME</NAME>
-       <TEXT>+_________</TEXT>
+       <TEXT>Queue_Name__________</TEXT>
        <LINE>005</LINE>
        <COLUMN>002</COLUMN>
-       <LENGTH>010</LENGTH>
-       <VISLENGTH>010</VISLENGTH>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
-       <MODIFIC>F</MODIFIC>
+       <MODIFIC>2</MODIFIC>
        <REQU_ENTRY>N</REQU_ENTRY>
        <LABELLEFT>X</LABELLEFT>
       </RPY_DYFATC>
@@ -5851,11 +5837,10 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-REMARKS</NAME>
        <TEXT>________________________________________________________________________________________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>008</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>120</LENGTH>
-       <VISLENGTH>059</VISLENGTH>
+       <VISLENGTH>120</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
@@ -5886,11 +5871,10 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-PARAM_DESCR1</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>009</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
-       <VISLENGTH>059</VISLENGTH>
+       <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
@@ -5921,11 +5905,10 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-PARAM_DESCR2</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>010</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
-       <VISLENGTH>059</VISLENGTH>
+       <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
@@ -5956,11 +5939,10 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-PARAM_DESCR3</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>011</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
-       <VISLENGTH>059</VISLENGTH>
+       <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
@@ -5991,11 +5973,10 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-PARAM_DESCR4</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>012</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
-       <VISLENGTH>059</VISLENGTH>
+       <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
@@ -6026,11 +6007,10 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-PARAM_DESCR5</NAME>
        <TEXT>________________________________________________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>013</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>080</LENGTH>
-       <VISLENGTH>059</VISLENGTH>
+       <VISLENGTH>080</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
@@ -6061,7 +6041,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-PARAM1</NAME>
        <TEXT>________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>014</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
@@ -6096,7 +6075,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-PARAM2</NAME>
        <TEXT>________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>015</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
@@ -6131,7 +6109,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-PARAM3</NAME>
        <TEXT>________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>016</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
@@ -6166,7 +6143,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-PARAM4</NAME>
        <TEXT>________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>017</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
@@ -6201,7 +6177,6 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>ZTC_MQBACSM-PARAM5</NAME>
        <TEXT>________________________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>018</LINE>
        <COLUMN>023</COLUMN>
        <LENGTH>040</LENGTH>
