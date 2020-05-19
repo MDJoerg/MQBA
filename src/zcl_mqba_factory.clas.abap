@@ -4,6 +4,10 @@ class ZCL_MQBA_FACTORY definition
 
 public section.
 
+  class-methods CREATE_UTIL_TOPIC
+    returning
+      value(RR_INSTANCE) type ref to ZIF_MQBA_UTIL_TOPIC .
+  methods REBUILD_MEMORY_TRANSACTION .
   class-methods GET_BROKER_PROXY
     importing
       !IV_BROKER_ID type ZMQBA_BROKER_ID
@@ -17,7 +21,6 @@ public section.
   class-methods GET_SHM_CONTEXT
     returning
       value(RR_CONTEXT) type ref to ZIF_MQBA_SHM_CONTEXT .
-  methods REBUILD_MEMORY_TRANSACTION .
   class-methods GET_BROKER_CONFIG
     importing
       !IV_BROKER_ID type ZMQBA_BROKER_ID
@@ -129,6 +132,11 @@ CLASS ZCL_MQBA_FACTORY IMPLEMENTATION.
   METHOD create_util_selpar.
     rr_util = zcl_mqba_util_selpar=>create( ).
   ENDMETHOD.
+
+
+  method CREATE_UTIL_TOPIC.
+    rr_instance = zcl_mqba_util_topic=>create( ).
+  endmethod.
 
 
   METHOD get_base_date.

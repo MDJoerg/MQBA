@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>MQBA: Topic Util</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>BUILD_TOPIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>build</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>GET_MASK_PARTS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the detected parts of current topic mask</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>GET_PARAMETER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the current parameter value with name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>GET_PARAMETERS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the detected parameters of curren topic mask</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>GET_PARAMETER_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the current parameter values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>GET_TOPIC_MASK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>get the current topic mask</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>RESET</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>reset all  - mask, topic...</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>RESET_PARAMETER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>reset all parameter values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>SET_PARAMETER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the parameter value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>SET_PARAMETER_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the current parameter values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>SET_TOPIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>set the topic and parse with given mask</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_MQBA_UTIL_TOPIC</CLSNAME>
+     <CMPNAME>SET_TOPIC_MASK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>e.g. &quot;/some/prefix/{thing}/{sensor}/{command}&quot;</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

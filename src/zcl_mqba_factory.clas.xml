@@ -64,6 +64,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
+     <CMPNAME>CREATE_UTIL_TOPIC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>create an instance of topic util</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_MQBA_FACTORY</CLSNAME>
      <CMPNAME>GET_BASE_DATE</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>get the current base date (for test simulation)</DESCRIPT>
